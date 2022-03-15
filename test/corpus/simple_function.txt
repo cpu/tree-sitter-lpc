@@ -2,7 +2,7 @@
 Simple Function
 ==================
 
-int x() {
+x() {
   return 1;
 }
 
@@ -10,7 +10,6 @@ int x() {
 
 (source_file
   (function_definition
-    (primitive_type)
     (identifier)
     (parameter_list)
     (block

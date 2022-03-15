@@ -1,0 +1,12 @@
+==================
+Simple Function Prototype
+==================
+
+x();
+
+---
+
+(source_file
+  (function_definition
+    (identifier)
+    (parameter_list)))
