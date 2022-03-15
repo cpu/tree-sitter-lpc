@@ -1,0 +1,17 @@
+==================
+Simple Function
+==================
+
+int x() {
+  return 1;
+}
+
+---
+
+(source_file
+  (function_definition
+    (primitive_type)
+    (identifier)
+    (parameter_list)
+    (block
+      (return_statement (number)))))

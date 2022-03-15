@@ -1,0 +1,29 @@
+{
+  "name": "tree-sitter-lpc",
+  "version": "0.0.1",
+  "description": "LPC grammar for tree-sitter.",
+  "main": "bindings/node",
+  "scripts": {
+    "test": "tree-sitter test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cpu/tree-sitter-lpc.git"
+  },
+  "keywords": [
+    "LPC",
+    "LDMUD"
+  ],
+  "author": "Daniel McCarney",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/cpu/tree-sitter-lpc/issues"
+  },
+  "homepage": "https://github.com/cpu/tree-sitter-lpc#readme",
+  "dependencies": {
+    "nan": "^2.15.0"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.20.6"
+  }
+}
