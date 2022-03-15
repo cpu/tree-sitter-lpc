@@ -1,0 +1,26 @@
+================================================================================
+Function Multi Type Return
+================================================================================
+
+int|struct|mapping|float x() {
+  return 1;
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_definition
+    (basic_type
+      (basic_non_void_type
+        (basic_non_void_type
+          (basic_non_void_type
+            (basic_non_void_type
+              (single_basic_non_void_type))
+            (single_basic_non_void_type))
+          (single_basic_non_void_type))
+        (single_basic_non_void_type)))
+    (identifier)
+    (parameter_list)
+    (block
+      (return_statement
+        (number)))))

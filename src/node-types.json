@@ -1,5 +1,39 @@
 [
   {
+    "type": "basic_non_void_type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "basic_non_void_type",
+          "named": true
+        },
+        {
+          "type": "single_basic_non_void_type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "basic_type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "basic_non_void_type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "block",
     "named": true,
     "fields": {},
@@ -23,6 +57,10 @@
       "required": true,
       "types": [
         {
+          "type": "basic_type",
+          "named": true
+        },
+        {
           "type": "block",
           "named": true
         },
@@ -32,6 +70,10 @@
         },
         {
           "type": "parameter_list",
+          "named": true
+        },
+        {
+          "type": "type_modifier",
           "named": true
         }
       ]
@@ -62,6 +104,25 @@
     }
   },
   {
+    "type": "single_basic_non_void_type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "basic_non_void_type",
+          "named": true
+        },
+        {
+          "type": "single_basic_non_void_type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "source_file",
     "named": true,
     "fields": {},
@@ -77,6 +138,11 @@
     }
   },
   {
+    "type": "type_modifier",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "(",
     "named": false
   },
@@ -85,7 +151,39 @@
     "named": false
   },
   {
+    "type": "*",
+    "named": false
+  },
+  {
     "type": ";",
+    "named": false
+  },
+  {
+    "type": "<",
+    "named": false
+  },
+  {
+    "type": ">",
+    "named": false
+  },
+  {
+    "type": "bytes",
+    "named": false
+  },
+  {
+    "type": "closure",
+    "named": false
+  },
+  {
+    "type": "coroutine",
+    "named": false
+  },
+  {
+    "type": "deprecated",
+    "named": false
+  },
+  {
+    "type": "float",
     "named": false
   },
   {
@@ -93,15 +191,91 @@
     "named": true
   },
   {
+    "type": "int",
+    "named": false
+  },
+  {
+    "type": "lwobject",
+    "named": false
+  },
+  {
+    "type": "mapping",
+    "named": false
+  },
+  {
+    "type": "mixed",
+    "named": false
+  },
+  {
+    "type": "nomask",
+    "named": false
+  },
+  {
+    "type": "nosave",
+    "named": false
+  },
+  {
     "type": "number",
     "named": true
+  },
+  {
+    "type": "object",
+    "named": false
+  },
+  {
+    "type": "private",
+    "named": false
+  },
+  {
+    "type": "protected",
+    "named": false
+  },
+  {
+    "type": "public",
+    "named": false
   },
   {
     "type": "return",
     "named": false
   },
   {
+    "type": "static",
+    "named": false
+  },
+  {
+    "type": "status",
+    "named": false
+  },
+  {
+    "type": "string",
+    "named": false
+  },
+  {
+    "type": "struct",
+    "named": false
+  },
+  {
+    "type": "symbol",
+    "named": false
+  },
+  {
+    "type": "varargs",
+    "named": false
+  },
+  {
+    "type": "visible",
+    "named": false
+  },
+  {
+    "type": "void",
+    "named": false
+  },
+  {
     "type": "{",
+    "named": false
+  },
+  {
+    "type": "|",
     "named": false
   },
   {
