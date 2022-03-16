@@ -1,5 +1,39 @@
 [
   {
+    "type": "argument",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "argument_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "argument_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "argument_list",
+          "named": true
+        },
+        {
+          "type": "new_arg_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "basic_non_void_type",
     "named": true,
     "fields": {},
@@ -80,9 +114,38 @@
     }
   },
   {
+    "type": "new_arg_name",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "basic_non_void_type",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "parameter_list",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "argument",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "return_statement",
@@ -152,6 +215,10 @@
   },
   {
     "type": "*",
+    "named": false
+  },
+  {
+    "type": ",",
     "named": false
   },
   {

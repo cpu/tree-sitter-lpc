@@ -1,6 +1,8 @@
 module.exports = grammar({
   name: 'LPC',
 
+  word: $ => $.identifier,
+
   rules: {
     source_file: $ => repeat($._definition),
 
@@ -19,8 +21,29 @@ module.exports = grammar({
 
     parameter_list: $ => seq(
       '(',
+      optional($.argument),
        // TODO: parameters
       ')'
+    ),
+
+    argument: $ => choice(
+      "void",
+      $.argument_list,
+    ),
+
+    argument_list: $ => choice(
+      $.new_arg_name,
+      seq(
+        $.argument_list,
+        ',',
+        $.new_arg_name,
+      ),
+    ),
+
+    new_arg_name: $ => seq(
+      $.basic_non_void_type,
+      $.identifier,
+      //optional($.opt_default_value),
     ),
 
     _function_body: $ => choice(

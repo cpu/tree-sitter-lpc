@@ -1,8 +1,8 @@
 ================================================================================
-Simple Function
+Simple Function with Arg
 ================================================================================
 
-x() {
+x(int arg) {
   return 1;
 }
 
@@ -11,7 +11,13 @@ x() {
 (source_file
   (function_definition
     (identifier)
-    (parameter_list)
+    (parameter_list
+      (argument
+        (argument_list
+          (new_arg_name
+            (basic_non_void_type
+              (single_basic_non_void_type))
+            (identifier)))))
     (block
       (return_statement
         (number)))))
