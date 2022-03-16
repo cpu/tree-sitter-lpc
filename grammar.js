@@ -12,11 +12,11 @@ module.exports = grammar({
     ),
 
     function_definition: $ => seq(
-      repeat($.type_modifier),
-      optional($.basic_type),
-      $.identifier,
-      $.parameter_list,
-      $._function_body
+      field('modifiers', repeat($.type_modifier)),
+      field('type', optional($._basic_type)),
+      field('name', $.identifier),
+      field('arguments', $.parameter_list),
+      field('body', $._function_body),
     ),
 
     parameter_list: $ => seq(
@@ -81,16 +81,16 @@ module.exports = grammar({
       "visible",
     ),
 
-    basic_type: $ => choice(
+    _basic_type: $ => choice(
       $.non_void_type,
       "void",
     ),
 
     non_void_type: $ => pipeSep1(
-      $.single_non_void_type
+      $._single_non_void_type
     ),
 
-    single_non_void_type : $ => choice(
+    _single_non_void_type : $ => choice(
       "status",
       "int",
       "bytes",
@@ -105,7 +105,7 @@ module.exports = grammar({
       "lwobject",
       "struct",
       seq(
-        $.single_non_void_type,
+        $._single_non_void_type,
         "*"
       ),
       seq(

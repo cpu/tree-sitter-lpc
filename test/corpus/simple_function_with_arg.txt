@@ -13,8 +13,7 @@ x(int arg) {
     (identifier)
     (parameter_list
       (parameter
-        (non_void_type
-          (single_non_void_type))
+        (non_void_type)
         (identifier)))
     (block
       (return_statement

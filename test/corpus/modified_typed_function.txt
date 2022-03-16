@@ -11,9 +11,7 @@ public int x() {
 (source_file
   (function_definition
     (type_modifier)
-    (basic_type
-      (non_void_type
-        (single_non_void_type)))
+    (non_void_type)
     (identifier)
     (parameter_list)
     (block
