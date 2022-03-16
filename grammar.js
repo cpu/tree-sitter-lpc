@@ -21,7 +21,10 @@ module.exports = grammar({
 
     parameter_list: $ => seq(
       '(',
-      commaSep($.parameter),
+      choice(
+        commaSep($.parameter),
+        "void"
+      ),
       ')'
     ),
 
@@ -65,7 +68,7 @@ module.exports = grammar({
 
     return_statement: $ => seq(
       'return',
-      $._expression,
+      optional($._expression),
       ';'
     ),
 
