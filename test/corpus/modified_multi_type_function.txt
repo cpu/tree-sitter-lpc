@@ -13,12 +13,10 @@ public varargs int|mapping|float x() {
     (type_modifier)
     (type_modifier)
     (basic_type
-      (basic_non_void_type
-        (basic_non_void_type
-          (basic_non_void_type
-            (single_basic_non_void_type))
-          (single_basic_non_void_type))
-        (single_basic_non_void_type)))
+      (non_void_type
+        (single_non_void_type)
+        (single_non_void_type)
+        (single_non_void_type)))
     (identifier)
     (parameter_list)
     (block

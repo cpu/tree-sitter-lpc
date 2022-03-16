@@ -12,22 +12,18 @@ x(int arg, mixed arg2, mapping arg3) {
   (function_definition
     (identifier)
     (parameter_list
-      (argument
-        (argument_list
-          (argument_list
-            (argument_list
-              (new_arg_name
-                (basic_non_void_type
-                  (single_basic_non_void_type))
-                (identifier)))
-            (new_arg_name
-              (basic_non_void_type
-                (single_basic_non_void_type))
-              (identifier)))
-          (new_arg_name
-            (basic_non_void_type
-              (single_basic_non_void_type))
-            (identifier)))))
+      (parameter
+        (non_void_type
+          (single_non_void_type))
+        (identifier))
+      (parameter
+        (non_void_type
+          (single_non_void_type))
+        (identifier))
+      (parameter
+        (non_void_type
+          (single_non_void_type))
+        (identifier)))
     (block
       (return_statement
         (number)))))

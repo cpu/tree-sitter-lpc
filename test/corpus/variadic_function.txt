@@ -1,8 +1,8 @@
 ================================================================================
-Simple Function with Arg
+Variadic Function
 ================================================================================
 
-x(int arg) {
+varargs mixed x(int a, varargs int *b) {
   return 1;
 }
 
@@ -10,11 +10,20 @@ x(int arg) {
 
 (source_file
   (function_definition
+    (type_modifier)
+    (basic_type
+      (non_void_type
+        (single_non_void_type)))
     (identifier)
     (parameter_list
       (parameter
         (non_void_type
           (single_non_void_type))
+        (identifier))
+      (parameter
+        (non_void_type
+          (single_non_void_type
+            (single_non_void_type)))
         (identifier)))
     (block
       (return_statement

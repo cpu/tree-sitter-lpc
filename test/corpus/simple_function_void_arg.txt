@@ -12,7 +12,8 @@ x(void) {
   (function_definition
     (identifier)
     (parameter_list
-      (argument))
+      (ERROR
+        (identifier)))
     (block
       (return_statement
         (number)))))

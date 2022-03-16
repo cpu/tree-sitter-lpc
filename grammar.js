@@ -21,27 +21,13 @@ module.exports = grammar({
 
     parameter_list: $ => seq(
       '(',
-      optional($.argument),
-       // TODO: parameters
+      commaSep($.parameter),
       ')'
     ),
 
-    argument: $ => choice(
-      "void",
-      $.argument_list,
-    ),
-
-    argument_list: $ => choice(
-      $.new_arg_name,
-      seq(
-        $.argument_list,
-        ',',
-        $.new_arg_name,
-      ),
-    ),
-
-    new_arg_name: $ => seq(
-      $.basic_non_void_type,
+    parameter: $ => seq(
+      optional("varargs"),
+      $.non_void_type,
       $.identifier,
       optional($.opt_default_value),
     ),
@@ -96,20 +82,15 @@ module.exports = grammar({
     ),
 
     basic_type: $ => choice(
-      $.basic_non_void_type,
+      $.non_void_type,
       "void",
     ),
 
-    basic_non_void_type: $ => choice(
-      $.single_basic_non_void_type,
-      seq(
-        $.basic_non_void_type,
-        "|",
-        $.single_basic_non_void_type,
-      ),
+    non_void_type: $ => pipeSep1(
+      $.single_non_void_type
     ),
 
-    single_basic_non_void_type: $ => choice(
+    single_non_void_type : $ => choice(
       "status",
       "int",
       "bytes",
@@ -124,20 +105,14 @@ module.exports = grammar({
       "lwobject",
       "struct",
       seq(
-        $.single_basic_non_void_type,
+        $.single_non_void_type,
         "*"
       ),
       seq(
         "<",
-        $.basic_non_void_type,
+        $.non_void_type,
         ">",
       ),
-    ),
-
-    multiple_basic_non_void_type: $ => seq(
-      $.basic_non_void_type,
-      "|",
-      $.single_basic_non_void_type,
     ),
 
     _expression: $ => choice(
@@ -151,3 +126,24 @@ module.exports = grammar({
     number: $ => /\d+/
   }
 });
+
+/*
+ * Adopted from tree-sitter-c.
+ * https://github.com/tree-sitter/tree-sitter-c/blob/master/grammar.js
+ */
+function commaSep (rule) {
+  return optional(commaSep1(rule))
+}
+
+function commaSep1 (rule) {
+  return seq(rule, repeat(seq(',', rule)))
+}
+
+// TODO(XXX): generalize w/ commaSep/commaSep1.
+function pipeSep (rule) {
+  return optional(pipeSep1(rule))
+}
+
+function pipeSep1 (rule) {
+  return seq(rule, repeat(seq('|', rule)))
+}
