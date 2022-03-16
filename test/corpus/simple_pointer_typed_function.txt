@@ -1,8 +1,8 @@
 ================================================================================
-Modified Multi Type Function
+Simple Pointer Typed Function
 ================================================================================
 
-public varargs int|mapping|float x() {
+int* x() {
   return 1;
 }
 
@@ -10,15 +10,10 @@ public varargs int|mapping|float x() {
 
 (source_file
   (function_definition
-    (type_modifier)
-    (type_modifier)
     (basic_type
       (basic_non_void_type
-        (basic_non_void_type
-          (basic_non_void_type
-            (single_basic_non_void_type))
-          (single_basic_non_void_type))
-        (single_basic_non_void_type)))
+        (single_basic_non_void_type
+          (single_basic_non_void_type))))
     (identifier)
     (parameter_list)
     (block

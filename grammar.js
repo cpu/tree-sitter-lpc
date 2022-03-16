@@ -43,7 +43,22 @@ module.exports = grammar({
     new_arg_name: $ => seq(
       $.basic_non_void_type,
       $.identifier,
-      //optional($.opt_default_value),
+      optional($.opt_default_value),
+    ),
+
+    opt_default_value: $ => seq(
+      '=',
+      $.expr0,
+    ),
+
+    expr0: $ => seq(
+      $.lvalue,
+      '=',
+      $.expr0,
+    ),
+
+    lvalue: $ => choice(
+      $.identifier,
     ),
 
     _function_body: $ => choice(
