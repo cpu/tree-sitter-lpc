@@ -24,14 +24,10 @@ x(int arg, mixed arg2, mapping arg3) {
               (basic_non_void_type
                 (single_basic_non_void_type))
               (identifier)))
-          (ERROR
-            (number))
           (new_arg_name
             (basic_non_void_type
               (single_basic_non_void_type))
-            (identifier))))
-      (ERROR
-        (number)))
+            (identifier)))))
     (block
       (return_statement
         (number)))))
