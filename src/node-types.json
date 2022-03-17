@@ -101,6 +101,16 @@
     "type": "global_definition",
     "named": true,
     "fields": {
+      "initializer": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "number_literal",
+            "named": true
+          }
+        ]
+      },
       "modifiers": {
         "multiple": true,
         "required": false,
@@ -345,6 +355,10 @@
   },
   {
     "type": "number",
+    "named": true
+  },
+  {
+    "type": "number_literal",
     "named": true
   },
   {

@@ -1,0 +1,25 @@
+================================================================================
+Simple Gloabls
+================================================================================
+
+int x;
+string y;
+
+void foo() {
+  return;
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (global_definition
+    (non_void_type)
+    (identifier))
+  (global_definition
+    (non_void_type)
+    (identifier))
+  (function_definition
+    (identifier)
+    (parameter_list)
+    (block
+      (return_statement))))
