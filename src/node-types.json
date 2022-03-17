@@ -243,7 +243,7 @@
           "named": true
         },
         {
-          "type": "number",
+          "type": "number_literal",
           "named": true
         }
       ]
@@ -352,10 +352,6 @@
   {
     "type": "nosave",
     "named": false
-  },
-  {
-    "type": "number",
-    "named": true
   },
   {
     "type": "number_literal",

@@ -789,17 +789,13 @@
         },
         {
           "type": "SYMBOL",
-          "name": "number"
+          "name": "number_literal"
         }
       ]
     },
     "identifier": {
       "type": "PATTERN",
       "value": "[a-zA-Z_$]\\w*"
-    },
-    "number": {
-      "type": "PATTERN",
-      "value": "\\d+"
     }
   },
   "extras": [

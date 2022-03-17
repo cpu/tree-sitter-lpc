@@ -22,4 +22,4 @@ varargs mixed x(int a, varargs int *b) {
         (identifier)))
     (block
       (return_statement
-        (number)))))
+        (number_literal)))))

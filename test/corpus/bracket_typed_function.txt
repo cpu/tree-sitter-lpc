@@ -16,4 +16,4 @@ Bracket Typed Function
     (parameter_list)
     (block
       (return_statement
-        (number)))))
+        (number_literal)))))

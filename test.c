@@ -1,6 +1,6 @@
-public int x;
+public int x = 420;
 static nosave y;
 
-varargs mixed x(int a, varargs int *b) {
+public int foo(int a) {
   return 1;
 }

@@ -197,13 +197,11 @@ module.exports = grammar({
 
     _expression: $ => choice(
       $.identifier,
-      $.number
+      $.number_literal,
       // TODO: other kinds of expressions
     ),
 
     identifier: $ => /[a-zA-Z_$]\w*/,
-
-    number: $ => /\d+/
   }
 });
 

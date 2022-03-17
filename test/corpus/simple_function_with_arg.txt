@@ -17,4 +17,4 @@ x(int arg) {
         (identifier)))
     (block
       (return_statement
-        (number)))))
+        (number_literal)))))
