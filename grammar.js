@@ -7,8 +7,22 @@ module.exports = grammar({
     source_file: $ => repeat($._definition),
 
     _definition: $ => choice(
-      $.function_definition
+      $.function_definition,
+      $.global_definition,
       // TODO: other kinds of definitions
+    ),
+
+    global_definition: $ => seq(
+      $._name_list,
+      ';',
+    ),
+
+    _name_list: $ => choice(
+      seq(
+        field('modifiers', repeat($.type_modifier)),
+        field('type', $._basic_type),
+        field('name', $.identifier),
+      ),
     ),
 
     function_definition: $ => seq(
@@ -124,7 +138,7 @@ module.exports = grammar({
       // TODO: other kinds of expressions
     ),
 
-    identifier: $ => /[a-zA-Z_]\w*/,
+    identifier: $ => /[a-zA-Z_$]\w*/,
 
     number: $ => /\d+/
   }

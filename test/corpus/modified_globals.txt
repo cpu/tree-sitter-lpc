@@ -1,0 +1,19 @@
+================================================================================
+Simple Gloabls
+================================================================================
+
+public int x;
+private nosave string y;
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (global_definition
+    (type_modifier)
+    (non_void_type)
+    (identifier))
+  (global_definition
+    (type_modifier)
+    (type_modifier)
+    (non_void_type)
+    (identifier)))
