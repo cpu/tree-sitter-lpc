@@ -1,0 +1,36 @@
+================================================================================
+Conditional Globals
+================================================================================
+
+mixed y;
+int x =  y ? 1 : 2;
+int z =  y ? y : x;
+int w =  y ? 0x10 : x;
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (global_definition
+    (non_void_type)
+    (identifier))
+  (global_definition
+    (non_void_type)
+    (identifier)
+    (conditional_expression
+      (identifier)
+      (number_literal)
+      (number_literal)))
+  (global_definition
+    (non_void_type)
+    (identifier)
+    (conditional_expression
+      (identifier)
+      (identifier)
+      (identifier)))
+  (global_definition
+    (non_void_type)
+    (identifier)
+    (conditional_expression
+      (identifier)
+      (number_literal)
+      (identifier))))

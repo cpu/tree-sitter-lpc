@@ -1,0 +1,29 @@
+================================================================================
+Function Default Args
+================================================================================
+
+x(int x = 10, mapping y = 0, varargs mixed * rest) {
+  return;
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_definition
+    (identifier)
+    (parameter_list
+      (parameter
+        (non_void_type)
+        (identifier)
+        (opt_default_value
+          (number_literal)))
+      (parameter
+        (non_void_type)
+        (identifier)
+        (opt_default_value
+          (number_literal)))
+      (parameter
+        (non_void_type)
+        (identifier)))
+    (block
+      (return_statement))))

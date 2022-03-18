@@ -1,0 +1,49 @@
+================================================================================
+Char Literals
+================================================================================
+
+int y = 'A';
+int yy = '\n';
+int yyy = '\11';
+int yyyy = '\0x10';
+int yyyyy = '\x10';
+int yyyyyy = '\0o444';
+int yyyyyyy = '\0b111';
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (global_definition
+    (non_void_type)
+    (identifier)
+    (char_literal))
+  (global_definition
+    (non_void_type)
+    (identifier)
+    (char_literal
+      (escape_sequence)))
+  (global_definition
+    (non_void_type)
+    (identifier)
+    (char_literal
+      (escape_sequence)))
+  (global_definition
+    (non_void_type)
+    (identifier)
+    (char_literal
+      (escape_sequence)))
+  (global_definition
+    (non_void_type)
+    (identifier)
+    (char_literal
+      (escape_sequence)))
+  (global_definition
+    (non_void_type)
+    (identifier)
+    (char_literal
+      (escape_sequence)))
+  (global_definition
+    (non_void_type)
+    (identifier)
+    (char_literal
+      (escape_sequence))))

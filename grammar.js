@@ -1,3 +1,26 @@
+// TODO(XXX): Better match to ld.
+const PREC = {
+  PAREN_DECLARATOR: -10,
+  ASSIGNMENT: -1,
+  CONDITIONAL: -2,
+  DEFAULT: 0,
+  LOGICAL_OR: 1,
+  LOGICAL_AND: 2,
+  INCLUSIVE_OR: 3,
+  EXCLUSIVE_OR: 4,
+  BITWISE_AND: 5,
+  EQUAL: 6,
+  RELATIONAL: 7,
+  SHIFT: 8,
+  ADD: 9,
+  MULTIPLY: 10,
+  CAST: 11,
+  UNARY: 12,
+  CALL: 13,
+  FIELD: 14,
+  SUBSCRIPT: 15
+};
+
 module.exports = grammar({
   name: 'LPC',
 
@@ -30,7 +53,7 @@ module.exports = grammar({
         field('type', $._basic_type),
         field('name', $.identifier),
         '=',
-        field('initializer', $._expr4),
+        field('initializer', $._expression),
       ),
     ),
 
@@ -53,22 +76,86 @@ module.exports = grammar({
 
     parameter: $ => seq(
       optional("varargs"),
-      $.non_void_type,
-      $.identifier,
-      optional($.opt_default_value),
+      field('arg_type', $.non_void_type),
+      field('arg_name', $.identifier),
+      field('arg_default', optional($.opt_default_value)),
     ),
 
-    // TODO(XXX): Test this. Looks whack.
     opt_default_value: $ => seq(
       '=',
-      $.expr0,
+      $._expression,
     ),
 
-    expr0: $ => seq(
-      $.lvalue,
-      '=',
-      $.expr0,
+    _expression: $ => choice(
+      $.conditional_expression,
+      $.assignment_expression,
+      $.identifier,
+      $.number_literal,
+      $.string_literal,
+      $.concatenated_string,
+      $.char_literal,
     ),
+
+    conditional_expression: $ => prec.right(PREC.CONDITIONAL, seq(
+      field('condition', $._expression),
+      '?',
+      field('consequence', $._expression),
+      ':',
+      field('alternative', $._expression)
+    )),
+
+    assignment_expression: $ => prec.right(PREC.ASSIGNMENT, seq(
+      field('left', $.lvalue),
+      field('operator', choice(
+        '=',
+        '*=',
+        '/=',
+        '%=',
+        '+=',
+        '-=',
+        '<<=',
+        '>>=',
+        '&=',
+        '^=',
+        '|='
+      )),
+      field('right', $._expression)
+    )),
+
+    char_literal: $ => seq(
+      '\'',
+      choice(
+        $.escape_sequence,
+        token.immediate(/[^\n']/)
+      ),
+      '\''
+    ),
+
+    concatenated_string: $ => seq(
+      $.string_literal,
+      repeat1($.string_literal)
+    ),
+
+    string_literal: $ => seq(
+      '"',
+      repeat(choice(
+        token.immediate(prec(1, /[^\\"\n]+/)),
+        $.escape_sequence
+      )),
+      '"',
+    ),
+
+    escape_sequence: $ => token(prec(1, seq(
+      '\\',
+      choice(
+        /[^x]/,
+        /\d{2,3}/,
+        seq('0o', /[0-7]+/),
+        seq('0b', /[01]+/),
+        seq('0x', /[0-9a-fA-F]+/),
+        seq('x', /[0-9a-fA-F]+/),
+      )
+    ))),
 
     // adapted heavily from tree-sitter-c grammar.js
     number_literal: $ => {
@@ -193,12 +280,6 @@ module.exports = grammar({
         $.non_void_type,
         ">",
       ),
-    ),
-
-    _expression: $ => choice(
-      $.identifier,
-      $.number_literal,
-      // TODO: other kinds of expressions
     ),
 
     identifier: $ => /[a-zA-Z_$]\w*/,
