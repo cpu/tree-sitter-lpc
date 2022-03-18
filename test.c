@@ -1,6 +1,6 @@
-public int x = 420;
-static nosave string y;
+public int x = 0x420;
+private nosave string y;
 
-public int foo(int a) {
-  return 1;
+public varargs int|string|mapping foo(int a, varargs mixed* rest) {
+  return 0b11110000;
 }

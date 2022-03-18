@@ -209,19 +209,26 @@ module.exports = grammar({
  * Adopted from tree-sitter-c.
  * https://github.com/tree-sitter/tree-sitter-c/blob/master/grammar.js
  */
-function commaSep (rule) {
-  return optional(commaSep1(rule))
+function sep(separator, rule) {
+  return optional(sep1(separator, rule))
 }
 
-function commaSep1 (rule) {
-  return seq(rule, repeat(seq(',', rule)))
+function sep1(separator, rule) {
+  return seq(rule, repeat(seq(separator, rule)))
 }
 
-// TODO(XXX): generalize w/ commaSep/commaSep1.
+function commaSep(rule) {
+  return sep(',', rule)
+}
+
+function commaSep1(rule) {
+  return sep1(',', rule)
+}
+
 function pipeSep (rule) {
-  return optional(pipeSep1(rule))
+  return sep('|', rule)
 }
 
 function pipeSep1 (rule) {
-  return seq(rule, repeat(seq('|', rule)))
+  return sep1('|', rule)
 }
