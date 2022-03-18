@@ -1,0 +1,112 @@
+================================================================================
+Numeric Literals
+================================================================================
+
+int bin1 = 0b;
+int bin2 = 0b1;
+int bin3 = 0b0;
+int bin4 = 0b0101;
+
+int oct1 = 0o;
+int oct2 = 0o0;
+int oct3 = 0o4444;
+int oct3 = 0o1234;
+
+int dec1 = 1;
+int dec2 = 123;
+float dec3 = 123.0;
+float dec4 = 1.000;
+float dec4 = 1.123;
+float dec5 = 1.;
+
+int hex1 = 0x;
+int hex2 = 0x0;
+int hex3 = 0xC0FFEE;
+int hex4 = 0xA;
+int hex5 = 0xF;
+int hex6 = 0x9;
+
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (global_definition
+    (non_void_type)
+    (identifier)
+    (number_literal))
+  (global_definition
+    (non_void_type)
+    (identifier)
+    (number_literal))
+  (global_definition
+    (non_void_type)
+    (identifier)
+    (number_literal))
+  (global_definition
+    (non_void_type)
+    (identifier)
+    (number_literal))
+  (global_definition
+    (non_void_type)
+    (identifier)
+    (number_literal))
+  (global_definition
+    (non_void_type)
+    (identifier)
+    (number_literal))
+  (global_definition
+    (non_void_type)
+    (identifier)
+    (number_literal))
+  (global_definition
+    (non_void_type)
+    (identifier)
+    (number_literal))
+  (global_definition
+    (non_void_type)
+    (identifier)
+    (number_literal))
+  (global_definition
+    (non_void_type)
+    (identifier)
+    (number_literal))
+  (global_definition
+    (non_void_type)
+    (identifier)
+    (number_literal))
+  (global_definition
+    (non_void_type)
+    (identifier)
+    (number_literal))
+  (global_definition
+    (non_void_type)
+    (identifier)
+    (number_literal))
+  (global_definition
+    (non_void_type)
+    (identifier)
+    (number_literal))
+  (global_definition
+    (non_void_type)
+    (identifier)
+    (number_literal))
+  (global_definition
+    (non_void_type)
+    (identifier)
+    (number_literal))
+  (global_definition
+    (non_void_type)
+    (identifier)
+    (number_literal))
+  (global_definition
+    (non_void_type)
+    (identifier)
+    (number_literal))
+  (global_definition
+    (non_void_type)
+    (identifier)
+    (number_literal))
+  (global_definition
+    (non_void_type)
+    (identifier)
+    (number_literal)))

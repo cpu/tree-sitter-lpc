@@ -85,9 +85,9 @@ module.exports = grammar({
           seq(
             choice(
               decimalDigits,
-              seq('0b', decimalDigits),
-              seq('0x', hexDigits),
-              seq('0o', octalDigits)
+              seq('0b', optional(decimalDigits)),
+              seq('0x', optional(hexDigits)),
+              seq('0o', optional(octalDigits))
             ),
             optional(seq('.', optional(hexDigits)))
           ),
