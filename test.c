@@ -1,7 +1,14 @@
 // Hello world
 
+/*
+ * Hello
+ * World! //Yeah
+ */
+
 public int x = 0x420;
 private nosave string y;
+
+int x2 = x->fun();
 
 public varargs int|string|mapping foo(int a, varargs mixed* rest) {
   return 0b11110000;

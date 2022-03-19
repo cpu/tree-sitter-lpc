@@ -1,25 +1,17 @@
 ================================================================================
-Simple Function Call
+Simple Call Other
 ================================================================================
 
-y() {
-  return 1;
-}
-
-int z = y();
+int x2 = x->fun();
 
 --------------------------------------------------------------------------------
 
 (source_file
-  (function_definition
-    (identifier)
-    (parameter_list)
-    (block
-      (return_statement
-        (number_literal))))
   (global_definition
     (non_void_type)
     (assignment_expression
       (identifier)
       (function_call
-        (identifier)))))
+        (identifier)
+          (member_operator)
+          (identifier)))))

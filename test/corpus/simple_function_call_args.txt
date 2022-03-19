@@ -25,8 +25,9 @@ int z = y(10, "hello");
         (number_literal))))
   (global_definition
     (non_void_type)
-    (identifier)
-    (function_call
+    (assignment_expression
       (identifier)
-      (number_literal)
-      (string_literal))))
+      (function_call
+        (identifier)
+        (number_literal)
+        (string_literal)))))

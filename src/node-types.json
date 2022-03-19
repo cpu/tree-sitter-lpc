@@ -8,7 +8,7 @@
         "required": true,
         "types": [
           {
-            "type": "lvalue",
+            "type": "identifier",
             "named": true
           }
         ]
@@ -274,7 +274,7 @@
     "fields": {
       "arguments": {
         "multiple": true,
-        "required": false,
+        "required": true,
         "types": [
           {
             "type": "(",
@@ -486,44 +486,6 @@
     "type": "global_definition",
     "named": true,
     "fields": {
-      "initializer": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "assignment_expression",
-            "named": true
-          },
-          {
-            "type": "char_literal",
-            "named": true
-          },
-          {
-            "type": "concatenated_string",
-            "named": true
-          },
-          {
-            "type": "conditional_expression",
-            "named": true
-          },
-          {
-            "type": "function_call",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "number_literal",
-            "named": true
-          },
-          {
-            "type": "string_literal",
-            "named": true
-          }
-        ]
-      },
       "modifiers": {
         "multiple": true,
         "required": false,
@@ -536,7 +498,7 @@
       },
       "name": {
         "multiple": false,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "identifier",
@@ -558,18 +520,13 @@
           }
         ]
       }
-    }
-  },
-  {
-    "type": "lvalue",
-    "named": true,
-    "fields": {},
+    },
     "children": {
       "multiple": false,
-      "required": true,
+      "required": false,
       "types": [
         {
-          "type": "identifier",
+          "type": "assignment_expression",
           "named": true
         }
       ]

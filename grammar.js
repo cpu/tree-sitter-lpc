@@ -52,6 +52,12 @@ module.exports = grammar({
         field('type', $._basic_type),
         field('name', $.identifier),
       ),
+      seq(
+        field('modifiers', repeat($.type_modifier)),
+        field('type', $._basic_type),
+        $.assignment_expression,
+      ),
+      /*
       // variable definition with initialization.
       seq(
         field('modifiers', repeat($.type_modifier)),
@@ -60,6 +66,7 @@ module.exports = grammar({
         '=',
         field('initializer', $._expression),
       ),
+      */
     ),
 
     function_definition: $ => seq(
@@ -126,6 +133,7 @@ module.exports = grammar({
     ),
 
     function_call: $ => prec(PREC.CALL, choice(
+      // Simple function call.
       seq(
         field('function', $._expression),
         field('arguments', seq(
@@ -134,12 +142,18 @@ module.exports = grammar({
           ')',
         ))
       ),
+      // Call-other.
       seq(
         field('target', $._expression),
         $.member_operator,
         field('function', $._call_other_name),
-      )),
-    ),
+        field('arguments', seq(
+          '(',
+          commaSep($._expression),
+          ')',
+        ))
+      ),
+    )),
 
     member_operator: $ => choice(
       '->',
@@ -166,7 +180,7 @@ module.exports = grammar({
     )),
 
     assignment_expression: $ => prec.right(PREC.ASSIGNMENT, seq(
-      field('left', $.lvalue),
+      field('left', $._lvalue),
       field('operator', choice(
         '=',
         '*=',
@@ -244,7 +258,7 @@ module.exports = grammar({
       ))
     },
 
-   lvalue: $ => choice(
+   _lvalue: $ => choice(
       $.identifier,
     ),
 
