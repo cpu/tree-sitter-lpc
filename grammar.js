@@ -132,6 +132,7 @@ module.exports = grammar({
       $.char_literal,
     ),
 
+    // TODO: Consider :: syntax for inherited functions.
     function_call: $ => prec(PREC.CALL, choice(
       // Simple function call.
       seq(
@@ -179,6 +180,7 @@ module.exports = grammar({
       field('alternative', $._expression)
     )),
 
+    // TODO: Need to think about comma operator somewhere...
     assignment_expression: $ => prec.right(PREC.ASSIGNMENT, seq(
       field('left', $._lvalue),
       field('operator', choice(
@@ -190,9 +192,12 @@ module.exports = grammar({
         '-=',
         '<<=',
         '>>=',
+        '>>>=',
         '&=',
+        '&&=',
         '^=',
-        '|='
+        '|=',
+        '||='
       )),
       field('right', $._expression)
     )),

@@ -18,15 +18,36 @@ int x <<= 10;
 
 int x >>= 10;
 
+int x >>>= 10;
+
 int x &= 10;
+
+int x &&= 10;
 
 int x ^= 10;
 
 int x |= 10;
 
+int x ||= 10;
+
 --------------------------------------------------------------------------------
 
 (source_file
+  (global_definition
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (number_literal)))
+  (global_definition
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (number_literal)))
+  (global_definition
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (number_literal)))
   (global_definition
     (non_void_type)
     (assignment_expression
