@@ -17,6 +17,7 @@ const PREC = {
   CAST: 11,
   UNARY: 12,
   CALL: 13,
+  INLINE: 13,
   FIELD: 14,
   SUBSCRIPT: 15
 };
@@ -57,16 +58,6 @@ module.exports = grammar({
         field('type', $._basic_type),
         $.assignment_expression,
       ),
-      /*
-      // variable definition with initialization.
-      seq(
-        field('modifiers', repeat($.type_modifier)),
-        field('type', $._basic_type),
-        field('name', $.identifier),
-        '=',
-        field('initializer', $._expression),
-      ),
-      */
     ),
 
     function_definition: $ => seq(
@@ -98,8 +89,6 @@ module.exports = grammar({
       $._expression,
     ),
 
-      // function call
-      // inline func
       // catch
       // L_STRING
       // L_BYTES L_BYTEs
@@ -125,6 +114,7 @@ module.exports = grammar({
       $.conditional_expression,
       $.assignment_expression,
       $.function_call,
+      $.inline_func,
       $.identifier,
       $.number_literal,
       $.string_literal,
@@ -133,6 +123,14 @@ module.exports = grammar({
       $.concatenated_bytes_string,
       $.char_literal,
     ),
+
+    // TODO(XXX): consider async
+    inline_func: $ => prec(PREC.INLINE, seq(
+      'function',
+      field('type', optional($._basic_type)),
+      field('arguments', $.parameter_list),
+      field('body', $._function_body),
+    )),
 
     // TODO: Consider :: syntax for inherited functions.
     function_call: $ => prec(PREC.CALL, choice(
@@ -297,13 +295,20 @@ module.exports = grammar({
     ),
 
     _statement: $ => choice(
-      $.return_statement
+      $.return_statement,
+      $.assignment_statement,
       // TODO: other kinds of statements
     ),
 
     return_statement: $ => seq(
       'return',
       optional($._expression),
+      ';'
+    ),
+
+    assignment_statement: $=> seq(
+      $.identifier,
+      $.assignment_expression,
       ';'
     ),
 
