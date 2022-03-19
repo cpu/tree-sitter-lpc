@@ -301,6 +301,10 @@
             "named": false
           },
           {
+            "type": "...",
+            "named": false
+          },
+          {
             "type": "assignment_expression",
             "named": true
           },
@@ -794,6 +798,10 @@
   },
   {
     "type": ".",
+    "named": false
+  },
+  {
+    "type": "...",
     "named": false
   },
   {

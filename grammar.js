@@ -140,6 +140,7 @@ module.exports = grammar({
         field('arguments', seq(
           '(',
           commaSep($._expression),
+          optional('...'),
           ')',
         ))
       ),
@@ -151,6 +152,7 @@ module.exports = grammar({
         field('arguments', seq(
           '(',
           commaSep($._expression),
+          optional('...'),
           ')',
         ))
       ),

@@ -1,0 +1,39 @@
+================================================================================
+Variadic Function Call
+================================================================================
+
+varargs mixed x(int a, varargs int *b) {
+  return 1;
+}
+
+int *somearr;
+mixed foo = x(10, somearr...);
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_definition
+    (type_modifier)
+    (non_void_type)
+    (identifier)
+    (parameter_list
+      (parameter
+        (non_void_type)
+        (identifier))
+      (parameter
+        (non_void_type)
+        (identifier)))
+    (block
+      (return_statement
+        (number_literal))))
+  (global_definition
+    (non_void_type)
+    (identifier))
+  (global_definition
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (function_call
+        (identifier)
+        (number_literal)
+        (identifier)))))
