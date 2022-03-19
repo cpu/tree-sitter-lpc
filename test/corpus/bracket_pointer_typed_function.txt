@@ -1,0 +1,31 @@
+================================================================================
+Bracket Pointer Typed Function
+================================================================================
+
+<int|string>* one() {
+  return 1;
+}
+
+int|<string*> two() {
+  return 1;
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_definition
+    (non_void_type
+      (non_void_type))
+    (identifier)
+    (parameter_list)
+    (block
+      (return_statement
+        (number_literal))))
+  (function_definition
+    (non_void_type
+      (non_void_type))
+    (identifier)
+    (parameter_list)
+    (block
+      (return_statement
+        (number_literal)))))
