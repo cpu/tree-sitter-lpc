@@ -125,14 +125,37 @@ module.exports = grammar({
       $.char_literal,
     ),
 
-    function_call: $ => prec(PREC.CALL, seq(
-      field('function', $._expression),
-      field('arguments', seq(
+    function_call: $ => prec(PREC.CALL, choice(
+      seq(
+        field('function', $._expression),
+        field('arguments', seq(
+          '(',
+          commaSep($._expression),
+          ')',
+        ))
+      ),
+      seq(
+        field('target', $._expression),
+        $.member_operator,
+        field('function', $._call_other_name),
+      )),
+    ),
+
+    member_operator: $ => choice(
+      '->',
+      '.',
+    ),
+
+    _call_other_name: $ => choice(
+      $.identifier,
+      $.string_literal,
+      $.concatenated_string,
+      seq(
         '(',
-        commaSep($._expression),
+        $._expression,
         ')',
-      ))
-    )), 
+      ),
+    ),
 
     conditional_expression: $ => prec.right(PREC.CONDITIONAL, seq(
       field('condition', $._expression),

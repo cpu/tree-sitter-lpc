@@ -1,0 +1,150 @@
+================================================================================
+Call Other
+================================================================================
+
+int x = 0;
+int x2 = x->fun();
+int x2 = x->fun(420, 9);
+int x3 = x->"fun"();
+int x3 = x->"fun"(420, 9, 9);
+int x4 = x->(fun)();
+int x4 = x->(fun)(420, 9, 9, "ok");
+
+int y = 0;
+int y2 = y.test;
+int y3 = y.test();
+int y3 = y.test(420, "bye");
+int y3 = y."test"();
+int y3 = y."test"(420);
+int y4 = y.(y)();
+int y4 = y.(y)(420, 0x420, 0x420);
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (global_definition
+    (non_void_type)
+    (identifier)
+    (number_literal))
+  (global_definition
+    (non_void_type)
+    (identifier)
+    (function_call
+      (function_call
+        (identifier)
+        (member_operator)
+        (identifier))))
+  (global_definition
+    (non_void_type)
+    (identifier)
+    (function_call
+      (function_call
+        (identifier)
+        (member_operator)
+        (identifier))
+      (number_literal)
+      (number_literal)))
+  (global_definition
+    (non_void_type)
+    (identifier)
+    (function_call
+      (function_call
+        (identifier)
+        (member_operator)
+        (string_literal))))
+  (global_definition
+    (non_void_type)
+    (identifier)
+    (function_call
+      (function_call
+        (identifier)
+        (member_operator)
+        (string_literal))
+      (number_literal)
+      (number_literal)
+      (number_literal)))
+  (global_definition
+    (non_void_type)
+    (identifier)
+    (function_call
+      (function_call
+        (identifier)
+        (member_operator)
+        (identifier))))
+  (global_definition
+    (non_void_type)
+    (identifier)
+    (function_call
+      (function_call
+        (identifier)
+        (member_operator)
+        (identifier))
+      (number_literal)
+      (number_literal)
+      (number_literal)
+      (string_literal)))
+  (global_definition
+    (non_void_type)
+    (identifier)
+    (number_literal))
+  (global_definition
+    (non_void_type)
+    (identifier)
+    (function_call
+      (identifier)
+      (member_operator)
+      (identifier)))
+  (global_definition
+    (non_void_type)
+    (identifier)
+    (function_call
+      (function_call
+        (identifier)
+        (member_operator)
+        (identifier))))
+  (global_definition
+    (non_void_type)
+    (identifier)
+    (function_call
+      (function_call
+        (identifier)
+        (member_operator)
+        (identifier))
+      (number_literal)
+      (string_literal)))
+  (global_definition
+    (non_void_type)
+    (identifier)
+    (function_call
+      (function_call
+        (identifier)
+        (member_operator)
+        (string_literal))))
+  (global_definition
+    (non_void_type)
+    (identifier)
+    (function_call
+      (function_call
+        (identifier)
+        (member_operator)
+        (string_literal))
+      (number_literal)))
+  (global_definition
+    (non_void_type)
+    (identifier)
+    (function_call
+      (function_call
+        (identifier)
+        (member_operator)
+        (identifier))))
+  (global_definition
+    (non_void_type)
+    (identifier)
+    (function_call
+      (function_call
+        (identifier)
+        (member_operator)
+        (identifier))
+      (number_literal)
+      (number_literal)
+      (number_literal))))

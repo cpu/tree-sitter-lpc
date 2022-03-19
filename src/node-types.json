@@ -274,7 +274,7 @@
     "fields": {
       "arguments": {
         "multiple": true,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "(",
@@ -323,8 +323,54 @@
         ]
       },
       "function": {
-        "multiple": false,
+        "multiple": true,
         "required": true,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "assignment_expression",
+            "named": true
+          },
+          {
+            "type": "char_literal",
+            "named": true
+          },
+          {
+            "type": "concatenated_string",
+            "named": true
+          },
+          {
+            "type": "conditional_expression",
+            "named": true
+          },
+          {
+            "type": "function_call",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "number_literal",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          }
+        ]
+      },
+      "target": {
+        "multiple": false,
+        "required": false,
         "types": [
           {
             "type": "assignment_expression",
@@ -360,6 +406,16 @@
           }
         ]
       }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "member_operator",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -518,6 +574,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "member_operator",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "non_void_type",
@@ -752,6 +813,14 @@
   },
   {
     "type": "-=",
+    "named": false
+  },
+  {
+    "type": "->",
+    "named": false
+  },
+  {
+    "type": ".",
     "named": false
   },
   {
