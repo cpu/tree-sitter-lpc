@@ -129,6 +129,8 @@ module.exports = grammar({
       $.number_literal,
       $.string_literal,
       $.concatenated_string,
+      $.bytes_literal,
+      $.concatenated_bytes_string,
       $.char_literal,
     ),
 
@@ -220,6 +222,20 @@ module.exports = grammar({
 
     string_literal: $ => seq(
       '"',
+      repeat(choice(
+        token.immediate(prec(1, /[^\\"\n]+/)),
+        $.escape_sequence
+      )),
+      '"',
+    ),
+
+    concatenated_bytes_string: $ => seq(
+      $.bytes_literal,
+      repeat1($.bytes_literal)
+    ),
+
+    bytes_literal: $ => seq(
+      'b"',
       repeat(choice(
         token.immediate(prec(1, /[^\\"\n]+/)),
         $.escape_sequence

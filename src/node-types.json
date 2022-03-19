@@ -84,7 +84,15 @@
             "named": true
           },
           {
+            "type": "bytes_literal",
+            "named": true
+          },
+          {
             "type": "char_literal",
+            "named": true
+          },
+          {
+            "type": "concatenated_bytes_string",
             "named": true
           },
           {
@@ -131,6 +139,21 @@
     }
   },
   {
+    "type": "bytes_literal",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "escape_sequence",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "char_literal",
     "named": true,
     "fields": {},
@@ -140,6 +163,21 @@
       "types": [
         {
           "type": "escape_sequence",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "concatenated_bytes_string",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "bytes_literal",
           "named": true
         }
       ]
@@ -173,7 +211,15 @@
             "named": true
           },
           {
+            "type": "bytes_literal",
+            "named": true
+          },
+          {
             "type": "char_literal",
+            "named": true
+          },
+          {
+            "type": "concatenated_bytes_string",
             "named": true
           },
           {
@@ -211,7 +257,15 @@
             "named": true
           },
           {
+            "type": "bytes_literal",
+            "named": true
+          },
+          {
             "type": "char_literal",
+            "named": true
+          },
+          {
+            "type": "concatenated_bytes_string",
             "named": true
           },
           {
@@ -249,7 +303,15 @@
             "named": true
           },
           {
+            "type": "bytes_literal",
+            "named": true
+          },
+          {
             "type": "char_literal",
+            "named": true
+          },
+          {
+            "type": "concatenated_bytes_string",
             "named": true
           },
           {
@@ -309,7 +371,15 @@
             "named": true
           },
           {
+            "type": "bytes_literal",
+            "named": true
+          },
+          {
             "type": "char_literal",
+            "named": true
+          },
+          {
+            "type": "concatenated_bytes_string",
             "named": true
           },
           {
@@ -355,7 +425,15 @@
             "named": true
           },
           {
+            "type": "bytes_literal",
+            "named": true
+          },
+          {
             "type": "char_literal",
+            "named": true
+          },
+          {
+            "type": "concatenated_bytes_string",
             "named": true
           },
           {
@@ -393,7 +471,15 @@
             "named": true
           },
           {
+            "type": "bytes_literal",
+            "named": true
+          },
+          {
             "type": "char_literal",
+            "named": true
+          },
+          {
+            "type": "concatenated_bytes_string",
             "named": true
           },
           {
@@ -581,7 +667,15 @@
           "named": true
         },
         {
+          "type": "bytes_literal",
+          "named": true
+        },
+        {
           "type": "char_literal",
+          "named": true
+        },
+        {
+          "type": "concatenated_bytes_string",
           "named": true
         },
         {
@@ -675,7 +769,15 @@
           "named": true
         },
         {
+          "type": "bytes_literal",
+          "named": true
+        },
+        {
           "type": "char_literal",
+          "named": true
+        },
+        {
+          "type": "concatenated_bytes_string",
           "named": true
         },
         {
@@ -846,6 +948,10 @@
   },
   {
     "type": "^=",
+    "named": false
+  },
+  {
+    "type": "b\"",
     "named": false
   },
   {
