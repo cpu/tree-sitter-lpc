@@ -1,0 +1,32 @@
+================================================================================
+Simple Function Call With Args
+================================================================================
+
+y(int x, string y) {
+  return 1;
+}
+
+int z = y(10, "hello");
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_definition
+    (identifier)
+    (parameter_list
+      (parameter
+        (non_void_type)
+        (identifier))
+      (parameter
+        (non_void_type)
+        (identifier)))
+    (block
+      (return_statement
+        (number_literal))))
+  (global_definition
+    (non_void_type)
+    (identifier)
+    (function_call
+      (identifier)
+      (number_literal)
+      (string_literal))))

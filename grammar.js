@@ -24,6 +24,11 @@ const PREC = {
 module.exports = grammar({
   name: 'LPC',
 
+  extras: $ => [
+    /\s|\\\r?\n/,
+    $.comment,
+  ],
+
   word: $ => $.identifier,
 
   rules: {
@@ -112,12 +117,22 @@ module.exports = grammar({
     _expression: $ => choice(
       $.conditional_expression,
       $.assignment_expression,
+      $.function_call,
       $.identifier,
       $.number_literal,
       $.string_literal,
       $.concatenated_string,
       $.char_literal,
     ),
+
+    function_call: $ => prec(PREC.CALL, seq(
+      field('function', $._expression),
+      field('arguments', seq(
+        '(',
+        commaSep($._expression),
+        ')',
+      ))
+    )), 
 
     conditional_expression: $ => prec.right(PREC.CONDITIONAL, seq(
       field('condition', $._expression),
@@ -277,6 +292,16 @@ module.exports = grammar({
         ">",
       ),
     ),
+
+    // http://stackoverflow.com/questions/13014947/regex-to-match-a-c-style-multiline-comment/36328890#36328890
+    comment: $ => token(choice(
+      seq('//', /(\\(.|\r?\n)|[^\\\n])*/),
+      seq(
+        '/*',
+        /[^*]*\*+([^/*][^*]*\*+)*/,
+        '/'
+      )
+    )),
 
     identifier: $ => /[a-zA-Z_$]\w*/,
   }
