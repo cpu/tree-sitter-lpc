@@ -21,124 +21,124 @@ int y4 = y.(y)(420, 0x420, 0x420);
 --------------------------------------------------------------------------------
 
 (source_file
-  (global_definition
+  (global_var
     (non_void_type)
-    (assignment_expression
+    (identifier)
+    (assignment_operator)
+    (number_literal))
+  (global_var
+    (non_void_type)
+    (identifier)
+    (assignment_operator)
+    (function_call
       (identifier)
+      (member_operator)
+      (identifier)))
+  (global_var
+    (non_void_type)
+    (identifier)
+    (assignment_operator)
+    (function_call
+      (identifier)
+      (member_operator)
+      (identifier)
+      (number_literal)
       (number_literal)))
-  (global_definition
+  (global_var
     (non_void_type)
-    (assignment_expression
+    (identifier)
+    (assignment_operator)
+    (function_call
       (identifier)
-      (function_call
-        (identifier)
-        (member_operator)
-        (identifier))))
-  (global_definition
+      (member_operator)
+      (string_literal)))
+  (global_var
     (non_void_type)
-    (assignment_expression
+    (identifier)
+    (assignment_operator)
+    (function_call
       (identifier)
-      (function_call
-        (identifier)
-        (member_operator)
-        (identifier)
-        (number_literal)
-        (number_literal))))
-  (global_definition
-    (non_void_type)
-    (assignment_expression
-      (identifier)
-      (function_call
-        (identifier)
-        (member_operator)
-        (string_literal))))
-  (global_definition
-    (non_void_type)
-    (assignment_expression
-      (identifier)
-      (function_call
-        (identifier)
-        (member_operator)
-        (string_literal)
-        (number_literal)
-        (number_literal)
-        (number_literal))))
-  (global_definition
-    (non_void_type)
-    (assignment_expression
-      (identifier)
-      (function_call
-        (identifier)
-        (member_operator)
-        (identifier))))
-  (global_definition
-    (non_void_type)
-    (assignment_expression
-      (identifier)
-      (function_call
-        (identifier)
-        (member_operator)
-        (identifier)
-        (number_literal)
-        (number_literal)
-        (number_literal)
-        (string_literal))))
-  (global_definition
-    (non_void_type)
-    (assignment_expression
-      (identifier)
+      (member_operator)
+      (string_literal)
+      (number_literal)
+      (number_literal)
       (number_literal)))
-  (global_definition
+  (global_var
     (non_void_type)
-    (assignment_expression
+    (identifier)
+    (assignment_operator)
+    (function_call
       (identifier)
-      (function_call
-        (identifier)
-        (member_operator)
-        (identifier))))
-  (global_definition
+      (member_operator)
+      (identifier)))
+  (global_var
     (non_void_type)
-    (assignment_expression
+    (identifier)
+    (assignment_operator)
+    (function_call
       (identifier)
-      (function_call
-        (identifier)
-        (member_operator)
-        (identifier)
-        (number_literal)
-        (string_literal))))
-  (global_definition
+      (member_operator)
+      (identifier)
+      (number_literal)
+      (number_literal)
+      (number_literal)
+      (string_literal)))
+  (global_var
     (non_void_type)
-    (assignment_expression
-      (identifier)
-      (function_call
-        (identifier)
-        (member_operator)
-        (string_literal))))
-  (global_definition
+    (identifier)
+    (assignment_operator)
+    (number_literal))
+  (global_var
     (non_void_type)
-    (assignment_expression
+    (identifier)
+    (assignment_operator)
+    (function_call
       (identifier)
-      (function_call
-        (identifier)
-        (member_operator)
-        (string_literal)
-        (number_literal))))
-  (global_definition
+      (member_operator)
+      (identifier)))
+  (global_var
     (non_void_type)
-    (assignment_expression
+    (identifier)
+    (assignment_operator)
+    (function_call
       (identifier)
-      (function_call
-        (identifier)
-        (member_operator)
-        (identifier))))
-  (global_definition
+      (member_operator)
+      (identifier)
+      (number_literal)
+      (string_literal)))
+  (global_var
     (non_void_type)
-    (assignment_expression
+    (identifier)
+    (assignment_operator)
+    (function_call
       (identifier)
-      (function_call
-        (identifier)
-        (member_operator)
-        (identifier)
-        (number_literal)
-        (number_literal)
-        (number_literal)))))
+      (member_operator)
+      (string_literal)))
+  (global_var
+    (non_void_type)
+    (identifier)
+    (assignment_operator)
+    (function_call
+      (identifier)
+      (member_operator)
+      (string_literal)
+      (number_literal)))
+  (global_var
+    (non_void_type)
+    (identifier)
+    (assignment_operator)
+    (function_call
+      (identifier)
+      (member_operator)
+      (identifier)))
+  (global_var
+    (non_void_type)
+    (identifier)
+    (assignment_operator)
+    (function_call
+      (identifier)
+      (member_operator)
+      (identifier)
+      (number_literal)
+      (number_literal)
+      (number_literal))))

@@ -1,5 +1,5 @@
 ================================================================================
-Simple Gloabls
+Modified Global Vars
 ================================================================================
 
 public int x;
@@ -8,11 +8,11 @@ private nosave string y;
 --------------------------------------------------------------------------------
 
 (source_file
-  (global_definition
+  (global_var
     (type_modifier)
     (non_void_type)
     (identifier))
-  (global_definition
+  (global_var
     (type_modifier)
     (type_modifier)
     (non_void_type)

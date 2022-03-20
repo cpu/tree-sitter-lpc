@@ -1,5 +1,5 @@
 ================================================================================
-Simple Gloabls Init
+Simple Globals Init
 ================================================================================
 
 int x = 420;
@@ -8,11 +8,11 @@ string y;
 --------------------------------------------------------------------------------
 
 (source_file
-  (global_definition
+  (global_var
     (non_void_type)
-    (assignment_expression
-      (identifier)
-      (number_literal)))
-  (global_definition
+    (identifier)
+    (assignment_operator)
+    (number_literal))
+  (global_var
     (non_void_type)
     (identifier)))

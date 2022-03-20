@@ -1,5 +1,5 @@
 ================================================================================
-Simple Gloabls
+Simple Globals
 ================================================================================
 
 int x;
@@ -8,9 +8,9 @@ string y;
 --------------------------------------------------------------------------------
 
 (source_file
-  (global_definition
+  (global_var
     (non_void_type)
     (identifier))
-  (global_definition
+  (global_var
     (non_void_type)
     (identifier)))

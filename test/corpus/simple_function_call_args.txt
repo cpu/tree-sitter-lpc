@@ -23,11 +23,11 @@ int z = y(10, "hello");
     (block
       (return_statement
         (number_literal))))
-  (global_definition
+  (global_var
     (non_void_type)
-    (assignment_expression
+    (identifier)
+    (assignment_operator)
+    (function_call
       (identifier)
-      (function_call
-        (identifier)
-        (number_literal)
-        (string_literal)))))
+      (number_literal)
+      (string_literal))))

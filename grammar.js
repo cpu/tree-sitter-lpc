@@ -37,27 +37,8 @@ module.exports = grammar({
 
     _definition: $ => choice(
       $.function_definition,
-      $.global_definition,
+      $.global_var,
       // TODO: other kinds of definitions
-    ),
-
-    global_definition: $ => seq(
-      $._name_list,
-      ';',
-    ),
-
-    _name_list: $ => choice(
-      // simple variable definition.
-      seq(
-        field('modifiers', repeat($.type_modifier)),
-        field('type', $._basic_type),
-        field('name', $.identifier),
-      ),
-      seq(
-        field('modifiers', repeat($.type_modifier)),
-        field('type', $._basic_type),
-        $.assignment_expression,
-      ),
     ),
 
     function_definition: $ => seq(
@@ -183,10 +164,7 @@ module.exports = grammar({
       field('alternative', $._expression)
     )),
 
-    // TODO: Need to think about comma operator somewhere...
-    assignment_expression: $ => prec.right(PREC.ASSIGNMENT, seq(
-      field('left', $._lvalue),
-      field('operator', choice(
+    assignment_operator: $ => choice(
         '=',
         '*=',
         '/=',
@@ -201,7 +179,12 @@ module.exports = grammar({
         '^=',
         '|=',
         '||='
-      )),
+    ),
+
+    // TODO: Need to think about comma operator somewhere...
+    assignment_expression: $ => prec.right(PREC.ASSIGNMENT, seq(
+      field('left', $._lvalue),
+      field('operator', $.assignment_operator),
       field('right', $._expression)
     )),
 
@@ -313,18 +296,54 @@ module.exports = grammar({
       ),
     ),
 
+    global_var: $ => seq(
+      choice(
+        // Global var, no assignment.
+        seq(
+          field('modifiers', repeat($.type_modifier)),
+          field('type', $._basic_type),
+          field('name', $.identifier),
+        ),
+        // Global var, assignment
+        seq(
+          field('modifiers', repeat($.type_modifier)),
+          field('type', $._basic_type),
+          field('name', $.identifier),
+          field('operator', $.assignment_operator),
+          field('initial_val', $._expression),
+        ),
+        // Global name comma list, no assignment.
+        seq(
+          $.local_var,
+          ',',
+          repeat('*'),
+          $.identifier,
+        ),
+        // Global name comma list, w/ assignment.
+        seq(
+          $.local_var,
+          ',',
+          repeat('*'),
+          $.identifier,
+          field('operator', $.assignment_operator),
+          $._expression,
+        ),
+      ),
+      ';',
+    ),
+
     local_var: $ => choice(
-      // Local name, no assignment.
+      // Local var, no assignment.
       seq(
-        $._basic_type,
-        $.identifier,
+        field('type', $._basic_type),
+        field('name', $.identifier),
       ),
       // Local name, w/ assignment.
       seq(
-        $._basic_type,
-        $.identifier,
-        '=',
-        $._expression,
+        field('type', $._basic_type),
+        field('name', $.identifier),
+        field('operator', $.assignment_operator),
+        field('initial_val', $._expression),
       ),
       // Local name comma list, no assignment.
       seq(
@@ -339,7 +358,7 @@ module.exports = grammar({
         ',',
         repeat('*'),
         $.identifier,
-        '=',
+        field('operator', $.assignment_operator),
         $._expression,
       ),
     ),

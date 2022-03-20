@@ -7,11 +7,11 @@ int x2 = x->fun();
 --------------------------------------------------------------------------------
 
 (source_file
-  (global_definition
+  (global_var
     (non_void_type)
-    (assignment_expression
+    (identifier)
+    (assignment_operator)
+    (function_call
       (identifier)
-      (function_call
-        (identifier)
-          (member_operator)
-          (identifier)))))
+      (member_operator)
+      (identifier))))

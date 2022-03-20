@@ -30,11 +30,13 @@ x() {
       (local_var
         (non_void_type)
         (identifier)
+        (assignment_operator)
         (number_literal))
       (comment)
       (local_var
         (non_void_type)
         (identifier)
+        (assignment_operator)
         (string_literal))
       (comment)
       (local_var
@@ -51,6 +53,8 @@ x() {
             (non_void_type)
             (identifier))
           (identifier)
+          (assignment_operator)
           (string_literal))
         (identifier)
+        (assignment_operator)
         (string_literal)))))

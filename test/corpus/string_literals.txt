@@ -11,24 +11,24 @@ string yyy = "hello"
 --------------------------------------------------------------------------------
 
 (source_file
-  (global_definition
+  (global_var
     (non_void_type)
-    (assignment_expression
-      (identifier)
+    (identifier)
+    (assignment_operator)
+    (string_literal))
+  (global_var
+    (non_void_type)
+    (identifier)
+    (assignment_operator)
+    (concatenated_string
+      (string_literal)
+      (string_literal)
       (string_literal)))
-  (global_definition
+  (global_var
     (non_void_type)
-    (assignment_expression
-      (identifier)
-      (concatenated_string
-        (string_literal)
-        (string_literal)
-        (string_literal))))
-  (global_definition
-    (non_void_type)
-    (assignment_expression
-      (identifier)
-      (concatenated_string
-        (string_literal)
-        (string_literal)
-        (string_literal)))))
+    (identifier)
+    (assignment_operator)
+    (concatenated_string
+      (string_literal)
+      (string_literal)
+      (string_literal))))

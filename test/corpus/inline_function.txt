@@ -24,6 +24,7 @@ closure x(int a) {
       (local_var
         (non_void_type)
         (identifier)
+        (assignment_operator)
         (inline_func
           (non_void_type)
           (parameter_list

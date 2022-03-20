@@ -11,24 +11,24 @@ b"world";
 --------------------------------------------------------------------------------
 
 (source_file
-  (global_definition
+  (global_var
     (non_void_type)
-    (assignment_expression
-      (identifier)
+    (identifier)
+    (assignment_operator)
+    (bytes_literal))
+  (global_var
+    (non_void_type)
+    (identifier)
+    (assignment_operator)
+    (concatenated_bytes_string
+      (bytes_literal)
+      (bytes_literal)
       (bytes_literal)))
-  (global_definition
+  (global_var
     (non_void_type)
-    (assignment_expression
-      (identifier)
-      (concatenated_bytes_string
-        (bytes_literal)
-        (bytes_literal)
-        (bytes_literal))))
-  (global_definition
-    (non_void_type)
-    (assignment_expression
-      (identifier)
-      (concatenated_bytes_string
-        (bytes_literal)
-        (bytes_literal)
-        (bytes_literal)))))
+    (identifier)
+    (assignment_operator)
+    (concatenated_bytes_string
+      (bytes_literal)
+      (bytes_literal)
+      (bytes_literal))))

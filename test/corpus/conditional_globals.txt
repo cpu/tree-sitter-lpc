@@ -10,30 +10,30 @@ int w =  y ? 0x10 : x;
 --------------------------------------------------------------------------------
 
 (source_file
-  (global_definition
+  (global_var
     (non_void_type)
     (identifier))
-  (global_definition
+  (global_var
     (non_void_type)
-    (assignment_expression
+    (identifier)
+    (assignment_operator)
+    (conditional_expression
       (identifier)
-      (conditional_expression
-        (identifier)
-        (number_literal)
-        (number_literal))))
-  (global_definition
+      (number_literal)
+      (number_literal)))
+  (global_var
     (non_void_type)
-    (assignment_expression
+    (identifier)
+    (assignment_operator)
+    (conditional_expression
       (identifier)
-      (conditional_expression
-        (identifier)
-        (identifier)
-        (identifier))))
-  (global_definition
+      (identifier)
+      (identifier)))
+  (global_var
     (non_void_type)
-    (assignment_expression
+    (identifier)
+    (assignment_operator)
+    (conditional_expression
       (identifier)
-      (conditional_expression
-        (identifier)
-        (number_literal)
-        (identifier)))))
+      (number_literal)
+      (identifier))))

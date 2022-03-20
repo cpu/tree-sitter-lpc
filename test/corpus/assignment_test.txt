@@ -33,73 +33,73 @@ int x ||= 10;
 --------------------------------------------------------------------------------
 
 (source_file
-  (global_definition
+  (global_var
     (non_void_type)
-    (assignment_expression
-      (identifier)
-      (number_literal)))
-  (global_definition
+    (identifier)
+    (assignment_operator)
+    (number_literal))
+  (global_var
     (non_void_type)
-    (assignment_expression
-      (identifier)
-      (number_literal)))
-  (global_definition
+    (identifier)
+    (assignment_operator)
+    (number_literal))
+  (global_var
     (non_void_type)
-    (assignment_expression
-      (identifier)
-      (number_literal)))
-  (global_definition
+    (identifier)
+    (assignment_operator)
+    (number_literal))
+  (global_var
     (non_void_type)
-    (assignment_expression
-      (identifier)
-      (number_literal)))
-  (global_definition
+    (identifier)
+    (assignment_operator)
+    (number_literal))
+  (global_var
     (non_void_type)
-    (assignment_expression
-      (identifier)
-      (number_literal)))
-  (global_definition
+    (identifier)
+    (assignment_operator)
+    (number_literal))
+  (global_var
     (non_void_type)
-    (assignment_expression
-      (identifier)
-      (number_literal)))
-  (global_definition
+    (identifier)
+    (assignment_operator)
+    (number_literal))
+  (global_var
     (non_void_type)
-    (assignment_expression
-      (identifier)
-      (number_literal)))
-  (global_definition
+    (identifier)
+    (assignment_operator)
+    (number_literal))
+  (global_var
     (non_void_type)
-    (assignment_expression
-      (identifier)
-      (number_literal)))
-  (global_definition
+    (identifier)
+    (assignment_operator)
+    (number_literal))
+  (global_var
     (non_void_type)
-    (assignment_expression
-      (identifier)
-      (number_literal)))
-  (global_definition
+    (identifier)
+    (assignment_operator)
+    (number_literal))
+  (global_var
     (non_void_type)
-    (assignment_expression
-      (identifier)
-      (number_literal)))
-  (global_definition
+    (identifier)
+    (assignment_operator)
+    (number_literal))
+  (global_var
     (non_void_type)
-    (assignment_expression
-      (identifier)
-      (number_literal)))
-  (global_definition
+    (identifier)
+    (assignment_operator)
+    (number_literal))
+  (global_var
     (non_void_type)
-    (assignment_expression
-      (identifier)
-      (number_literal)))
-  (global_definition
+    (identifier)
+    (assignment_operator)
+    (number_literal))
+  (global_var
     (non_void_type)
-    (assignment_expression
-      (identifier)
-      (number_literal)))
-  (global_definition
+    (identifier)
+    (assignment_operator)
+    (number_literal))
+  (global_var
     (non_void_type)
-    (assignment_expression
-      (identifier)
-      (number_literal))))
+    (identifier)
+    (assignment_operator)
+    (number_literal)))
