@@ -567,6 +567,16 @@
           }
         ]
       },
+      "async": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "async",
+            "named": false
+          }
+        ]
+      },
       "body": {
         "multiple": false,
         "required": true,
@@ -1089,6 +1099,10 @@
   },
   {
     "type": "^=",
+    "named": false
+  },
+  {
+    "type": "async",
     "named": false
   },
   {

@@ -42,6 +42,7 @@ module.exports = grammar({
     ),
 
     function_definition: $ => seq(
+      field('async', optional('async')),
       field('modifiers', repeat($.type_modifier)),
       field('type', optional($._basic_type)),
       field('name', $.identifier),
