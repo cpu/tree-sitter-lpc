@@ -296,10 +296,21 @@ module.exports = grammar({
     ),
 
     _statement: $ => choice(
+      seq($._comma_expr, ';'),
+      // cond | while | do | for | foreach | switch
       seq($.local_var, ';'),
-      $.return_statement,
-      $.assignment_statement,
-      // TODO: other kinds of statements
+      seq($.return_statement, ';'),
+      $.block,
+      ';',
+      // break, continue
+    ),
+
+    _comma_expr: $ => choice(
+      $._expression, 
+      seq(
+        $._expression,
+        repeat1(seq(',', $._expression))
+      ),
     ),
 
     local_var: $ => choice(
@@ -335,8 +346,7 @@ module.exports = grammar({
 
     return_statement: $ => seq(
       'return',
-      optional($._expression),
-      ';'
+      optional($._comma_expr),
     ),
 
     assignment_statement: $=> seq(
