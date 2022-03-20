@@ -1,0 +1,30 @@
+================================================================================
+Globals Commas w/ Init
+================================================================================
+
+int x = 3, y, z = 10;
+string a, b = "test", c;
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (global_var
+    (local_var
+      (local_var
+        (non_void_type)
+        (identifier)
+        (assignment_operator)
+        (number_literal))
+      (identifier))
+    (identifier)
+    (assignment_operator)
+    (number_literal))
+  (global_var
+    (local_var
+      (local_var
+        (non_void_type)
+        (identifier))
+      (identifier)
+      (assignment_operator)
+      (string_literal))
+    (identifier)))
