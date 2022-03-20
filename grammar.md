@@ -209,7 +209,7 @@ type_modifier_list:
 type_modifier:
       L_NO_MASK
     | L_STATIC
-    | L_PRIVATE    { $$ = TYPE_MOD_PRIVATE; }
+    | L_PRIVATE
     | L_PUBLIC
     | L_VARARGS
     | L_PROTECTED

@@ -68,6 +68,7 @@ module.exports = grammar({
       field('body', $._function_body),
     ),
 
+    // TODO: rename back to "argument" and friends to match LD grammar?
     parameter_list: $ => seq(
       '(',
       choice(
@@ -295,10 +296,41 @@ module.exports = grammar({
     ),
 
     _statement: $ => choice(
+      seq($.local_var, ';'),
       $.return_statement,
       $.assignment_statement,
-      $._name_list,
       // TODO: other kinds of statements
+    ),
+
+    local_var: $ => choice(
+      // Local name, no assignment.
+      seq(
+        $._basic_type,
+        $.identifier,
+      ),
+      // Local name, w/ assignment.
+      seq(
+        $._basic_type,
+        $.identifier,
+        '=',
+        $._expression,
+      ),
+      // Local name comma list, no assignment.
+      seq(
+        $.local_var,
+        ',',
+        repeat('*'),
+        $.identifier,
+      ),
+      // Local name comma list, w/ assignment.
+      seq(
+        $.local_var,
+        ',',
+        repeat('*'),
+        $.identifier,
+        '=',
+        $._expression,
+      ),
     ),
 
     return_statement: $ => seq(
@@ -330,6 +362,8 @@ module.exports = grammar({
       "void",
     ),
 
+    // non_void_type is one or more single_non_void_types separated by a "|" to
+    // support union types.
     non_void_type: $ => pipeSep1(
       $._single_non_void_type
     ),
@@ -346,7 +380,9 @@ module.exports = grammar({
       "mapping",
       "mixed",
       "object",
+      // TODO: handle object w/ optional simple_string_constant 
       "lwobject",
+      // TODO: handle lwobject w/ optional simple_string_constant 
       "struct",
       seq(
         $._single_non_void_type,

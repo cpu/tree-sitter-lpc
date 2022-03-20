@@ -10,4 +10,18 @@ x() {
 
 --------------------------------------------------------------------------------
 
-()
+(source_file
+  (function_definition
+    (identifier)
+    (parameter_list)
+    (block
+      (local_var
+        (non_void_type)
+        (identifier)
+        (number_literal))
+      (local_var
+        (non_void_type)
+        (identifier)
+        (identifier))
+      (return_statement
+        (identifier)))))
