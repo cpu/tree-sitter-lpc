@@ -297,6 +297,7 @@ module.exports = grammar({
     _statement: $ => choice(
       $.return_statement,
       $.assignment_statement,
+      $._name_list,
       // TODO: other kinds of statements
     ),
 
