@@ -1,0 +1,31 @@
+================================================================================
+Nested Blocks
+================================================================================
+
+x() {
+  {
+    int y = 1;
+
+    {
+      return 2;
+    }
+  }
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_definition
+    (identifier)
+    (parameter_list)
+    (block
+      (block
+        (local_var
+          (non_void_type)
+          (assignment_expression
+            (identifier)
+            (assignment_operator)
+            (number_literal)))
+        (block
+          (return_statement
+            (number_literal)))))))
