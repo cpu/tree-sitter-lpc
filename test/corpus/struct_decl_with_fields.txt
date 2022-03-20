@@ -1,0 +1,30 @@
+================================================================================
+Struct Decl With Fields
+================================================================================
+
+struct Bye;
+
+struct Hello{
+  mixed world;
+  int hi;
+  struct Bye bye;
+};
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (struct_definition
+    (identifier))
+  (struct_definition
+    (identifier)
+    (struct_member_list
+      (struct_member
+        (non_void_type)
+        (identifier))
+      (struct_member
+        (non_void_type)
+        (identifier))
+      (struct_member
+        (non_void_type
+          (identifier))
+        (identifier)))))

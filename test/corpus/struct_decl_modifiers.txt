@@ -1,19 +1,14 @@
 ================================================================================
-Multi Type Function
+Struct Decl w/ Modifiers
 ================================================================================
 
-int|struct Yo|mapping|float x() {
-  return 1;
-}
+private nosave struct Hello{};
 
 --------------------------------------------------------------------------------
 
 (source_file
-  (function_definition
-    (non_void_type
-      (identifier))
+  (struct_definition
+    (type_modifier)
+    (type_modifier)
     (identifier)
-    (parameter_list)
-    (block
-      (return_statement
-        (number_literal)))))
+    (struct_member_list)))

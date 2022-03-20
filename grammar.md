@@ -124,6 +124,7 @@ inline_block:
 struct_decl:
       type_modifier_list L_STRUCT L_IDENTIFIER ';'
     | type_modifier_list L_STRUCT L_IDENTIFIER
+      opt_base_struct '{' opt_member_list '}' ';'
 
 
 opt_base_struct:

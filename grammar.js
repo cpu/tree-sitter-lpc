@@ -38,6 +38,7 @@ module.exports = grammar({
     _definition: $ => choice(
       $.function_definition,
       $.global_var,
+      $.struct_definition,
       // TODO: other kinds of definitions
     ),
 
@@ -70,6 +71,31 @@ module.exports = grammar({
     opt_default_value: $ => seq(
       '=',
       $._expression,
+    ),
+
+    struct_definition: $ => seq(
+      field('modifiers', repeat($.type_modifier)),
+      'struct',
+      field('name', $.identifier),
+      field('definition', optional($.struct_member_list)),
+      ';'
+    ),
+
+    struct_member_list: $ => seq(
+      field('base_struct', optional(seq(
+        '(',
+        $.identifier,
+        ')'
+      ))),
+      '{',
+      repeat($.struct_member),
+      '}',
+    ),
+
+    struct_member: $ => seq(
+      field('type', $.non_void_type),
+      field('name', $.identifier),
+      ';'
     ),
 
       // catch
@@ -398,7 +424,10 @@ module.exports = grammar({
       // TODO: handle object w/ optional simple_string_constant 
       "lwobject",
       // TODO: handle lwobject w/ optional simple_string_constant 
-      "struct",
+      seq(
+        "struct",
+        $.identifier
+      ),
       seq(
         $._single_non_void_type,
         "*"
