@@ -19,7 +19,8 @@ int z = y();
         (number_literal))))
   (global_var
     (non_void_type)
-    (identifier)
-    (assignment_operator)
-    (function_call
-      (identifier))))
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (function_call
+        (identifier)))))

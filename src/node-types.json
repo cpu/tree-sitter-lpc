@@ -621,56 +621,6 @@
     "type": "global_var",
     "named": true,
     "fields": {
-      "initial_val": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "assignment_expression",
-            "named": true
-          },
-          {
-            "type": "bytes_literal",
-            "named": true
-          },
-          {
-            "type": "char_literal",
-            "named": true
-          },
-          {
-            "type": "concatenated_bytes_string",
-            "named": true
-          },
-          {
-            "type": "concatenated_string",
-            "named": true
-          },
-          {
-            "type": "conditional_expression",
-            "named": true
-          },
-          {
-            "type": "function_call",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "inline_func",
-            "named": true
-          },
-          {
-            "type": "number_literal",
-            "named": true
-          },
-          {
-            "type": "string_literal",
-            "named": true
-          }
-        ]
-      },
       "modifiers": {
         "multiple": true,
         "required": false,
@@ -687,16 +637,6 @@
         "types": [
           {
             "type": "identifier",
-            "named": true
-          }
-        ]
-      },
-      "operator": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "assignment_operator",
             "named": true
           }
         ]
@@ -725,47 +665,11 @@
           "named": true
         },
         {
-          "type": "bytes_literal",
-          "named": true
-        },
-        {
-          "type": "char_literal",
-          "named": true
-        },
-        {
-          "type": "concatenated_bytes_string",
-          "named": true
-        },
-        {
-          "type": "concatenated_string",
-          "named": true
-        },
-        {
-          "type": "conditional_expression",
-          "named": true
-        },
-        {
-          "type": "function_call",
-          "named": true
-        },
-        {
           "type": "identifier",
           "named": true
         },
         {
-          "type": "inline_func",
-          "named": true
-        },
-        {
           "type": "local_var",
-          "named": true
-        },
-        {
-          "type": "number_literal",
-          "named": true
-        },
-        {
-          "type": "string_literal",
           "named": true
         }
       ]
@@ -819,72 +723,12 @@
     "type": "local_var",
     "named": true,
     "fields": {
-      "initial_val": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "assignment_expression",
-            "named": true
-          },
-          {
-            "type": "bytes_literal",
-            "named": true
-          },
-          {
-            "type": "char_literal",
-            "named": true
-          },
-          {
-            "type": "concatenated_bytes_string",
-            "named": true
-          },
-          {
-            "type": "concatenated_string",
-            "named": true
-          },
-          {
-            "type": "conditional_expression",
-            "named": true
-          },
-          {
-            "type": "function_call",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "inline_func",
-            "named": true
-          },
-          {
-            "type": "number_literal",
-            "named": true
-          },
-          {
-            "type": "string_literal",
-            "named": true
-          }
-        ]
-      },
       "name": {
         "multiple": false,
         "required": false,
         "types": [
           {
             "type": "identifier",
-            "named": true
-          }
-        ]
-      },
-      "operator": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "assignment_operator",
             "named": true
           }
         ]
@@ -913,47 +757,11 @@
           "named": true
         },
         {
-          "type": "bytes_literal",
-          "named": true
-        },
-        {
-          "type": "char_literal",
-          "named": true
-        },
-        {
-          "type": "concatenated_bytes_string",
-          "named": true
-        },
-        {
-          "type": "concatenated_string",
-          "named": true
-        },
-        {
-          "type": "conditional_expression",
-          "named": true
-        },
-        {
-          "type": "function_call",
-          "named": true
-        },
-        {
           "type": "identifier",
           "named": true
         },
         {
-          "type": "inline_func",
-          "named": true
-        },
-        {
           "type": "local_var",
-          "named": true
-        },
-        {
-          "type": "number_literal",
-          "named": true
-        },
-        {
-          "type": "string_literal",
           "named": true
         }
       ]

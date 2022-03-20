@@ -13,22 +13,25 @@ string yyy = "hello"
 (source_file
   (global_var
     (non_void_type)
-    (identifier)
-    (assignment_operator)
-    (string_literal))
-  (global_var
-    (non_void_type)
-    (identifier)
-    (assignment_operator)
-    (concatenated_string
-      (string_literal)
-      (string_literal)
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
       (string_literal)))
   (global_var
     (non_void_type)
-    (identifier)
-    (assignment_operator)
-    (concatenated_string
-      (string_literal)
-      (string_literal)
-      (string_literal))))
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (concatenated_string
+        (string_literal)
+        (string_literal)
+        (string_literal))))
+  (global_var
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (concatenated_string
+        (string_literal)
+        (string_literal)
+        (string_literal)))))

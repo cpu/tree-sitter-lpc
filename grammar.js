@@ -181,7 +181,6 @@ module.exports = grammar({
         '||='
     ),
 
-    // TODO: Need to think about comma operator somewhere...
     assignment_expression: $ => prec.right(PREC.ASSIGNMENT, seq(
       field('left', $._lvalue),
       field('operator', $.assignment_operator),
@@ -308,9 +307,7 @@ module.exports = grammar({
         seq(
           field('modifiers', repeat($.type_modifier)),
           field('type', $._basic_type),
-          field('name', $.identifier),
-          field('operator', $.assignment_operator),
-          field('initial_val', $._expression),
+          $.assignment_expression,
         ),
         // Global name comma list, no assignment.
         seq(
@@ -324,9 +321,7 @@ module.exports = grammar({
           $.local_var,
           ',',
           repeat('*'),
-          $.identifier,
-          field('operator', $.assignment_operator),
-          $._expression,
+          $.assignment_expression,
         ),
       ),
       ';',
@@ -341,9 +336,7 @@ module.exports = grammar({
       // Local name, w/ assignment.
       seq(
         field('type', $._basic_type),
-        field('name', $.identifier),
-        field('operator', $.assignment_operator),
-        field('initial_val', $._expression),
+        $.assignment_expression,
       ),
       // Local name comma list, no assignment.
       seq(
@@ -357,21 +350,13 @@ module.exports = grammar({
         $.local_var,
         ',',
         repeat('*'),
-        $.identifier,
-        field('operator', $.assignment_operator),
-        $._expression,
+        $.assignment_expression,
       ),
     ),
 
     return_statement: $ => seq(
       'return',
       optional($._comma_expr),
-    ),
-
-    assignment_statement: $=> seq(
-      $.identifier,
-      $.assignment_expression,
-      ';'
     ),
 
     type_modifier: $ => choice(

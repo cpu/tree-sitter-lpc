@@ -17,13 +17,15 @@ x() {
     (block
       (local_var
         (non_void_type)
-        (identifier)
-        (assignment_operator)
-        (number_literal))
+        (assignment_expression
+          (identifier)
+          (assignment_operator)
+          (number_literal)))
       (local_var
         (non_void_type)
-        (identifier)
-        (assignment_operator)
-        (identifier))
+        (assignment_expression
+          (identifier)
+          (assignment_operator)
+          (identifier)))
       (return_statement
         (identifier)))))

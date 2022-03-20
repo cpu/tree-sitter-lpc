@@ -23,16 +23,17 @@ closure x(int a) {
     (block
       (local_var
         (non_void_type)
-        (identifier)
-        (assignment_operator)
-        (inline_func
-          (non_void_type)
-          (parameter_list
-            (parameter
-              (non_void_type)
-              (identifier)))
-          (block
-            (return_statement
-              (identifier)))))
+        (assignment_expression
+          (identifier)
+          (assignment_operator)
+          (inline_func
+            (non_void_type)
+            (parameter_list
+              (parameter
+                (non_void_type)
+                (identifier)))
+            (block
+              (return_statement
+                (identifier))))))
       (return_statement
         (identifier)))))

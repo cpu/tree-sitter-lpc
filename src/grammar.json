@@ -1304,28 +1304,8 @@
                   }
                 },
                 {
-                  "type": "FIELD",
-                  "name": "name",
-                  "content": {
-                    "type": "SYMBOL",
-                    "name": "identifier"
-                  }
-                },
-                {
-                  "type": "FIELD",
-                  "name": "operator",
-                  "content": {
-                    "type": "SYMBOL",
-                    "name": "assignment_operator"
-                  }
-                },
-                {
-                  "type": "FIELD",
-                  "name": "initial_val",
-                  "content": {
-                    "type": "SYMBOL",
-                    "name": "_expression"
-                  }
+                  "type": "SYMBOL",
+                  "name": "assignment_expression"
                 }
               ]
             },
@@ -1373,19 +1353,7 @@
                 },
                 {
                   "type": "SYMBOL",
-                  "name": "identifier"
-                },
-                {
-                  "type": "FIELD",
-                  "name": "operator",
-                  "content": {
-                    "type": "SYMBOL",
-                    "name": "assignment_operator"
-                  }
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_expression"
+                  "name": "assignment_expression"
                 }
               ]
             }
@@ -1433,28 +1401,8 @@
               }
             },
             {
-              "type": "FIELD",
-              "name": "name",
-              "content": {
-                "type": "SYMBOL",
-                "name": "identifier"
-              }
-            },
-            {
-              "type": "FIELD",
-              "name": "operator",
-              "content": {
-                "type": "SYMBOL",
-                "name": "assignment_operator"
-              }
-            },
-            {
-              "type": "FIELD",
-              "name": "initial_val",
-              "content": {
-                "type": "SYMBOL",
-                "name": "_expression"
-              }
+              "type": "SYMBOL",
+              "name": "assignment_expression"
             }
           ]
         },
@@ -1502,19 +1450,7 @@
             },
             {
               "type": "SYMBOL",
-              "name": "identifier"
-            },
-            {
-              "type": "FIELD",
-              "name": "operator",
-              "content": {
-                "type": "SYMBOL",
-                "name": "assignment_operator"
-              }
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_expression"
+              "name": "assignment_expression"
             }
           ]
         }
@@ -1538,23 +1474,6 @@
               "type": "BLANK"
             }
           ]
-        }
-      ]
-    },
-    "assignment_statement": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "identifier"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "assignment_expression"
-        },
-        {
-          "type": "STRING",
-          "value": ";"
         }
       ]
     },

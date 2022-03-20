@@ -31,9 +31,10 @@ mixed foo = x(10, somearr...);
     (identifier))
   (global_var
     (non_void_type)
-    (identifier)
-    (assignment_operator)
-    (function_call
+    (assignment_expression
       (identifier)
-      (number_literal)
-      (identifier))))
+      (assignment_operator)
+      (function_call
+        (identifier)
+        (number_literal)
+        (identifier)))))

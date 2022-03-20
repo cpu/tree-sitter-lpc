@@ -15,25 +15,28 @@ int w =  y ? 0x10 : x;
     (identifier))
   (global_var
     (non_void_type)
-    (identifier)
-    (assignment_operator)
-    (conditional_expression
+    (assignment_expression
       (identifier)
-      (number_literal)
-      (number_literal)))
+      (assignment_operator)
+      (conditional_expression
+        (identifier)
+        (number_literal)
+        (number_literal))))
   (global_var
     (non_void_type)
-    (identifier)
-    (assignment_operator)
-    (conditional_expression
+    (assignment_expression
       (identifier)
-      (identifier)
-      (identifier)))
+      (assignment_operator)
+      (conditional_expression
+        (identifier)
+        (identifier)
+        (identifier))))
   (global_var
     (non_void_type)
-    (identifier)
-    (assignment_operator)
-    (conditional_expression
+    (assignment_expression
       (identifier)
-      (number_literal)
-      (identifier))))
+      (assignment_operator)
+      (conditional_expression
+        (identifier)
+        (number_literal)
+        (identifier)))))

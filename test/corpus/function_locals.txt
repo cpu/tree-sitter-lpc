@@ -29,15 +29,17 @@ x() {
       (comment)
       (local_var
         (non_void_type)
-        (identifier)
-        (assignment_operator)
-        (number_literal))
+        (assignment_expression
+          (identifier)
+          (assignment_operator)
+          (number_literal)))
       (comment)
       (local_var
         (non_void_type)
-        (identifier)
-        (assignment_operator)
-        (string_literal))
+        (assignment_expression
+          (identifier)
+          (assignment_operator)
+          (string_literal)))
       (comment)
       (local_var
         (local_var
@@ -52,9 +54,11 @@ x() {
           (local_var
             (non_void_type)
             (identifier))
+          (assignment_expression
+            (identifier)
+            (assignment_operator)
+            (string_literal)))
+        (assignment_expression
           (identifier)
           (assignment_operator)
-          (string_literal))
-        (identifier)
-        (assignment_operator)
-        (string_literal)))))
+          (string_literal))))))

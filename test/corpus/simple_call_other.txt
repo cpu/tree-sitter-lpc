@@ -9,9 +9,10 @@ int x2 = x->fun();
 (source_file
   (global_var
     (non_void_type)
-    (identifier)
-    (assignment_operator)
-    (function_call
+    (assignment_expression
       (identifier)
-      (member_operator)
-      (identifier))))
+      (assignment_operator)
+      (function_call
+        (identifier)
+        (member_operator)
+        (identifier)))))

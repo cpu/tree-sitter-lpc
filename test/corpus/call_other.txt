@@ -23,122 +23,136 @@ int y4 = y.(y)(420, 0x420, 0x420);
 (source_file
   (global_var
     (non_void_type)
-    (identifier)
-    (assignment_operator)
-    (number_literal))
-  (global_var
-    (non_void_type)
-    (identifier)
-    (assignment_operator)
-    (function_call
+    (assignment_expression
       (identifier)
-      (member_operator)
-      (identifier)))
-  (global_var
-    (non_void_type)
-    (identifier)
-    (assignment_operator)
-    (function_call
-      (identifier)
-      (member_operator)
-      (identifier)
-      (number_literal)
+      (assignment_operator)
       (number_literal)))
   (global_var
     (non_void_type)
-    (identifier)
-    (assignment_operator)
-    (function_call
+    (assignment_expression
       (identifier)
-      (member_operator)
-      (string_literal)))
+      (assignment_operator)
+      (function_call
+        (identifier)
+        (member_operator)
+        (identifier))))
   (global_var
     (non_void_type)
-    (identifier)
-    (assignment_operator)
-    (function_call
+    (assignment_expression
       (identifier)
-      (member_operator)
-      (string_literal)
-      (number_literal)
-      (number_literal)
+      (assignment_operator)
+      (function_call
+        (identifier)
+        (member_operator)
+        (identifier)
+        (number_literal)
+        (number_literal))))
+  (global_var
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (function_call
+        (identifier)
+        (member_operator)
+        (string_literal))))
+  (global_var
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (function_call
+        (identifier)
+        (member_operator)
+        (string_literal)
+        (number_literal)
+        (number_literal)
+        (number_literal))))
+  (global_var
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (function_call
+        (identifier)
+        (member_operator)
+        (identifier))))
+  (global_var
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (function_call
+        (identifier)
+        (member_operator)
+        (identifier)
+        (number_literal)
+        (number_literal)
+        (number_literal)
+        (string_literal))))
+  (global_var
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
       (number_literal)))
   (global_var
     (non_void_type)
-    (identifier)
-    (assignment_operator)
-    (function_call
+    (assignment_expression
       (identifier)
-      (member_operator)
-      (identifier)))
+      (assignment_operator)
+      (function_call
+        (identifier)
+        (member_operator)
+        (identifier))))
   (global_var
     (non_void_type)
-    (identifier)
-    (assignment_operator)
-    (function_call
+    (assignment_expression
       (identifier)
-      (member_operator)
-      (identifier)
-      (number_literal)
-      (number_literal)
-      (number_literal)
-      (string_literal)))
+      (assignment_operator)
+      (function_call
+        (identifier)
+        (member_operator)
+        (identifier)
+        (number_literal)
+        (string_literal))))
   (global_var
     (non_void_type)
-    (identifier)
-    (assignment_operator)
-    (number_literal))
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (function_call
+        (identifier)
+        (member_operator)
+        (string_literal))))
   (global_var
     (non_void_type)
-    (identifier)
-    (assignment_operator)
-    (function_call
+    (assignment_expression
       (identifier)
-      (member_operator)
-      (identifier)))
+      (assignment_operator)
+      (function_call
+        (identifier)
+        (member_operator)
+        (string_literal)
+        (number_literal))))
   (global_var
     (non_void_type)
-    (identifier)
-    (assignment_operator)
-    (function_call
+    (assignment_expression
       (identifier)
-      (member_operator)
-      (identifier)
-      (number_literal)
-      (string_literal)))
+      (assignment_operator)
+      (function_call
+        (identifier)
+        (member_operator)
+        (identifier))))
   (global_var
     (non_void_type)
-    (identifier)
-    (assignment_operator)
-    (function_call
+    (assignment_expression
       (identifier)
-      (member_operator)
-      (string_literal)))
-  (global_var
-    (non_void_type)
-    (identifier)
-    (assignment_operator)
-    (function_call
-      (identifier)
-      (member_operator)
-      (string_literal)
-      (number_literal)))
-  (global_var
-    (non_void_type)
-    (identifier)
-    (assignment_operator)
-    (function_call
-      (identifier)
-      (member_operator)
-      (identifier)))
-  (global_var
-    (non_void_type)
-    (identifier)
-    (assignment_operator)
-    (function_call
-      (identifier)
-      (member_operator)
-      (identifier)
-      (number_literal)
-      (number_literal)
-      (number_literal))))
+      (assignment_operator)
+      (function_call
+        (identifier)
+        (member_operator)
+        (identifier)
+        (number_literal)
+        (number_literal)
+        (number_literal)))))
