@@ -1,0 +1,56 @@
+================================================================================
+Function Locals
+================================================================================
+
+x() {
+  // Local name no assignment
+  closure a;
+  // Local name w/ assignment
+  int b = 0;
+  // Local name w/ assignment
+  string c = "hello";
+  // Local name list, no assignment.
+  string e, f, g;
+  // Local name list, assignment.
+  string e, f = "goodbye", g = "hello";
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_definition
+    (identifier)
+    (parameter_list)
+    (block
+      (comment)
+      (local_var
+        (non_void_type)
+        (identifier))
+      (comment)
+      (local_var
+        (non_void_type)
+        (identifier)
+        (number_literal))
+      (comment)
+      (local_var
+        (non_void_type)
+        (identifier)
+        (string_literal))
+      (comment)
+      (local_var
+        (local_var
+          (local_var
+            (non_void_type)
+            (identifier))
+          (identifier))
+        (identifier))
+      (comment)
+      (local_var
+        (local_var
+          (local_var
+            (non_void_type)
+            (identifier))
+          (identifier)
+          (string_literal))
+        (identifier)
+        (string_literal)))))
