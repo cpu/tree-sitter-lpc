@@ -27,6 +27,10 @@
         {
           "type": "SYMBOL",
           "name": "inheritance"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "default_visibility"
         }
       ]
     },
@@ -346,27 +350,23 @@
       "members": [
         {
           "type": "FIELD",
-          "name": "modifiers",
-          "content": {
-            "type": "REPEAT",
-            "content": {
-              "type": "SYMBOL",
-              "name": "type_modifier"
-            }
-          }
-        },
-        {
-          "type": "FIELD",
           "name": "qualifier",
           "content": {
             "type": "CHOICE",
             "members": [
               {
-                "type": "SYMBOL",
-                "name": "inheritance_qualifier"
+                "type": "REPEAT",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "scoped_inheritance_qualifier"
+                }
               },
               {
-                "type": "BLANK"
+                "type": "REPEAT",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "type_modifier"
+                }
               }
             ]
           }
@@ -400,7 +400,36 @@
         }
       ]
     },
-    "inheritance_qualifier": {
+    "scoped_inheritance_qualifier": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "modifiers",
+          "content": {
+            "type": "REPEAT",
+            "content": {
+              "type": "SYMBOL",
+              "name": "type_modifier"
+            }
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "scope",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "inheritance_scope"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "inheritance_scope": {
       "type": "CHOICE",
       "members": [
         {
@@ -419,6 +448,42 @@
         {
           "type": "STRING",
           "value": "virtual"
+        }
+      ]
+    },
+    "default_visibility": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "default"
+        },
+        {
+          "type": "FIELD",
+          "name": "qualifier",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "REPEAT",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "scoped_inheritance_qualifier"
+                }
+              },
+              {
+                "type": "REPEAT",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "type_modifier"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ";"
         }
       ]
     },

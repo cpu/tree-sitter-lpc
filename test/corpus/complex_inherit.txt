@@ -1,9 +1,8 @@
 ================================================================================
-Inherits w/ Modifiers and Qualifier and Virtual
+Complex Inherit
 ================================================================================
 
-private functions virtual inherit "foo.c";
-public variables virtual inherit "foo2.c";
+private functions nosave variables inherit "complex/room";
 
 --------------------------------------------------------------------------------
 
@@ -12,11 +11,7 @@ public variables virtual inherit "foo2.c";
     (scoped_inheritance_qualifier
       (type_modifier)
       (inheritance_scope))
-    (inheritance_modifier)
-    (string_literal))
-  (inheritance
     (scoped_inheritance_qualifier
       (type_modifier)
       (inheritance_scope))
-    (inheritance_modifier)
     (string_literal)))

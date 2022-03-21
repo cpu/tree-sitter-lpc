@@ -1,13 +1,11 @@
 ================================================================================
-Inherit Functions
+Simple Default Visibility
 ================================================================================
 
-functions inherit "whatevs";
+default private;
 
 --------------------------------------------------------------------------------
 
 (source_file
-  (inheritance
-    (scoped_inheritance_qualifier
-      (inheritance_scope))
-    (string_literal)))
+  (default_visibility
+    (type_modifier)))

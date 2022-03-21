@@ -9,10 +9,12 @@ public variables inherit "foo2.c";
 
 (source_file
   (inheritance
-    (type_modifier)
-    (inheritance_qualifier)
+    (scoped_inheritance_qualifier
+      (type_modifier)
+      (inheritance_scope))
     (string_literal))
   (inheritance
-    (type_modifier)
-    (inheritance_qualifier)
+    (scoped_inheritance_qualifier
+      (type_modifier)
+      (inheritance_scope))
     (string_literal)))

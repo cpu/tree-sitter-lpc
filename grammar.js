@@ -40,7 +40,7 @@ module.exports = grammar({
       $.global_var,
       $.struct_definition,
       $.inheritance,
-      // default visibility
+      $.default_visibility,
     ),
 
     function_definition: $ => seq(
@@ -100,21 +100,37 @@ module.exports = grammar({
     ),
 
     inheritance: $ => seq(
-      field('modifiers', repeat($.type_modifier)),
-      field('qualifier', optional($.inheritance_qualifier)),
+      field('qualifier', choice(
+        repeat($.scoped_inheritance_qualifier),
+        repeat($.type_modifier),
+      )),
       field('inheritance_modifiers', repeat($.inheritance_modifier)),
       'inherit',
       field('inherit_path', $.string_literal),
       ';',
     ),
 
-    inheritance_qualifier: $ => choice(
+    scoped_inheritance_qualifier: $ => seq(
+      field('modifiers', repeat($.type_modifier)),
+      field('scope', choice($.inheritance_scope)),
+    ),
+
+    inheritance_scope: $ => choice(
       'variables',
       'functions',
     ),
 
     inheritance_modifier: $ => choice(
       'virtual',
+    ),
+
+    default_visibility: $ => seq(
+      'default',
+      field('qualifier', choice(
+        repeat($.scoped_inheritance_qualifier),
+        repeat($.type_modifier),
+      )),
+      ';',
     ),
 
 

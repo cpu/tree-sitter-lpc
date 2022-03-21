@@ -8,5 +8,6 @@ variables inherit "whatevs";
 
 (source_file
   (inheritance
-    (inheritance_qualifier)
+    (scoped_inheritance_qualifier
+      (inheritance_scope))
     (string_literal)))
