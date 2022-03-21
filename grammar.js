@@ -160,6 +160,7 @@ module.exports = grammar({
       $.assignment_expression,
       $.function_call,
       $.inline_func,
+      $.inline_closure,
       $.identifier,
       $.number_literal,
       $.string_literal,
@@ -175,6 +176,13 @@ module.exports = grammar({
       field('type', optional($._basic_type)),
       field('arguments', $.parameter_list),
       field('body', $._function_body),
+    )),
+
+    inline_closure: $ => prec(PREC.INLINE, seq(
+      '(:',
+      repeat($._statement),
+      commaSep($._expression),
+      ':)',
     )),
 
     // TODO: Consider :: syntax for inherited functions.

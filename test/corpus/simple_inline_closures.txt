@@ -1,0 +1,40 @@
+================================================================================
+Simple Inline Closures
+================================================================================
+
+closure c = (: :);
+closure c2 = (: 1 :);
+closure c3 = (: $1 :);
+closure c4 = (: return $1; :);
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (global_var
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (inline_closure)))
+  (global_var
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (inline_closure
+        (number_literal))))
+  (global_var
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (inline_closure
+        (identifier))))
+  (global_var
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (inline_closure
+        (return_statement
+          (identifier))))))

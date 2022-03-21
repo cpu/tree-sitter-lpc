@@ -1,0 +1,53 @@
+================================================================================
+Simple Inline Closures
+================================================================================
+
+void x() {
+  closure c = (: printf("%Q", $1); $1 +=1; 10 :);
+  mixed c2 = (:
+    int y = 100;
+    closure j = (: this_player():); :);
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_definition
+    (identifier)
+    (parameter_list)
+    (block
+      (local_var
+        (non_void_type)
+        (assignment_expression
+          (identifier)
+          (assignment_operator)
+          (inline_closure
+            (function_call
+              (identifier)
+              (string_literal)
+              (identifier))
+            (assignment_expression
+              (identifier)
+              (assignment_operator)
+              (number_literal))
+            (number_literal))))
+      (local_var
+        (non_void_type)
+        (assignment_expression
+          (identifier)
+          (assignment_operator)
+          (inline_closure
+            (local_var
+              (non_void_type)
+              (assignment_expression
+                (identifier)
+                (assignment_operator)
+                (number_literal)))
+            (local_var
+              (non_void_type)
+              (assignment_expression
+                (identifier)
+                (assignment_operator)
+                (inline_closure
+                  (function_call
+                    (identifier)))))))))))
