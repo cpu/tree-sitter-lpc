@@ -718,11 +718,26 @@
             "named": true
           }
         ]
+      },
+      "qualifier": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "inheritance_qualifier",
+            "named": true
+          }
+        ]
       }
     }
   },
   {
     "type": "inheritance_modifier",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "inheritance_qualifier",
     "named": true,
     "fields": {}
   },
@@ -1291,6 +1306,10 @@
     "named": false
   },
   {
+    "type": "functions",
+    "named": false
+  },
+  {
     "type": "identifier",
     "named": true
   },
@@ -1368,6 +1387,10 @@
   },
   {
     "type": "varargs",
+    "named": false
+  },
+  {
+    "type": "variables",
     "named": false
   },
   {

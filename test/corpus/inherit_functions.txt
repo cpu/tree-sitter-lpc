@@ -1,12 +1,12 @@
 ================================================================================
-Virtual Inherit
+Inherit Functions
 ================================================================================
 
-virtual inherit "foo.c";
+functions inherit "whatevs";
 
 --------------------------------------------------------------------------------
 
 (source_file
   (inheritance
-    (inheritance_modifier)
+    (inheritance_qualifier)
     (string_literal)))

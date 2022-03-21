@@ -99,13 +99,18 @@ module.exports = grammar({
       ';'
     ),
 
-    // TODO(XXX): I'm not sure this is quite right for more complex instances.
     inheritance: $ => seq(
-      field('inheritance_modifiers', repeat($.inheritance_modifier)),
       field('modifiers', repeat($.type_modifier)),
+      field('qualifier', optional($.inheritance_qualifier)),
+      field('inheritance_modifiers', repeat($.inheritance_modifier)),
       'inherit',
       field('inherit_path', $.string_literal),
       ';',
+    ),
+
+    inheritance_qualifier: $ => choice(
+      'variables',
+      'functions',
     ),
 
     inheritance_modifier: $ => choice(

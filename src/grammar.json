@@ -346,23 +346,39 @@
       "members": [
         {
           "type": "FIELD",
-          "name": "inheritance_modifiers",
-          "content": {
-            "type": "REPEAT",
-            "content": {
-              "type": "SYMBOL",
-              "name": "inheritance_modifier"
-            }
-          }
-        },
-        {
-          "type": "FIELD",
           "name": "modifiers",
           "content": {
             "type": "REPEAT",
             "content": {
               "type": "SYMBOL",
               "name": "type_modifier"
+            }
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "qualifier",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "inheritance_qualifier"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "inheritance_modifiers",
+          "content": {
+            "type": "REPEAT",
+            "content": {
+              "type": "SYMBOL",
+              "name": "inheritance_modifier"
             }
           }
         },
@@ -381,6 +397,19 @@
         {
           "type": "STRING",
           "value": ";"
+        }
+      ]
+    },
+    "inheritance_qualifier": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "variables"
+        },
+        {
+          "type": "STRING",
+          "value": "functions"
         }
       ]
     },

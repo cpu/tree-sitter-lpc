@@ -1,12 +1,18 @@
 ================================================================================
-Virtual Inherit
+Inherits w/ Modifiers and Qualifier
 ================================================================================
 
-virtual inherit "foo.c";
+private functions inherit "foo.c";
+public variables inherit "foo2.c";
 
 --------------------------------------------------------------------------------
 
 (source_file
   (inheritance
-    (inheritance_modifier)
+    (type_modifier)
+    (inheritance_qualifier)
+    (string_literal))
+  (inheritance
+    (type_modifier)
+    (inheritance_qualifier)
     (string_literal)))
