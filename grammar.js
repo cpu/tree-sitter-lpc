@@ -39,7 +39,8 @@ module.exports = grammar({
       $.function_definition,
       $.global_var,
       $.struct_definition,
-      // TODO: other kinds of definitions
+      $.inheritance,
+      // default visibility
     ),
 
     function_definition: $ => seq(
@@ -97,6 +98,20 @@ module.exports = grammar({
       field('name', $.identifier),
       ';'
     ),
+
+    // TODO(XXX): I'm not sure this is quite right for more complex instances.
+    inheritance: $ => seq(
+      field('inheritance_modifiers', repeat($.inheritance_modifier)),
+      field('modifiers', repeat($.type_modifier)),
+      'inherit',
+      field('inherit_path', $.string_literal),
+      ';',
+    ),
+
+    inheritance_modifier: $ => choice(
+      'virtual',
+    ),
+
 
       // catch
       // L_STRING

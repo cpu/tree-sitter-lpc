@@ -23,6 +23,10 @@
         {
           "type": "SYMBOL",
           "name": "struct_definition"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "inheritance"
         }
       ]
     },
@@ -334,6 +338,58 @@
         {
           "type": "STRING",
           "value": ";"
+        }
+      ]
+    },
+    "inheritance": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "inheritance_modifiers",
+          "content": {
+            "type": "REPEAT",
+            "content": {
+              "type": "SYMBOL",
+              "name": "inheritance_modifier"
+            }
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "modifiers",
+          "content": {
+            "type": "REPEAT",
+            "content": {
+              "type": "SYMBOL",
+              "name": "type_modifier"
+            }
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "inherit"
+        },
+        {
+          "type": "FIELD",
+          "name": "inherit_path",
+          "content": {
+            "type": "SYMBOL",
+            "name": "string_literal"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ";"
+        }
+      ]
+    },
+    "inheritance_modifier": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "virtual"
         }
       ]
     },
