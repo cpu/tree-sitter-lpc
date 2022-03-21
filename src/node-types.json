@@ -85,6 +85,11 @@
     "fields": {}
   },
   {
+    "type": "async_modifier",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "block",
     "named": true,
     "fields": {},
@@ -624,8 +629,8 @@
         "required": false,
         "types": [
           {
-            "type": "async",
-            "named": false
+            "type": "async_modifier",
+            "named": true
           }
         ]
       },
@@ -868,6 +873,16 @@
         "types": [
           {
             "type": "parameter_list",
+            "named": true
+          }
+        ]
+      },
+      "async": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "async_modifier",
             "named": true
           }
         ]

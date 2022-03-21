@@ -44,7 +44,7 @@ module.exports = grammar({
     ),
 
     function_definition: $ => seq(
-      field('async', optional('async')),
+      field('async', optional($.async_modifier)),
       field('modifiers', repeat($.type_modifier)),
       field('type', optional($._basic_type)),
       field('name', $.identifier),
@@ -170,8 +170,12 @@ module.exports = grammar({
       $.char_literal,
     ),
 
-    // TODO(XXX): consider async
+    async_modifier: $ => seq(
+      'async'
+    ),
+
     inline_func: $ => prec(PREC.INLINE, seq(
+      field('async', optional($.async_modifier)),
       'function',
       field('type', optional($._basic_type)),
       field('arguments', $.parameter_list),

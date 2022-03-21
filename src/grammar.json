@@ -44,8 +44,8 @@
             "type": "CHOICE",
             "members": [
               {
-                "type": "STRING",
-                "value": "async"
+                "type": "SYMBOL",
+                "name": "async_modifier"
               },
               {
                 "type": "BLANK"
@@ -540,12 +540,37 @@
         }
       ]
     },
+    "async_modifier": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "async"
+        }
+      ]
+    },
     "inline_func": {
       "type": "PREC",
       "value": 13,
       "content": {
         "type": "SEQ",
         "members": [
+          {
+            "type": "FIELD",
+            "name": "async",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "async_modifier"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          },
           {
             "type": "STRING",
             "value": "function"

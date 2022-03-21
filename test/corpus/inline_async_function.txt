@@ -1,0 +1,40 @@
+================================================================================
+Inline Async Function
+================================================================================
+
+closure x(int a) {
+  closure y = async function int (int z) {
+    return z;
+  };
+
+  return y;
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_definition
+    (non_void_type)
+    (identifier)
+    (parameter_list
+      (parameter
+        (non_void_type)
+        (identifier)))
+    (block
+      (local_var
+        (non_void_type)
+        (assignment_expression
+          (identifier)
+          (assignment_operator)
+          (inline_func
+            (async_modifier)
+            (non_void_type)
+            (parameter_list
+              (parameter
+                (non_void_type)
+                (identifier)))
+            (block
+              (return_statement
+                (identifier))))))
+      (return_statement
+        (identifier)))))
