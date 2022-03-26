@@ -374,11 +374,12 @@ module.exports = grammar({
 
     _statement: $ => choice(
       seq($._comma_expr, ';'),
-      // while | do | for | foreach | switch
+      // do | for | foreach | switch
       seq($.local_var, ';'),
       seq($.return_statement, ';'),
       $.if_statement,
       $.while_statement,
+      $.do_statement,
       $.block,
       ';',
       // break, continue
@@ -409,12 +410,22 @@ module.exports = grammar({
       ),
     )),
 
-    while_statement: $=> seq(
+    while_statement: $ => seq(
       'while',
       '(',
       field('condition', $._comma_expr),
       ')',
       field('consequence', $._statement),
+    ),
+
+    do_statement: $ => seq(
+      'do',
+      field('consequence', $._statement),
+      'while',
+      '(',
+      field('condition', $._comma_expr),
+      ')',
+      ';',
     ),
 
     global_var: $ => seq(
