@@ -521,7 +521,11 @@ module.exports = grammar({
 
     _foreach_expr: $=> choice(
       $._expression,
-      // TODO: range expression.
+      seq(
+        $._expression,
+        '..',
+        $._expression,
+      ),
     ),
 
     global_var: $ => seq(
