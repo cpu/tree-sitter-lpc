@@ -152,6 +152,7 @@ module.exports = grammar({
       $.conditional_expression,
       $.assignment_expression,
       $.binary_expression,
+      $.unary_expression,
       $.function_call,
       $.inline_func,
       $.inline_closure,
@@ -315,6 +316,11 @@ module.exports = grammar({
         ))
       }));
     },
+
+    unary_expression: $ => prec.left(PREC.UNARY, seq(
+      field('operator', choice('!', '~', '-')),
+      field('argument', $._expression)
+    )),
 
     char_literal: $ => seq(
       '\'',
