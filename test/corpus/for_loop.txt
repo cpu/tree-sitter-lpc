@@ -1,0 +1,42 @@
+================================================================================
+For Loop
+================================================================================
+
+x() {
+  // TODO: update with increment + compare!
+  for(int i = 0; i = i; i = 5) {
+    printf("ok!");
+    printf("ok!");
+  }
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_definition
+    (identifier)
+    (parameter_list)
+    (block
+      (comment)
+      (for_statement
+        (local_var
+          (non_void_type)
+          (assignment_expression
+            (identifier)
+            (assignment_operator)
+            (number_literal)))
+        (assignment_expression
+          (identifier)
+          (assignment_operator)
+          (identifier))
+        (assignment_expression
+          (identifier)
+          (assignment_operator)
+          (number_literal))
+        (block
+          (function_call
+            (identifier)
+            (string_literal))
+          (function_call
+            (identifier)
+            (string_literal)))))))

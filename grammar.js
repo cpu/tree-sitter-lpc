@@ -1,8 +1,8 @@
 // TODO(XXX): Better match to ld.
 const PREC = {
   PAREN_DECLARATOR: -10,
-  ASSIGNMENT: -1,
   CONDITIONAL: -2,
+  ASSIGNMENT: -1,
   DEFAULT: 0,
   LOGICAL_OR: 1,
   LOGICAL_AND: 2,
@@ -291,10 +291,10 @@ module.exports = grammar({
       '\''
     ),
 
-    concatenated_string: $ => seq(
+    concatenated_string: $ => prec(PREC.ADD, seq(
       $.string_literal,
       repeat1($.string_literal)
-    ),
+    )),
 
     string_literal: $ => seq(
       '"',
@@ -305,10 +305,10 @@ module.exports = grammar({
       '"',
     ),
 
-    concatenated_bytes_string: $ => seq(
+    concatenated_bytes_string: $ => prec(PREC.ADD, seq(
       $.bytes_literal,
       repeat1($.bytes_literal)
-    ),
+    )),
 
     bytes_literal: $ => seq(
       'b"',
@@ -374,12 +374,13 @@ module.exports = grammar({
 
     _statement: $ => choice(
       seq($._comma_expr, ';'),
-      // do | for | foreach | switch
+      // for | foreach | switch
       seq($.local_var, ';'),
       seq($.return_statement, ';'),
       $.if_statement,
       $.while_statement,
       $.do_statement,
+      $.for_statement,
       $.block,
       ';',
       // break, continue
@@ -426,6 +427,17 @@ module.exports = grammar({
       field('condition', $._comma_expr),
       ')',
       ';',
+    ),
+
+    for_statement: $ => seq(
+      'for',
+      '(',
+        optional($.local_var),
+        ';',
+        field('condition', optional($._expression)), ';',
+        field('update', optional($._comma_expr)),
+      ')',
+      $._statement
     ),
 
     global_var: $ => seq(
