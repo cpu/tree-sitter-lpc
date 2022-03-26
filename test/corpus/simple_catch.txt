@@ -1,0 +1,33 @@
+================================================================================
+Simple Catch
+================================================================================
+
+x() {
+  object obj;
+  string err;
+  err = catch(obj = clone_object("/foo/bar/baz"));
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_definition
+    (identifier)
+    (parameter_list)
+    (block
+      (local_var
+        (non_void_type)
+        (identifier))
+      (local_var
+        (non_void_type)
+        (identifier))
+      (ERROR
+        (identifier)
+        (assignment_operator)
+        (assignment_expression
+          (identifier)
+          (assignment_operator)
+          (function_call
+            (identifier)
+            (string_literal)))
+        (ERROR)))))

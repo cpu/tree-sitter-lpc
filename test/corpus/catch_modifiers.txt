@@ -1,0 +1,114 @@
+================================================================================
+Catch Modifiers
+================================================================================
+
+x() {
+  object obj;
+  string err;
+  err = catch(obj = clone_object("/foo/bar/baz"); nolog);
+  err = catch(obj = clone_object("/foo/bar/baz"); publish);
+  err = catch(obj = clone_object("/foo/bar/baz"); reserve 999999);
+  err = catch(obj = clone_object("/foo/bar/baz"); reserve foo());
+  err = catch(obj = clone_object("/foo/bar/baz"); publish; nolog);
+  err = catch(obj = clone_object("/foo/bar/baz"); publish; nolog);
+  err = catch(obj = clone_object("/foo/bar/baz"); publish; reserve 420; nolog);
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_definition
+    (identifier)
+    (parameter_list)
+    (block
+      (local_var
+        (non_void_type)
+        (identifier))
+      (local_var
+        (non_void_type)
+        (identifier))
+      (assignment_expression
+        (identifier)
+        (assignment_operator)
+        (catch_expr
+          (assignment_expression
+            (identifier)
+            (assignment_operator)
+            (function_call
+              (identifier)
+              (string_literal)))
+          (catch_modifier)))
+      (assignment_expression
+        (identifier)
+        (assignment_operator)
+        (catch_expr
+          (assignment_expression
+            (identifier)
+            (assignment_operator)
+            (function_call
+              (identifier)
+              (string_literal)))
+          (catch_modifier)))
+      (assignment_expression
+        (identifier)
+        (assignment_operator)
+        (catch_expr
+          (assignment_expression
+            (identifier)
+            (assignment_operator)
+            (function_call
+              (identifier)
+              (string_literal)))
+          (catch_modifier
+            (number_literal))))
+      (assignment_expression
+        (identifier)
+        (assignment_operator)
+        (catch_expr
+          (assignment_expression
+            (identifier)
+            (assignment_operator)
+            (function_call
+              (identifier)
+              (string_literal)))
+          (catch_modifier
+            (function_call
+              (identifier)))))
+      (assignment_expression
+        (identifier)
+        (assignment_operator)
+        (catch_expr
+          (assignment_expression
+            (identifier)
+            (assignment_operator)
+            (function_call
+              (identifier)
+              (string_literal)))
+          (catch_modifier)
+          (catch_modifier)))
+      (assignment_expression
+        (identifier)
+        (assignment_operator)
+        (catch_expr
+          (assignment_expression
+            (identifier)
+            (assignment_operator)
+            (function_call
+              (identifier)
+              (string_literal)))
+          (catch_modifier)
+          (catch_modifier)))
+      (assignment_expression
+        (identifier)
+        (assignment_operator)
+        (catch_expr
+          (assignment_expression
+            (identifier)
+            (assignment_operator)
+            (function_call
+              (identifier)
+              (string_literal)))
+          (catch_modifier)
+          (catch_modifier
+            (number_literal))
+          (catch_modifier))))))

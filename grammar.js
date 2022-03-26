@@ -161,6 +161,7 @@ module.exports = grammar({
       $.function_call,
       $.inline_func,
       $.inline_closure,
+      $.catch_expr,
       $.identifier,
       $.number_literal,
       $.string_literal,
@@ -197,6 +198,23 @@ module.exports = grammar({
       commaSep($._expression),
       ':)',
     )),
+
+    catch_expr: $ => prec(PREC.INLINE, seq(
+      'catch',
+      '(',
+      $._comma_expr,
+      seq(';', semicolonSep($.catch_modifier)),
+      ')',
+    )),
+
+    catch_modifier: $ => choice(
+      'nolog',
+      'publish',
+      seq(
+        'reserve',
+        $._expression,
+      ),
+    ),
 
     // TODO: Consider :: syntax for inherited functions.
     function_call: $ => prec(PREC.CALL, choice(
