@@ -153,6 +153,7 @@ module.exports = grammar({
       $.assignment_expression,
       $.binary_expression,
       $.unary_expression,
+      $.update_expression,
       $.function_call,
       $.inline_func,
       $.inline_closure,
@@ -321,6 +322,15 @@ module.exports = grammar({
       field('operator', choice('!', '~', '-')),
       field('argument', $._expression)
     )),
+
+    update_expression: $ => {
+      const argument = field('argument', $._expression);
+      const operator = field('operator', choice('--', '++'));
+      return prec.right(PREC.UNARY, choice(
+        seq(operator, argument),
+        seq(argument, operator),
+      ));
+    },
 
     char_literal: $ => seq(
       '\'',
