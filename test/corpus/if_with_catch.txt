@@ -12,4 +12,39 @@ x() {
 
 --------------------------------------------------------------------------------
 
-(source_file)
+(source_file
+  (function_definition
+    (identifier)
+    (parameter_list)
+    (block
+      (local_var
+        (local_var
+          (non_void_type)
+          (identifier))
+        (identifier))
+      (local_var
+        (non_void_type)
+        (identifier))
+      (if_statement
+        (assignment_expression
+          (identifier)
+          (assignment_operator)
+          (catch_expr
+            (assignment_expression
+              (identifier)
+              (assignment_operator)
+              (function_call
+                (identifier)
+                (string_literal)))
+            (assignment_expression
+              (identifier)
+              (assignment_operator)
+              (function_call
+                (identifier)
+                (string_literal)))
+            (catch_modifier)))
+        (function_call
+          (identifier)
+          (string_literal
+            (escape_sequence))
+          (identifier))))))
