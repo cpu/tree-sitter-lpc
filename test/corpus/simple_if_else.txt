@@ -1,0 +1,25 @@
+================================================================================
+Simple If Else Statement
+================================================================================
+
+x(int a) {
+  if(a) return 1;
+  else return 0;
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_definition
+    (identifier)
+    (parameter_list
+      (parameter
+        (non_void_type)
+        (identifier)))
+    (block
+      (if_statement
+        (identifier)
+        (return_statement
+          (number_literal))
+        (return_statement
+          (number_literal))))))

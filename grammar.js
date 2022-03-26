@@ -133,28 +133,21 @@ module.exports = grammar({
       ';',
     ),
 
-
-      // catch
-      // L_STRING
-      // L_BYTES L_BYTEs
-      // L_BYTES
-      // L_NUMBER
-      // L_CLOSURE
-      // L_SIMUL_EFUN_CLOSURE
-      // L_SYMBOL
-      // L_FLOAT
-      // weird stuff... 13139...
-      //   { comma_expr }
-      //   ({ expr_list }) array
-      //   L_QUOTED_AGGREGATE expr_list }}
-      //   ([ : expr0 ]) empty mapping
-      //   ([ m_expr_list ]) mapping 
-      //   (< identifier > opt_struct_init ) // sturct
-      // L_IDENTIFIER
-      // expr4 member_operator struct_member_name
-      // expr4 index_expr
-      // expr4 index_range
-      // expr4 [ expr0 , expr0 ]
+    // L_CLOSURE
+    // L_SIMUL_EFUN_CLOSURE
+    // L_SYMBOL
+    // L_FLOAT
+    // weird stuff... 13139...
+    //   { comma_expr }
+    //   ({ expr_list }) array
+    //   L_QUOTED_AGGREGATE expr_list }}
+    //   ([ : expr0 ]) empty mapping
+    //   ([ m_expr_list ]) mapping 
+    //   (< identifier > opt_struct_init ) // sturct
+    // expr4 member_operator struct_member_name
+    // expr4 index_expr
+    // expr4 index_range
+    // expr4 [ expr0 , expr0 ]
     _expression: $ => choice(
       $.conditional_expression,
       $.assignment_expression,
@@ -384,6 +377,7 @@ module.exports = grammar({
       // cond | while | do | for | foreach | switch
       seq($.local_var, ';'),
       seq($.return_statement, ';'),
+      $.if_statement,
       $.block,
       ';',
       // break, continue
@@ -396,6 +390,23 @@ module.exports = grammar({
         repeat1(seq(',', $._expression))
       ),
     ),
+
+    return_statement: $ => seq(
+      'return',
+      optional($._comma_expr),
+    ),
+
+    if_statement: $ => prec.right(seq(
+      'if',
+      '(',
+      field('condition', $._comma_expr),
+      ')',
+      field('consequence', $._statement),
+      optional(seq(
+        'else', 
+        field('alternative', $._statement))
+      ),
+    )),
 
     global_var: $ => seq(
       choice(
@@ -454,11 +465,6 @@ module.exports = grammar({
         repeat('*'),
         $.assignment_expression,
       ),
-    ),
-
-    return_statement: $ => seq(
-      'return',
-      optional($._comma_expr),
     ),
 
     type_modifier: $ => choice(
