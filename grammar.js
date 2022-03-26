@@ -151,6 +151,7 @@ module.exports = grammar({
     _expression: $ => choice(
       $.conditional_expression,
       $.assignment_expression,
+      $.binary_expression,
       $.function_call,
       $.inline_func,
       $.inline_closure,
@@ -281,6 +282,39 @@ module.exports = grammar({
       field('operator', $.assignment_operator),
       field('right', $._expression)
     )),
+
+    binary_expression: $ => {
+      const table = [
+        ['+', PREC.ADD],
+        ['-', PREC.ADD],
+        ['*', PREC.MULTIPLY],
+        ['/', PREC.MULTIPLY],
+        ['%', PREC.MULTIPLY],
+        ['||', PREC.LOGICAL_OR],
+        ['&&', PREC.LOGICAL_AND],
+
+        ['|', PREC.INCLUSIVE_OR],
+        ['^', PREC.EXCLUSIVE_OR],
+        ['&', PREC.BITWISE_AND],
+        ['==', PREC.EQUAL],
+        ['!=', PREC.EQUAL],
+        ['>', PREC.RELATIONAL],
+        ['>=', PREC.RELATIONAL],
+        ['<=', PREC.RELATIONAL],
+        ['<', PREC.RELATIONAL],
+        ['<<', PREC.SHIFT],
+        ['>>', PREC.SHIFT],
+        ['>>>', PREC.SHIFT],
+      ];
+
+      return choice(...table.map(([operator, precedence]) => {
+        return prec.left(precedence, seq(
+          field('left', $._expression),
+          field('operator', operator),
+          field('right', $._expression)
+        ))
+      }));
+    },
 
     char_literal: $ => seq(
       '\'',

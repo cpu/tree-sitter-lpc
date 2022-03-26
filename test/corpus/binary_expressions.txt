@@ -1,0 +1,197 @@
+================================================================================
+Binary Expression Test
+================================================================================
+
+int x = 1 + 1;
+
+int x = 1 - x;
+
+int x = 1 * x;
+
+int x = 1 / x;
+
+int x = 1 % x;
+
+int x = 1 || x;
+
+int x = 1 && x;
+
+int x = x | 1;
+
+int x = x ^ 1;
+
+int x = x & 1;
+
+int x = x == 1;
+
+int x = x != 1;
+
+int x = 1 > x;
+
+int x = x >= 1;
+
+int x = x <= 1;
+
+int x = 1 < x;
+
+int x = 1 << x;
+
+int x = 1 >> x;
+
+int x = 1 >>> x;
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (global_var
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (binary_expression
+        (number_literal)
+        (number_literal))))
+  (global_var
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (binary_expression
+        (number_literal)
+        (identifier))))
+  (global_var
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (binary_expression
+        (number_literal)
+        (identifier))))
+  (global_var
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (binary_expression
+        (number_literal)
+        (identifier))))
+  (global_var
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (binary_expression
+        (number_literal)
+        (identifier))))
+  (global_var
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (binary_expression
+        (number_literal)
+        (identifier))))
+  (global_var
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (binary_expression
+        (number_literal)
+        (identifier))))
+  (global_var
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (binary_expression
+        (identifier)
+        (number_literal))))
+  (global_var
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (binary_expression
+        (identifier)
+        (number_literal))))
+  (global_var
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (binary_expression
+        (identifier)
+        (number_literal))))
+  (global_var
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (binary_expression
+        (identifier)
+        (number_literal))))
+  (global_var
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (binary_expression
+        (identifier)
+        (number_literal))))
+  (global_var
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (binary_expression
+        (number_literal)
+        (identifier))))
+  (global_var
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (binary_expression
+        (identifier)
+        (number_literal))))
+  (global_var
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (binary_expression
+        (identifier)
+        (number_literal))))
+  (global_var
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (binary_expression
+        (number_literal)
+        (identifier))))
+  (global_var
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (binary_expression
+        (number_literal)
+        (identifier))))
+  (global_var
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (binary_expression
+        (number_literal)
+        (identifier))))
+  (global_var
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (binary_expression
+        (number_literal)
+        (identifier)))))
