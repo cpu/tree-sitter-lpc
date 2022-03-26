@@ -511,21 +511,13 @@ module.exports = grammar({
       $._statement
     ),
 
-    _foreach_vars: $=> choice(
-      // Local var
+    _foreach_vars: $=> commaSep1(choice(
+      $.identifier,
       seq(
         field('type', $._basic_type),
         field('name', $.identifier),
       ),
-      // Local name comma list
-      seq(
-        $.local_var,
-        ',',
-        repeat('*'),
-        $.identifier,
-      ),
-      commaSep1($.identifier),
-    ),
+    )),
 
     _foreach_expr: $=> choice(
       $._expression,

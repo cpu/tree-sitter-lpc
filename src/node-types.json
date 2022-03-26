@@ -1561,7 +1561,7 @@
         ]
       },
       "name": {
-        "multiple": false,
+        "multiple": true,
         "required": false,
         "types": [
           {
@@ -1571,7 +1571,7 @@
         ]
       },
       "type": {
-        "multiple": false,
+        "multiple": true,
         "required": false,
         "types": [
           {
@@ -1589,19 +1589,11 @@
         "required": true,
         "types": [
           {
-            "type": "*",
-            "named": false
-          },
-          {
             "type": ",",
             "named": false
           },
           {
             "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "local_var",
             "named": true
           },
           {

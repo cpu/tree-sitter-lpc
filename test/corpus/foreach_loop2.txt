@@ -1,0 +1,58 @@
+================================================================================
+Foreach Loops
+================================================================================
+
+x() {
+  foreach(int i : 3)
+    printf("ok!");
+
+  mapping m;
+  foreach(string name, int value: m)
+    printf("%s %d", name, value);
+
+  string key;
+  foreach(key, int value: m)
+    printf("%s %d", key, value);
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_definition
+    (identifier)
+    (parameter_list)
+    (block
+      (foreach_statement
+        (non_void_type)
+        (identifier)
+        (number_literal)
+        (function_call
+          (identifier)
+          (string_literal)))
+      (local_var
+        (non_void_type)
+        (identifier))
+      (foreach_statement
+        (non_void_type)
+        (identifier)
+        (non_void_type)
+        (identifier)
+        (identifier)
+        (function_call
+          (identifier)
+          (string_literal)
+          (identifier)
+          (identifier)))
+      (local_var
+        (non_void_type)
+        (identifier))
+      (foreach_statement
+        (identifier)
+        (non_void_type)
+        (identifier)
+        (identifier)
+        (function_call
+          (identifier)
+          (string_literal)
+          (identifier)
+          (identifier))))))
