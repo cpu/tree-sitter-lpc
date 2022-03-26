@@ -155,6 +155,8 @@ module.exports = grammar({
       $.unary_expression,
       $.update_expression,
       $.cast_expression,
+      // decl cast?
+      // lvalue ref
       $.function_call,
       $.inline_func,
       $.inline_closure,
@@ -432,13 +434,14 @@ module.exports = grammar({
 
     _statement: $ => choice(
       seq($._comma_expr, ';'),
-      // for | foreach | switch
+      // switch
       seq($.local_var, ';'),
       seq($.return_statement, ';'),
       $.if_statement,
       $.while_statement,
       $.do_statement,
       $.for_statement,
+      $.foreach_statement,
       $.block,
       ';',
       // break, continue
@@ -496,6 +499,37 @@ module.exports = grammar({
         field('update', optional($._comma_expr)),
       ')',
       $._statement
+    ),
+
+    foreach_statement: $ => seq(
+      'foreach',
+      '(',
+      field('vars', $._foreach_vars),
+      choice(':', 'in'),
+      field('expression', $._foreach_expr),
+      ')',
+      $._statement
+    ),
+
+    _foreach_vars: $=> choice(
+      // Local var
+      seq(
+        field('type', $._basic_type),
+        field('name', $.identifier),
+      ),
+      // Local name comma list
+      seq(
+        $.local_var,
+        ',',
+        repeat('*'),
+        $.identifier,
+      ),
+      commaSep1($.identifier),
+    ),
+
+    _foreach_expr: $=> choice(
+      $._expression,
+      // TODO: range expression.
     ),
 
     global_var: $ => seq(
