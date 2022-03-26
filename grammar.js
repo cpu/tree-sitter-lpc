@@ -434,7 +434,6 @@ module.exports = grammar({
 
     _statement: $ => choice(
       seq($._comma_expr, ';'),
-      // switch
       seq($.local_var, ';'),
       seq($.return_statement, ';'),
       $.if_statement,
@@ -442,6 +441,7 @@ module.exports = grammar({
       $.do_statement,
       $.for_statement,
       $.foreach_statement,
+      $.switch_statement,
       $.block,
       ';',
       // break, continue
@@ -519,13 +519,70 @@ module.exports = grammar({
       ),
     )),
 
-    _foreach_expr: $=> choice(
+    _foreach_expr: $ => choice(
       $._expression,
       seq(
         $._expression,
         '..',
         $._expression,
       ),
+    ),
+
+    switch_statement: $ => seq(
+      'switch',
+      '(',
+      $._comma_expr,
+      ')',
+      '{',
+      repeat1($.switch_case),
+      '}'
+    ),
+
+    switch_case: $ => seq(
+      choice(
+        'default',
+        seq('case', $.case_label),
+        seq('case', $.case_label, '..', $.case_label),
+      ),
+      ':',
+      repeat($._statement),
+    ),
+
+    case_label: $ => choice(
+      $.constant,
+      $.case_string_label,
+    ),
+
+    constant: $=> prec.right(choice(
+      seq($.constant, '|', $.constant),
+      seq($.constant, '^', $.constant),
+      seq($.constant, '&', $.constant),
+      seq($.constant, '==', $.constant),
+      seq($.constant, '!=', $.constant),
+      seq($.constant, '>', $.constant),
+      seq($.constant, '>=', $.constant),
+      seq($.constant, '<', $.constant),
+      seq($.constant, '>=', $.constant),
+      seq($.constant, '<<', $.constant),
+      seq($.constant, '>>', $.constant),
+      seq($.constant, '>>>', $.constant),
+      seq($.constant, '+', $.constant),
+      seq($.constant, '-', $.constant),
+      seq($.constant, '*', $.constant),
+      seq($.constant, '%', $.constant),
+      seq($.constant, '/', $.constant),
+      seq('(', $.constant, ')'),
+      seq('-', $.constant),
+      seq('!', $.constant),
+      seq('~', $.constant),
+      $.number_literal,
+    )),
+
+    case_string_label: $ => choice(
+      $.string_literal,
+      $.concatenated_string,
+      $.bytes_literal,
+      $.concatenated_bytes_string,
     ),
 
     global_var: $ => seq(
