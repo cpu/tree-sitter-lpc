@@ -154,6 +154,7 @@ module.exports = grammar({
       $.binary_expression,
       $.unary_expression,
       $.update_expression,
+      $.cast_expression,
       $.function_call,
       $.inline_func,
       $.inline_closure,
@@ -331,6 +332,13 @@ module.exports = grammar({
         seq(argument, operator),
       ));
     },
+
+    cast_expression: $ => prec(PREC.CAST, seq(
+      '(',
+      field('type', $._basic_type),
+      ')',
+      field('value', $._expression)
+    )),
 
     char_literal: $ => seq(
       '\'',

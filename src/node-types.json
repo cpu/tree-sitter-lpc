@@ -40,6 +40,10 @@
             "named": true
           },
           {
+            "type": "cast_expression",
+            "named": true
+          },
+          {
             "type": "catch_expr",
             "named": true
           },
@@ -123,6 +127,10 @@
           },
           {
             "type": "bytes_literal",
+            "named": true
+          },
+          {
+            "type": "cast_expression",
             "named": true
           },
           {
@@ -278,6 +286,10 @@
             "named": true
           },
           {
+            "type": "cast_expression",
+            "named": true
+          },
+          {
             "type": "catch_expr",
             "named": true
           },
@@ -355,6 +367,10 @@
         },
         {
           "type": "bytes_literal",
+          "named": true
+        },
+        {
+          "type": "cast_expression",
           "named": true
         },
         {
@@ -452,6 +468,100 @@
     }
   },
   {
+    "type": "cast_expression",
+    "named": true,
+    "fields": {
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "non_void_type",
+            "named": true
+          },
+          {
+            "type": "void",
+            "named": false
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "assignment_expression",
+            "named": true
+          },
+          {
+            "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "bytes_literal",
+            "named": true
+          },
+          {
+            "type": "cast_expression",
+            "named": true
+          },
+          {
+            "type": "catch_expr",
+            "named": true
+          },
+          {
+            "type": "char_literal",
+            "named": true
+          },
+          {
+            "type": "concatenated_bytes_string",
+            "named": true
+          },
+          {
+            "type": "concatenated_string",
+            "named": true
+          },
+          {
+            "type": "conditional_expression",
+            "named": true
+          },
+          {
+            "type": "function_call",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "inline_closure",
+            "named": true
+          },
+          {
+            "type": "inline_func",
+            "named": true
+          },
+          {
+            "type": "number_literal",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          },
+          {
+            "type": "unary_expression",
+            "named": true
+          },
+          {
+            "type": "update_expression",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "catch_expr",
     "named": true,
     "fields": {},
@@ -469,6 +579,10 @@
         },
         {
           "type": "bytes_literal",
+          "named": true
+        },
+        {
+          "type": "cast_expression",
           "named": true
         },
         {
@@ -548,6 +662,10 @@
         },
         {
           "type": "bytes_literal",
+          "named": true
+        },
+        {
+          "type": "cast_expression",
           "named": true
         },
         {
@@ -671,6 +789,10 @@
             "named": true
           },
           {
+            "type": "cast_expression",
+            "named": true
+          },
+          {
             "type": "catch_expr",
             "named": true
           },
@@ -741,6 +863,10 @@
             "named": true
           },
           {
+            "type": "cast_expression",
+            "named": true
+          },
+          {
             "type": "catch_expr",
             "named": true
           },
@@ -808,6 +934,10 @@
           },
           {
             "type": "bytes_literal",
+            "named": true
+          },
+          {
+            "type": "cast_expression",
             "named": true
           },
           {
@@ -911,6 +1041,10 @@
             "named": true
           },
           {
+            "type": "cast_expression",
+            "named": true
+          },
+          {
             "type": "catch_expr",
             "named": true
           },
@@ -990,6 +1124,10 @@
           },
           {
             "type": "bytes_literal",
+            "named": true
+          },
+          {
+            "type": "cast_expression",
             "named": true
           },
           {
@@ -1093,6 +1231,10 @@
             "named": true
           },
           {
+            "type": "cast_expression",
+            "named": true
+          },
+          {
             "type": "catch_expr",
             "named": true
           },
@@ -1164,6 +1306,10 @@
           },
           {
             "type": "bytes_literal",
+            "named": true
+          },
+          {
+            "type": "cast_expression",
             "named": true
           },
           {
@@ -1239,6 +1385,10 @@
         },
         {
           "type": "bytes_literal",
+          "named": true
+        },
+        {
+          "type": "cast_expression",
           "named": true
         },
         {
@@ -1357,6 +1507,10 @@
             "named": true
           },
           {
+            "type": "cast_expression",
+            "named": true
+          },
+          {
             "type": "catch_expr",
             "named": true
           },
@@ -1435,6 +1589,10 @@
             "named": true
           },
           {
+            "type": "cast_expression",
+            "named": true
+          },
+          {
             "type": "catch_expr",
             "named": true
           },
@@ -1502,6 +1660,10 @@
           },
           {
             "type": "bytes_literal",
+            "named": true
+          },
+          {
+            "type": "cast_expression",
             "named": true
           },
           {
@@ -1735,6 +1897,10 @@
             "named": true
           },
           {
+            "type": "cast_expression",
+            "named": true
+          },
+          {
             "type": "catch_expr",
             "named": true
           },
@@ -1833,6 +1999,10 @@
             "named": true
           },
           {
+            "type": "cast_expression",
+            "named": true
+          },
+          {
             "type": "catch_expr",
             "named": true
           },
@@ -1912,6 +2082,10 @@
           },
           {
             "type": "bytes_literal",
+            "named": true
+          },
+          {
+            "type": "cast_expression",
             "named": true
           },
           {
@@ -2066,6 +2240,10 @@
         },
         {
           "type": "bytes_literal",
+          "named": true
+        },
+        {
+          "type": "cast_expression",
           "named": true
         },
         {
@@ -2319,6 +2497,10 @@
           "named": true
         },
         {
+          "type": "cast_expression",
+          "named": true
+        },
+        {
           "type": "catch_expr",
           "named": true
         },
@@ -2442,6 +2624,10 @@
         },
         {
           "type": "bytes_literal",
+          "named": true
+        },
+        {
+          "type": "cast_expression",
           "named": true
         },
         {
@@ -2693,6 +2879,10 @@
             "named": true
           },
           {
+            "type": "cast_expression",
+            "named": true
+          },
+          {
             "type": "catch_expr",
             "named": true
           },
@@ -2784,6 +2974,10 @@
           },
           {
             "type": "bytes_literal",
+            "named": true
+          },
+          {
+            "type": "cast_expression",
             "named": true
           },
           {
@@ -2881,6 +3075,10 @@
             "named": true
           },
           {
+            "type": "cast_expression",
+            "named": true
+          },
+          {
             "type": "catch_expr",
             "named": true
           },
@@ -2960,6 +3158,10 @@
           },
           {
             "type": "bytes_literal",
+            "named": true
+          },
+          {
+            "type": "cast_expression",
             "named": true
           },
           {
