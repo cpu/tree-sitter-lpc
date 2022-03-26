@@ -5,7 +5,7 @@ Switch Statement
 x() {
   switch(foo()) {
     case "test": return 1;
-    case 10: return 10;
+    case 10: break;
     case 11 .. 20: return 20;
     default: return -1;
   }
@@ -31,8 +31,7 @@ x() {
           (case_label
             (constant
               (number_literal)))
-          (return_statement
-            (number_literal)))
+          (break_statement))
         (switch_case
           (case_label
             (constant

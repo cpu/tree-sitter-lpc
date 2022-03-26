@@ -444,8 +444,13 @@ module.exports = grammar({
       $.switch_statement,
       $.block,
       ';',
-      // break, continue
+      seq($.break_statement, ';'),
+      seq($.continue_statement, ';')
     ),
+
+    break_statement: $ => seq('break'),
+
+    continue_statement: $ => seq('continue'),
 
     _comma_expr: $ => choice(
       $._expression, 
