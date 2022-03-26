@@ -179,7 +179,16 @@ module.exports = grammar({
       'function',
       field('type', optional($._basic_type)),
       field('arguments', $.parameter_list),
+      field('context', optional($.inline_context)),
       field('body', $._function_body),
+    )),
+
+    // TODO(XXX): Needed to handle a conflict here. Presently using right
+    // associativity but unclear if this is wise/correct. I will revist later!
+    inline_context: $ => prec.right(seq(
+      ':',
+      semicolonSep($.local_var),
+      optional(';'),
     )),
 
     inline_closure: $ => prec(PREC.INLINE, seq(
@@ -527,4 +536,12 @@ function pipeSep (rule) {
 
 function pipeSep1 (rule) {
   return sep1('|', rule)
+}
+
+function semicolonSep(rule) {
+  return sep(';', rule)
+}
+
+function semicolonSep1(rule) {
+  return sep1(';', rule)
 }

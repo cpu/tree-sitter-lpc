@@ -1,0 +1,53 @@
+================================================================================
+Inline Function Multi Context
+================================================================================
+
+closure x(int a) {
+  closure y = function int (int z) : int q = 10; int qq; int zz {
+    return q, z;
+  };
+
+  return y;
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_definition
+    (non_void_type)
+    (identifier)
+    (parameter_list
+      (parameter
+        (non_void_type)
+        (identifier)))
+    (block
+      (local_var
+        (non_void_type)
+        (assignment_expression
+          (identifier)
+          (assignment_operator)
+          (inline_func
+            (non_void_type)
+            (parameter_list
+              (parameter
+                (non_void_type)
+                (identifier)))
+            (inline_context
+              (local_var
+                (non_void_type)
+                (assignment_expression
+                  (identifier)
+                  (assignment_operator)
+                  (number_literal)))
+              (local_var
+                (non_void_type)
+                (identifier))
+              (local_var
+                (non_void_type)
+                (identifier)))
+            (block
+              (return_statement
+                (identifier)
+                (identifier))))))
+      (return_statement
+        (identifier)))))

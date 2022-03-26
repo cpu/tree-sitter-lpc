@@ -864,6 +864,21 @@
     }
   },
   {
+    "type": "inline_context",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "local_var",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "inline_func",
     "named": true,
     "fields": {
@@ -897,6 +912,16 @@
           },
           {
             "type": "block",
+            "named": true
+          }
+        ]
+      },
+      "context": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "inline_context",
             "named": true
           }
         ]
