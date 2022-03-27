@@ -16,7 +16,8 @@ const PREC = {
   MULTIPLY: 10,
   CAST: 11,
   UNARY: 12,
-  CALL: 13,
+  //CALL: 13 -- hacked CALL to be higher than FIELD... Need to revisit!
+  CALL: 15,
   INLINE: 13,
   FIELD: 14,
   SUBSCRIPT: 15
@@ -162,7 +163,6 @@ module.exports = grammar({
       $.inline_func,
       $.inline_closure,
       $.catch_expr,
-      $.identifier,
       $.string_literal,
       $.concatenated_string,
       $.bytes_literal,
@@ -177,6 +177,8 @@ module.exports = grammar({
       $.empty_mapping_literal,
       $.mapping_literal,
       $.struct_literal,
+      $.identifier,
+      $.struct_member_lookup,
       // L_SIMUL_EFUN_CLOSURE (?)
     ),
 
@@ -256,7 +258,7 @@ module.exports = grammar({
       '.',
     ),
 
-    _call_other_name: $ => choice(
+    _call_other_name: $ => prec(PREC.CALL, choice(
       $.identifier,
       $.string_literal,
       $.concatenated_string,
@@ -265,7 +267,7 @@ module.exports = grammar({
         $._expression,
         ')',
       ),
-    ),
+    )),
 
     conditional_expression: $ => prec.right(PREC.CONDITIONAL, seq(
       field('condition', $._expression),
@@ -513,12 +515,25 @@ module.exports = grammar({
       field('value', $._expression),
     ),
 
-   _lvalue: $ => choice(
+    struct_member_lookup: $ => prec(PREC.FIELD, seq(
+      field('struct', $._expression),
+      $.member_operator,
+      field('member_name', $._struct_member_name),
+    )),
+
+    _struct_member_name: $ => prec(PREC.FIELD, choice(
       $.identifier,
-     // expr4 index_expr
-     // expr4 [ expr ',', expr0 ]
-     // exp4 index_range
-     // expr4 member_operator struct_member_name
+      $.string_literal,
+      $.concatenated_string,
+      seq('(', $._expression, ')'),
+    )),
+
+    _lvalue: $ => choice(
+      $.identifier,
+      // expr4 index_expr
+      // expr4 [ expr ',', expr0 ]
+      // exp4 index_range
+      // expr4 member_operator struct_member_name
     ),
 
     _function_body: $ => choice(

@@ -1,0 +1,99 @@
+================================================================================
+Struct Field Lookup
+================================================================================
+
+struct X {
+  int id;
+  string name;
+};
+
+x() {
+  struct X myX = (<X> 10, "hello");
+
+  string name = "ok";
+
+  int id = myX->id;
+  int id2 = myX->"id";
+  mixed meep = myX->("id");
+  mixed meep = myX->(foo());
+  mixed meep = myX->(name);
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (struct_definition
+    (identifier)
+    (struct_member_list
+      (struct_member
+        (non_void_type)
+        (identifier))
+      (struct_member
+        (non_void_type)
+        (identifier))))
+  (function_definition
+    (identifier)
+    (parameter_list)
+    (block
+      (local_var
+        (non_void_type
+          (identifier))
+        (assignment_expression
+          (identifier)
+          (assignment_operator)
+          (struct_literal
+            (identifier)
+            (number_literal)
+            (string_literal))))
+      (local_var
+        (non_void_type)
+        (assignment_expression
+          (identifier)
+          (assignment_operator)
+          (string_literal)))
+      (local_var
+        (non_void_type)
+        (assignment_expression
+          (identifier)
+          (assignment_operator)
+          (struct_member_lookup
+            (identifier)
+            (member_operator)
+            (identifier))))
+      (local_var
+        (non_void_type)
+        (assignment_expression
+          (identifier)
+          (assignment_operator)
+          (struct_member_lookup
+            (identifier)
+            (member_operator)
+            (string_literal))))
+      (local_var
+        (non_void_type)
+        (assignment_expression
+          (identifier)
+          (assignment_operator)
+          (struct_member_lookup
+            (identifier)
+            (member_operator)
+            (string_literal))))
+      (local_var
+        (non_void_type)
+        (assignment_expression
+          (identifier)
+          (assignment_operator)
+          (struct_member_lookup
+            (identifier)
+            (member_operator)
+            (function_call
+              (identifier)))))
+      (local_var
+        (non_void_type)
+        (assignment_expression
+          (identifier)
+          (assignment_operator)
+          (struct_member_lookup
+            (identifier)
+            (member_operator)
+            (identifier)))))))
