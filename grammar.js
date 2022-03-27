@@ -174,6 +174,7 @@ module.exports = grammar({
       prec(PREC.UNARY, seq( '(', $._comma_expr, ')')),
       $.array_literal,
       $.quoted_aggregate,
+      $.empty_mapping_literal,
       // L_SIMUL_EFUN_CLOSURE (?)
     ),
 
@@ -199,10 +200,10 @@ module.exports = grammar({
     )),
 
     inline_closure: $ => prec(PREC.INLINE, seq(
-      '(:',
+      '(', ':',
       repeat($._statement),
       commaSep($._expression),
-      ':)',
+      ':', ')',
     )),
 
     catch_expr: $ => prec(PREC.INLINE, seq(
@@ -352,7 +353,7 @@ module.exports = grammar({
     decl_cast_expression: $ => prec(PREC.CAST, seq(
       '({',
       $._basic_type,
-      '})',
+      '}', ')',
       $._expression,
     )),
 
@@ -438,7 +439,7 @@ module.exports = grammar({
     },
 
     closure: $ => seq(
-      '#\'',
+      '#', "'",
       optional(choice(
         'efun::',
         'sefun::',
@@ -457,15 +458,22 @@ module.exports = grammar({
       '({',
       // TODO(XXX) should be expr_list not _comma_expr?
       $._comma_expr,
-      '})'
+      '}', ')'
     )),
 
     quoted_aggregate: $ => prec(PREC.UNARY, seq(
       "#'({",
       // TODO(XXX) should be expr_list not _comma_expr?
       $._comma_expr,
-      '})'
+      '}', ')'
     )),
+
+    empty_mapping_literal: $ => seq(
+      '(', '[',
+      ':',
+      field('size', $._expression),
+      ']', ')',
+    ),
 
    _lvalue: $ => choice(
       $.identifier,

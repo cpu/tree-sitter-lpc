@@ -814,6 +814,7 @@ expr4:
     | '(' '<' note_start '>' ')'
     | '(' '<' note_start error ')'
     | '(' '<' identifier '>'
+      note_start opt_struct_init ')'
 
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
     | L_IDENTIFIER

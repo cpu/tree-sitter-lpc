@@ -602,6 +602,10 @@
         {
           "type": "SYMBOL",
           "name": "quoted_aggregate"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "empty_mapping_literal"
         }
       ]
     },
@@ -757,7 +761,11 @@
         "members": [
           {
             "type": "STRING",
-            "value": "(:"
+            "value": "("
+          },
+          {
+            "type": "STRING",
+            "value": ":"
           },
           {
             "type": "REPEAT",
@@ -801,7 +809,11 @@
           },
           {
             "type": "STRING",
-            "value": ":)"
+            "value": ":"
+          },
+          {
+            "type": "STRING",
+            "value": ")"
           }
         ]
       }
@@ -2040,7 +2052,11 @@
           },
           {
             "type": "STRING",
-            "value": "})"
+            "value": "}"
+          },
+          {
+            "type": "STRING",
+            "value": ")"
           },
           {
             "type": "SYMBOL",
@@ -2595,7 +2611,11 @@
       "members": [
         {
           "type": "STRING",
-          "value": "#'"
+          "value": "#"
+        },
+        {
+          "type": "STRING",
+          "value": "'"
         },
         {
           "type": "CHOICE",
@@ -2653,7 +2673,11 @@
         "members": [
           {
             "type": "STRING",
-            "value": "({"
+            "value": "("
+          },
+          {
+            "type": "STRING",
+            "value": "{"
           },
           {
             "type": "SYMBOL",
@@ -2661,7 +2685,11 @@
           },
           {
             "type": "STRING",
-            "value": "})"
+            "value": "}"
+          },
+          {
+            "type": "STRING",
+            "value": ")"
           }
         ]
       }
@@ -2682,10 +2710,47 @@
           },
           {
             "type": "STRING",
-            "value": "})"
+            "value": "}"
+          },
+          {
+            "type": "STRING",
+            "value": ")"
           }
         ]
       }
+    },
+    "empty_mapping_literal": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "STRING",
+          "value": "["
+        },
+        {
+          "type": "STRING",
+          "value": ":"
+        },
+        {
+          "type": "FIELD",
+          "name": "size",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_expression"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "]"
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
     },
     "_lvalue": {
       "type": "CHOICE",
