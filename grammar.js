@@ -143,7 +143,7 @@ module.exports = grammar({
     //   L_QUOTED_AGGREGATE expr_list }}
     //   ([ : expr0 ]) empty mapping
     //   ([ m_expr_list ]) mapping 
-    //   (< identifier > opt_struct_init ) // sturct
+    //   (< identifier > opt_struct_init ) // struct
     // expr4 member_operator struct_member_name
     // expr4 index_expr
     // expr4 index_range
@@ -175,6 +175,7 @@ module.exports = grammar({
       $.array_literal,
       $.quoted_aggregate,
       $.empty_mapping_literal,
+      $.empty_struct,
       // L_SIMUL_EFUN_CLOSURE (?)
     ),
 
@@ -473,6 +474,12 @@ module.exports = grammar({
       ':',
       field('size', $._expression),
       ']', ')',
+    ),
+
+    empty_struct: $ => seq(
+      '(', '<', 
+      field('type', $.identifier),
+      '>', ')',
     ),
 
    _lvalue: $ => choice(

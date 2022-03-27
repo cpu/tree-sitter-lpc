@@ -606,6 +606,10 @@
         {
           "type": "SYMBOL",
           "name": "empty_mapping_literal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "empty_struct"
         }
       ]
     },
@@ -2673,11 +2677,7 @@
         "members": [
           {
             "type": "STRING",
-            "value": "("
-          },
-          {
-            "type": "STRING",
-            "value": "{"
+            "value": "({"
           },
           {
             "type": "SYMBOL",
@@ -2745,6 +2745,35 @@
         {
           "type": "STRING",
           "value": "]"
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "empty_struct": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "STRING",
+          "value": "<"
+        },
+        {
+          "type": "FIELD",
+          "name": "type",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ">"
         },
         {
           "type": "STRING",

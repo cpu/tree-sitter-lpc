@@ -60,6 +60,10 @@
           "named": true
         },
         {
+          "type": "empty_struct",
+          "named": true
+        },
+        {
           "type": "function_call",
           "named": true
         },
@@ -199,6 +203,10 @@
             "named": true
           },
           {
+            "type": "empty_struct",
+            "named": true
+          },
+          {
             "type": "function_call",
             "named": true
           },
@@ -326,6 +334,10 @@
           },
           {
             "type": "empty_mapping_literal",
+            "named": true
+          },
+          {
+            "type": "empty_struct",
             "named": true
           },
           {
@@ -525,6 +537,10 @@
             "named": true
           },
           {
+            "type": "empty_struct",
+            "named": true
+          },
+          {
             "type": "function_call",
             "named": true
           },
@@ -646,6 +662,10 @@
         },
         {
           "type": "empty_mapping_literal",
+          "named": true
+        },
+        {
+          "type": "empty_struct",
           "named": true
         },
         {
@@ -876,6 +896,10 @@
             "named": true
           },
           {
+            "type": "empty_struct",
+            "named": true
+          },
+          {
             "type": "function_call",
             "named": true
           },
@@ -988,6 +1012,10 @@
           "named": true
         },
         {
+          "type": "empty_struct",
+          "named": true
+        },
+        {
           "type": "function_call",
           "named": true
         },
@@ -1092,6 +1120,10 @@
         },
         {
           "type": "empty_mapping_literal",
+          "named": true
+        },
+        {
+          "type": "empty_struct",
           "named": true
         },
         {
@@ -1274,6 +1306,10 @@
             "named": true
           },
           {
+            "type": "empty_struct",
+            "named": true
+          },
+          {
             "type": "function_call",
             "named": true
           },
@@ -1388,6 +1424,10 @@
             "named": true
           },
           {
+            "type": "empty_struct",
+            "named": true
+          },
+          {
             "type": "function_call",
             "named": true
           },
@@ -1499,6 +1539,10 @@
           },
           {
             "type": "empty_mapping_literal",
+            "named": true
+          },
+          {
+            "type": "empty_struct",
             "named": true
           },
           {
@@ -1631,6 +1675,10 @@
         },
         {
           "type": "empty_mapping_literal",
+          "named": true
+        },
+        {
+          "type": "empty_struct",
           "named": true
         },
         {
@@ -1777,6 +1825,10 @@
             "named": true
           },
           {
+            "type": "empty_struct",
+            "named": true
+          },
+          {
             "type": "function_call",
             "named": true
           },
@@ -1908,6 +1960,10 @@
           },
           {
             "type": "empty_mapping_literal",
+            "named": true
+          },
+          {
+            "type": "empty_struct",
             "named": true
           },
           {
@@ -2059,6 +2115,10 @@
             "named": true
           },
           {
+            "type": "empty_struct",
+            "named": true
+          },
+          {
             "type": "function_call",
             "named": true
           },
@@ -2100,6 +2160,22 @@
           },
           {
             "type": "update_expression",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "empty_struct",
+    "named": true,
+    "fields": {
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
             "named": true
           }
         ]
@@ -2176,6 +2252,10 @@
           },
           {
             "type": "empty_mapping_literal",
+            "named": true
+          },
+          {
+            "type": "empty_struct",
             "named": true
           },
           {
@@ -2290,6 +2370,10 @@
           },
           {
             "type": "empty_mapping_literal",
+            "named": true
+          },
+          {
+            "type": "empty_struct",
             "named": true
           },
           {
@@ -2409,6 +2493,10 @@
         },
         {
           "type": "empty_mapping_literal",
+          "named": true
+        },
+        {
+          "type": "empty_struct",
           "named": true
         },
         {
@@ -2560,6 +2648,10 @@
           },
           {
             "type": "empty_mapping_literal",
+            "named": true
+          },
+          {
+            "type": "empty_struct",
             "named": true
           },
           {
@@ -2728,6 +2820,10 @@
           "named": true
         },
         {
+          "type": "empty_struct",
+          "named": true
+        },
+        {
           "type": "for_statement",
           "named": true
         },
@@ -2879,6 +2975,10 @@
             "named": true
           },
           {
+            "type": "empty_struct",
+            "named": true
+          },
+          {
             "type": "function_call",
             "named": true
           },
@@ -2993,6 +3093,10 @@
             "named": true
           },
           {
+            "type": "empty_struct",
+            "named": true
+          },
+          {
             "type": "function_call",
             "named": true
           },
@@ -3104,6 +3208,10 @@
           },
           {
             "type": "empty_mapping_literal",
+            "named": true
+          },
+          {
+            "type": "empty_struct",
             "named": true
           },
           {
@@ -3389,6 +3497,10 @@
             "named": true
           },
           {
+            "type": "empty_struct",
+            "named": true
+          },
+          {
             "type": "for_statement",
             "named": true
           },
@@ -3531,6 +3643,10 @@
             "named": true
           },
           {
+            "type": "empty_struct",
+            "named": true
+          },
+          {
             "type": "function_call",
             "named": true
           },
@@ -3662,6 +3778,10 @@
           },
           {
             "type": "empty_mapping_literal",
+            "named": true
+          },
+          {
+            "type": "empty_struct",
             "named": true
           },
           {
@@ -3864,6 +3984,10 @@
         },
         {
           "type": "empty_mapping_literal",
+          "named": true
+        },
+        {
+          "type": "empty_struct",
           "named": true
         },
         {
@@ -4172,6 +4296,10 @@
           "named": true
         },
         {
+          "type": "empty_struct",
+          "named": true
+        },
+        {
           "type": "function_call",
           "named": true
         },
@@ -4330,6 +4458,10 @@
           "named": true
         },
         {
+          "type": "empty_struct",
+          "named": true
+        },
+        {
           "type": "function_call",
           "named": true
         },
@@ -4434,6 +4566,10 @@
         },
         {
           "type": "empty_mapping_literal",
+          "named": true
+        },
+        {
+          "type": "empty_struct",
           "named": true
         },
         {
@@ -4732,6 +4868,10 @@
           "named": true
         },
         {
+          "type": "empty_struct",
+          "named": true
+        },
+        {
           "type": "for_statement",
           "named": true
         },
@@ -4864,6 +5004,10 @@
         },
         {
           "type": "empty_mapping_literal",
+          "named": true
+        },
+        {
+          "type": "empty_struct",
           "named": true
         },
         {
@@ -5010,6 +5154,10 @@
             "named": true
           },
           {
+            "type": "empty_struct",
+            "named": true
+          },
+          {
             "type": "function_call",
             "named": true
           },
@@ -5148,6 +5296,10 @@
             "named": true
           },
           {
+            "type": "empty_struct",
+            "named": true
+          },
+          {
             "type": "function_call",
             "named": true
           },
@@ -5282,6 +5434,10 @@
             "named": true
           },
           {
+            "type": "empty_struct",
+            "named": true
+          },
+          {
             "type": "function_call",
             "named": true
           },
@@ -5413,6 +5569,10 @@
           },
           {
             "type": "empty_mapping_literal",
+            "named": true
+          },
+          {
+            "type": "empty_struct",
             "named": true
           },
           {
