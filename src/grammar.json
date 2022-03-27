@@ -598,6 +598,10 @@
         {
           "type": "SYMBOL",
           "name": "array_literal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "quoted_aggregate"
         }
       ]
     },
@@ -2650,6 +2654,27 @@
           {
             "type": "STRING",
             "value": "({"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_comma_expr"
+          },
+          {
+            "type": "STRING",
+            "value": "})"
+          }
+        ]
+      }
+    },
+    "quoted_aggregate": {
+      "type": "PREC",
+      "value": 12,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "#'({"
           },
           {
             "type": "SYMBOL",

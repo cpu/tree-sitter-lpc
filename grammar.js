@@ -173,6 +173,7 @@ module.exports = grammar({
       $.symbol,
       prec(PREC.UNARY, seq( '(', $._comma_expr, ')')),
       $.array_literal,
+      $.quoted_aggregate,
       // L_SIMUL_EFUN_CLOSURE (?)
     ),
 
@@ -454,6 +455,13 @@ module.exports = grammar({
 
     array_literal: $ => prec(PREC.UNARY, seq(
       '({',
+      // TODO(XXX) should be expr_list not _comma_expr?
+      $._comma_expr,
+      '})'
+    )),
+
+    quoted_aggregate: $ => prec(PREC.UNARY, seq(
+      "#'({",
       // TODO(XXX) should be expr_list not _comma_expr?
       $._comma_expr,
       '})'

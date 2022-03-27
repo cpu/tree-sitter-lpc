@@ -1,8 +1,8 @@
 ================================================================================
-Array Literal Test
+Quoted Aggregate Literal Test
 ================================================================================
 
-int *x = ({ 10, 20, 30 });
+symbol x = #'({ 10, 20, 30 });
 
 --------------------------------------------------------------------------------
 
@@ -12,7 +12,7 @@ int *x = ({ 10, 20, 30 });
     (assignment_expression
       (identifier)
       (assignment_operator)
-      (array_literal
+      (quoted_aggregate
         (number_literal)
         (number_literal)
         (number_literal)))))
