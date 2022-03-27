@@ -156,7 +156,8 @@ module.exports = grammar({
       $.update_expression,
       $.cast_expression,
       $.decl_cast_expression,
-      // lvalue ref
+      $.lvalue_ref_expression,
+      // lvalue ref + assign
       $.function_call,
       $.inline_func,
       $.inline_closure,
@@ -349,6 +350,12 @@ module.exports = grammar({
       $._expression,
     )),
 
+    lvalue_ref_expression: $ => choice(
+      seq('&', $.identifier),
+      seq('&', '(', $.identifier, ')'),
+      seq('&', '(', $.function_call, ')'),
+    ),
+
     char_literal: $ => seq(
       '\'',
       choice(
@@ -426,6 +433,10 @@ module.exports = grammar({
 
    _lvalue: $ => choice(
       $.identifier,
+     // expr4 index_expr
+     // expr4 [ expr ',', expr0 ]
+     // exp4 index_range
+     // expr4 member_operator struct_member_name
     ),
 
     _function_body: $ => choice(

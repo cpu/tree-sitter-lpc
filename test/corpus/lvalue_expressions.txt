@@ -1,0 +1,43 @@
+================================================================================
+Lvalue Expression Test
+================================================================================
+
+int x = 10;
+
+int *x2 = &x;
+
+mixed x3 = &(x);
+
+mixed x3 = &(foo());
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (global_var
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (number_literal)))
+  (global_var
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (lvalue_ref_expression
+        (identifier))))
+  (global_var
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (lvalue_ref_expression
+        (identifier))))
+  (global_var
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (lvalue_ref_expression
+        (function_call
+          (identifier))))))
