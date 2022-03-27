@@ -23,5 +23,5 @@ x() {
         (assignment_expression
           (identifier)
           (assignment_operator)
-          (empty_struct
+          (empty_struct_literal
             (identifier)))))))

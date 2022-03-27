@@ -609,7 +609,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "empty_struct"
+          "name": "empty_struct_literal"
         }
       ]
     },
@@ -2752,7 +2752,7 @@
         }
       ]
     },
-    "empty_struct": {
+    "empty_struct_literal": {
       "type": "SEQ",
       "members": [
         {

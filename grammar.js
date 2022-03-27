@@ -175,7 +175,7 @@ module.exports = grammar({
       $.array_literal,
       $.quoted_aggregate,
       $.empty_mapping_literal,
-      $.empty_struct,
+      $.empty_struct_literal,
       // L_SIMUL_EFUN_CLOSURE (?)
     ),
 
@@ -476,7 +476,7 @@ module.exports = grammar({
       ']', ')',
     ),
 
-    empty_struct: $ => seq(
+    empty_struct_literal: $ => seq(
       '(', '<', 
       field('type', $.identifier),
       '>', ')',
