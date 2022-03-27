@@ -1,0 +1,43 @@
+================================================================================
+Index Expr Test
+================================================================================
+
+int *x = ({ 10, 20, 30 });
+
+int *x2 = x[ < 2*2];
+int *x3 = x[ > 2*x2[0]];
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (global_var
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (array_literal
+        (number_literal)
+        (number_literal)
+        (number_literal))))
+  (global_var
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (identifier)
+      (index_expr
+        (binary_expression
+          (number_literal)
+          (number_literal)))))
+  (global_var
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (identifier)
+      (index_expr
+        (binary_expression
+          (number_literal)
+          (identifier)
+          (index_expr
+            (number_literal)))))))

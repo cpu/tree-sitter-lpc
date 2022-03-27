@@ -179,7 +179,10 @@ module.exports = grammar({
       $.struct_literal,
       $.identifier,
       $.struct_member_lookup,
-      // L_SIMUL_EFUN_CLOSURE (?)
+      prec(PREC.SUBSCRIPT, seq($._expression, $.index_expr)),
+      // expr4 index_expr (prec: [)
+      // expr4 index_range (prec: [)
+      // expr4 [ expr0 , expr0 ] index_range (prec: ])
     ),
 
     async_modifier: $ => seq(
@@ -527,6 +530,14 @@ module.exports = grammar({
       $.concatenated_string,
       seq('(', $._expression, ')'),
     )),
+
+    index_expr: $ => seq(
+      '[',
+      optional('<'),
+      optional('>'),
+      $._expression, 
+      ']',
+    ),
 
     _lvalue: $ => choice(
       $.identifier,
