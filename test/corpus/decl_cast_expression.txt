@@ -1,0 +1,37 @@
+================================================================================
+Decl Cast Expression Test
+================================================================================
+
+int x = ({int}) 10;
+
+int *x2 = ({  int* }) x;
+
+mixed x3 = ({ mixed }) x;
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (global_var
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (decl_cast_expression
+        (non_void_type)
+        (number_literal))))
+  (global_var
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (decl_cast_expression
+        (non_void_type)
+        (identifier))))
+  (global_var
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (decl_cast_expression
+        (non_void_type)
+        (identifier)))))

@@ -516,6 +516,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "decl_cast_expression"
+        },
+        {
+          "type": "SYMBOL",
           "name": "function_call"
         },
         {
@@ -1975,6 +1979,31 @@
               "type": "SYMBOL",
               "name": "_expression"
             }
+          }
+        ]
+      }
+    },
+    "decl_cast_expression": {
+      "type": "PREC",
+      "value": 11,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "({"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_basic_type"
+          },
+          {
+            "type": "STRING",
+            "value": "})"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_expression"
           }
         ]
       }

@@ -155,7 +155,7 @@ module.exports = grammar({
       $.unary_expression,
       $.update_expression,
       $.cast_expression,
-      // decl cast?
+      $.decl_cast_expression,
       // lvalue ref
       $.function_call,
       $.inline_func,
@@ -340,6 +340,13 @@ module.exports = grammar({
       field('type', $._basic_type),
       ')',
       field('value', $._expression)
+    )),
+
+    decl_cast_expression: $ => prec(PREC.CAST, seq(
+      '({',
+      $._basic_type,
+      '})',
+      $._expression,
     )),
 
     char_literal: $ => seq(

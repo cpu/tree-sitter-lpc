@@ -64,6 +64,10 @@
             "named": true
           },
           {
+            "type": "decl_cast_expression",
+            "named": true
+          },
+          {
             "type": "function_call",
             "named": true
           },
@@ -151,6 +155,10 @@
           },
           {
             "type": "conditional_expression",
+            "named": true
+          },
+          {
+            "type": "decl_cast_expression",
             "named": true
           },
           {
@@ -310,6 +318,10 @@
             "named": true
           },
           {
+            "type": "decl_cast_expression",
+            "named": true
+          },
+          {
             "type": "function_call",
             "named": true
           },
@@ -399,6 +411,10 @@
         },
         {
           "type": "continue_statement",
+          "named": true
+        },
+        {
+          "type": "decl_cast_expression",
           "named": true
         },
         {
@@ -593,6 +609,10 @@
             "named": true
           },
           {
+            "type": "decl_cast_expression",
+            "named": true
+          },
+          {
             "type": "function_call",
             "named": true
           },
@@ -677,6 +697,10 @@
           "named": true
         },
         {
+          "type": "decl_cast_expression",
+          "named": true
+        },
+        {
           "type": "function_call",
           "named": true
         },
@@ -753,6 +777,10 @@
         },
         {
           "type": "conditional_expression",
+          "named": true
+        },
+        {
+          "type": "decl_cast_expression",
           "named": true
         },
         {
@@ -880,6 +908,10 @@
             "named": true
           },
           {
+            "type": "decl_cast_expression",
+            "named": true
+          },
+          {
             "type": "function_call",
             "named": true
           },
@@ -951,6 +983,10 @@
           },
           {
             "type": "conditional_expression",
+            "named": true
+          },
+          {
+            "type": "decl_cast_expression",
             "named": true
           },
           {
@@ -1028,6 +1064,10 @@
             "named": true
           },
           {
+            "type": "decl_cast_expression",
+            "named": true
+          },
+          {
             "type": "function_call",
             "named": true
           },
@@ -1086,6 +1126,93 @@
     "type": "continue_statement",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "decl_cast_expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "assignment_expression",
+          "named": true
+        },
+        {
+          "type": "binary_expression",
+          "named": true
+        },
+        {
+          "type": "bytes_literal",
+          "named": true
+        },
+        {
+          "type": "cast_expression",
+          "named": true
+        },
+        {
+          "type": "catch_expr",
+          "named": true
+        },
+        {
+          "type": "char_literal",
+          "named": true
+        },
+        {
+          "type": "concatenated_bytes_string",
+          "named": true
+        },
+        {
+          "type": "concatenated_string",
+          "named": true
+        },
+        {
+          "type": "conditional_expression",
+          "named": true
+        },
+        {
+          "type": "decl_cast_expression",
+          "named": true
+        },
+        {
+          "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "inline_closure",
+          "named": true
+        },
+        {
+          "type": "inline_func",
+          "named": true
+        },
+        {
+          "type": "non_void_type",
+          "named": true
+        },
+        {
+          "type": "number_literal",
+          "named": true
+        },
+        {
+          "type": "string_literal",
+          "named": true
+        },
+        {
+          "type": "unary_expression",
+          "named": true
+        },
+        {
+          "type": "update_expression",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "default_visibility",
@@ -1153,6 +1280,10 @@
           },
           {
             "type": "conditional_expression",
+            "named": true
+          },
+          {
+            "type": "decl_cast_expression",
             "named": true
           },
           {
@@ -1247,6 +1378,10 @@
           },
           {
             "type": "continue_statement",
+            "named": true
+          },
+          {
+            "type": "decl_cast_expression",
             "named": true
           },
           {
@@ -1362,6 +1497,10 @@
             "named": true
           },
           {
+            "type": "decl_cast_expression",
+            "named": true
+          },
+          {
             "type": "function_call",
             "named": true
           },
@@ -1437,6 +1576,10 @@
           },
           {
             "type": "conditional_expression",
+            "named": true
+          },
+          {
+            "type": "decl_cast_expression",
             "named": true
           },
           {
@@ -1524,6 +1667,10 @@
         },
         {
           "type": "continue_statement",
+          "named": true
+        },
+        {
+          "type": "decl_cast_expression",
           "named": true
         },
         {
@@ -1639,6 +1786,10 @@
           },
           {
             "type": "conditional_expression",
+            "named": true
+          },
+          {
+            "type": "decl_cast_expression",
             "named": true
           },
           {
@@ -1775,6 +1926,10 @@
           "named": true
         },
         {
+          "type": "decl_cast_expression",
+          "named": true
+        },
+        {
           "type": "do_statement",
           "named": true
         },
@@ -1902,6 +2057,10 @@
             "named": true
           },
           {
+            "type": "decl_cast_expression",
+            "named": true
+          },
+          {
             "type": "function_call",
             "named": true
           },
@@ -1984,6 +2143,10 @@
             "named": true
           },
           {
+            "type": "decl_cast_expression",
+            "named": true
+          },
+          {
             "type": "function_call",
             "named": true
           },
@@ -2055,6 +2218,10 @@
           },
           {
             "type": "conditional_expression",
+            "named": true
+          },
+          {
+            "type": "decl_cast_expression",
             "named": true
           },
           {
@@ -2300,6 +2467,10 @@
             "named": true
           },
           {
+            "type": "decl_cast_expression",
+            "named": true
+          },
+          {
             "type": "do_statement",
             "named": true
           },
@@ -2410,6 +2581,10 @@
             "named": true
           },
           {
+            "type": "decl_cast_expression",
+            "named": true
+          },
+          {
             "type": "function_call",
             "named": true
           },
@@ -2501,6 +2676,10 @@
           },
           {
             "type": "continue_statement",
+            "named": true
+          },
+          {
+            "type": "decl_cast_expression",
             "named": true
           },
           {
@@ -2675,6 +2854,10 @@
         },
         {
           "type": "continue_statement",
+          "named": true
+        },
+        {
+          "type": "decl_cast_expression",
           "named": true
         },
         {
@@ -2940,6 +3123,10 @@
           "named": true
         },
         {
+          "type": "decl_cast_expression",
+          "named": true
+        },
+        {
           "type": "function_call",
           "named": true
         },
@@ -3067,6 +3254,10 @@
         },
         {
           "type": "conditional_expression",
+          "named": true
+        },
+        {
+          "type": "decl_cast_expression",
           "named": true
         },
         {
@@ -3333,6 +3524,10 @@
           "named": true
         },
         {
+          "type": "decl_cast_expression",
+          "named": true
+        },
+        {
           "type": "do_statement",
           "named": true
         },
@@ -3444,6 +3639,10 @@
           "named": true
         },
         {
+          "type": "decl_cast_expression",
+          "named": true
+        },
+        {
           "type": "function_call",
           "named": true
         },
@@ -3529,6 +3728,10 @@
           },
           {
             "type": "conditional_expression",
+            "named": true
+          },
+          {
+            "type": "decl_cast_expression",
             "named": true
           },
           {
@@ -3630,6 +3833,10 @@
             "named": true
           },
           {
+            "type": "decl_cast_expression",
+            "named": true
+          },
+          {
             "type": "function_call",
             "named": true
           },
@@ -3728,6 +3935,10 @@
             "named": true
           },
           {
+            "type": "decl_cast_expression",
+            "named": true
+          },
+          {
             "type": "function_call",
             "named": true
           },
@@ -3819,6 +4030,10 @@
           },
           {
             "type": "continue_statement",
+            "named": true
+          },
+          {
+            "type": "decl_cast_expression",
             "named": true
           },
           {
@@ -3935,6 +4150,10 @@
   },
   {
     "type": "(:",
+    "named": false
+  },
+  {
+    "type": "({",
     "named": false
   },
   {
@@ -4299,6 +4518,10 @@
   },
   {
     "type": "}",
+    "named": false
+  },
+  {
+    "type": "})",
     "named": false
   },
   {
