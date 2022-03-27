@@ -1,18 +1,28 @@
 ================================================================================
-Empty Struct
+Struct Literal
 ================================================================================
 
-struct X;
+struct X {
+  int id;
+  string name;
+};
 
 x() {
-  struct X my_x = (<X>);
+  struct X myX = (<X> 10, "hello");
 }
 
 --------------------------------------------------------------------------------
 
 (source_file
   (struct_definition
-    (identifier))
+    (identifier)
+    (struct_member_list
+      (struct_member
+        (non_void_type)
+        (identifier))
+      (struct_member
+        (non_void_type)
+        (identifier))))
   (function_definition
     (identifier)
     (parameter_list)
@@ -24,4 +34,6 @@ x() {
           (identifier)
           (assignment_operator)
           (struct_literal
-            (identifier)))))))
+            (identifier)
+            (number_literal)
+            (string_literal)))))))
