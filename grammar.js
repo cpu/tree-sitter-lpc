@@ -163,12 +163,13 @@ module.exports = grammar({
       $.inline_closure,
       $.catch_expr,
       $.identifier,
-      $.number_literal,
       $.string_literal,
       $.concatenated_string,
       $.bytes_literal,
       $.concatenated_bytes_string,
       $.char_literal,
+      $.number_literal,
+      $.closure,
     ),
 
     async_modifier: $ => seq(
@@ -430,6 +431,16 @@ module.exports = grammar({
         ),
       ))
     },
+
+    closure: $ => seq(
+      '#\'',
+      optional(choice(
+        'efun::',
+        'sefun::',
+        'lfun::',
+        'var::')),
+      $.identifier,
+    ),
 
    _lvalue: $ => choice(
       $.identifier,

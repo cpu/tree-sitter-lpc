@@ -1,0 +1,52 @@
+================================================================================
+Closure Test
+================================================================================
+
+closure x = #'write;
+
+closure x2 = #'efun::write;
+
+closure x3 = #'sefun::write;
+
+closure x4 = #'lfun::write;
+
+closure x5 = #'var::x;
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (global_var
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (closure
+        (identifier))))
+  (global_var
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (closure
+        (identifier))))
+  (global_var
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (closure
+        (identifier))))
+  (global_var
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (closure
+        (identifier))))
+  (global_var
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (closure
+        (identifier)))))
