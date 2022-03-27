@@ -1,5 +1,104 @@
 [
   {
+    "type": "array_literal",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "array_literal",
+          "named": true
+        },
+        {
+          "type": "assignment_expression",
+          "named": true
+        },
+        {
+          "type": "binary_expression",
+          "named": true
+        },
+        {
+          "type": "bytes_literal",
+          "named": true
+        },
+        {
+          "type": "cast_expression",
+          "named": true
+        },
+        {
+          "type": "catch_expr",
+          "named": true
+        },
+        {
+          "type": "char_literal",
+          "named": true
+        },
+        {
+          "type": "closure",
+          "named": true
+        },
+        {
+          "type": "concatenated_bytes_string",
+          "named": true
+        },
+        {
+          "type": "concatenated_string",
+          "named": true
+        },
+        {
+          "type": "conditional_expression",
+          "named": true
+        },
+        {
+          "type": "decl_cast_expression",
+          "named": true
+        },
+        {
+          "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "inline_closure",
+          "named": true
+        },
+        {
+          "type": "inline_func",
+          "named": true
+        },
+        {
+          "type": "lvalue_ref_expression",
+          "named": true
+        },
+        {
+          "type": "number_literal",
+          "named": true
+        },
+        {
+          "type": "string_literal",
+          "named": true
+        },
+        {
+          "type": "symbol",
+          "named": true
+        },
+        {
+          "type": "unary_expression",
+          "named": true
+        },
+        {
+          "type": "update_expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "assignment_expression",
     "named": true,
     "fields": {
@@ -24,9 +123,25 @@
         ]
       },
       "right": {
-        "multiple": false,
+        "multiple": true,
         "required": true,
         "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "array_literal",
+            "named": true
+          },
           {
             "type": "assignment_expression",
             "named": true
@@ -97,6 +212,10 @@
           },
           {
             "type": "string_literal",
+            "named": true
+          },
+          {
+            "type": "symbol",
             "named": true
           },
           {
@@ -126,9 +245,25 @@
     "named": true,
     "fields": {
       "left": {
-        "multiple": false,
+        "multiple": true,
         "required": true,
         "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "array_literal",
+            "named": true
+          },
           {
             "type": "assignment_expression",
             "named": true
@@ -199,6 +334,10 @@
           },
           {
             "type": "string_literal",
+            "named": true
+          },
+          {
+            "type": "symbol",
             "named": true
           },
           {
@@ -294,9 +433,25 @@
         ]
       },
       "right": {
-        "multiple": false,
+        "multiple": true,
         "required": true,
         "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "array_literal",
+            "named": true
+          },
           {
             "type": "assignment_expression",
             "named": true
@@ -370,6 +525,10 @@
             "named": true
           },
           {
+            "type": "symbol",
+            "named": true
+          },
+          {
             "type": "unary_expression",
             "named": true
           },
@@ -389,6 +548,10 @@
       "multiple": true,
       "required": false,
       "types": [
+        {
+          "type": "array_literal",
+          "named": true
+        },
         {
           "type": "assignment_expression",
           "named": true
@@ -502,6 +665,10 @@
           "named": true
         },
         {
+          "type": "symbol",
+          "named": true
+        },
+        {
           "type": "unary_expression",
           "named": true
         },
@@ -601,9 +768,25 @@
         ]
       },
       "value": {
-        "multiple": false,
+        "multiple": true,
         "required": true,
         "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "array_literal",
+            "named": true
+          },
           {
             "type": "assignment_expression",
             "named": true
@@ -677,6 +860,10 @@
             "named": true
           },
           {
+            "type": "symbol",
+            "named": true
+          },
+          {
             "type": "unary_expression",
             "named": true
           },
@@ -696,6 +883,10 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "array_literal",
+          "named": true
+        },
         {
           "type": "assignment_expression",
           "named": true
@@ -773,6 +964,10 @@
           "named": true
         },
         {
+          "type": "symbol",
+          "named": true
+        },
+        {
           "type": "unary_expression",
           "named": true
         },
@@ -788,9 +983,13 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": false,
       "types": [
+        {
+          "type": "array_literal",
+          "named": true
+        },
         {
           "type": "assignment_expression",
           "named": true
@@ -861,6 +1060,10 @@
         },
         {
           "type": "string_literal",
+          "named": true
+        },
+        {
+          "type": "symbol",
           "named": true
         },
         {
@@ -939,9 +1142,25 @@
     "named": true,
     "fields": {
       "alternative": {
-        "multiple": false,
+        "multiple": true,
         "required": true,
         "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "array_literal",
+            "named": true
+          },
           {
             "type": "assignment_expression",
             "named": true
@@ -1012,6 +1231,10 @@
           },
           {
             "type": "string_literal",
+            "named": true
+          },
+          {
+            "type": "symbol",
             "named": true
           },
           {
@@ -1025,9 +1248,25 @@
         ]
       },
       "condition": {
-        "multiple": false,
+        "multiple": true,
         "required": true,
         "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "array_literal",
+            "named": true
+          },
           {
             "type": "assignment_expression",
             "named": true
@@ -1098,6 +1337,10 @@
           },
           {
             "type": "string_literal",
+            "named": true
+          },
+          {
+            "type": "symbol",
             "named": true
           },
           {
@@ -1111,9 +1354,25 @@
         ]
       },
       "consequence": {
-        "multiple": false,
+        "multiple": true,
         "required": true,
         "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "array_literal",
+            "named": true
+          },
           {
             "type": "assignment_expression",
             "named": true
@@ -1184,6 +1443,10 @@
           },
           {
             "type": "string_literal",
+            "named": true
+          },
+          {
+            "type": "symbol",
             "named": true
           },
           {
@@ -1230,6 +1493,10 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "array_literal",
+          "named": true
+        },
         {
           "type": "assignment_expression",
           "named": true
@@ -1307,6 +1574,10 @@
           "named": true
         },
         {
+          "type": "symbol",
+          "named": true
+        },
+        {
           "type": "unary_expression",
           "named": true
         },
@@ -1346,8 +1617,20 @@
         "required": true,
         "types": [
           {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
             "type": ",",
             "named": false
+          },
+          {
+            "type": "array_literal",
+            "named": true
           },
           {
             "type": "assignment_expression",
@@ -1422,6 +1705,10 @@
             "named": true
           },
           {
+            "type": "symbol",
+            "named": true
+          },
+          {
             "type": "unary_expression",
             "named": true
           },
@@ -1436,12 +1723,24 @@
         "required": true,
         "types": [
           {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
             "type": ",",
             "named": false
           },
           {
             "type": ";",
             "named": false
+          },
+          {
+            "type": "array_literal",
+            "named": true
           },
           {
             "type": "assignment_expression",
@@ -1556,6 +1855,10 @@
             "named": true
           },
           {
+            "type": "symbol",
+            "named": true
+          },
+          {
             "type": "unary_expression",
             "named": true
           },
@@ -1576,9 +1879,25 @@
     "named": true,
     "fields": {
       "condition": {
-        "multiple": false,
+        "multiple": true,
         "required": false,
         "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "array_literal",
+            "named": true
+          },
           {
             "type": "assignment_expression",
             "named": true
@@ -1649,6 +1968,10 @@
           },
           {
             "type": "string_literal",
+            "named": true
+          },
+          {
+            "type": "symbol",
             "named": true
           },
           {
@@ -1666,8 +1989,20 @@
         "required": false,
         "types": [
           {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
             "type": ",",
             "named": false
+          },
+          {
+            "type": "array_literal",
+            "named": true
           },
           {
             "type": "assignment_expression",
@@ -1742,6 +2077,10 @@
             "named": true
           },
           {
+            "type": "symbol",
+            "named": true
+          },
+          {
             "type": "unary_expression",
             "named": true
           },
@@ -1756,6 +2095,10 @@
       "multiple": true,
       "required": false,
       "types": [
+        {
+          "type": "array_literal",
+          "named": true
+        },
         {
           "type": "assignment_expression",
           "named": true
@@ -1869,6 +2212,10 @@
           "named": true
         },
         {
+          "type": "symbol",
+          "named": true
+        },
+        {
           "type": "unary_expression",
           "named": true
         },
@@ -1892,8 +2239,24 @@
         "required": true,
         "types": [
           {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": ",",
+            "named": false
+          },
+          {
             "type": "..",
             "named": false
+          },
+          {
+            "type": "array_literal",
+            "named": true
           },
           {
             "type": "assignment_expression",
@@ -1965,6 +2328,10 @@
           },
           {
             "type": "string_literal",
+            "named": true
+          },
+          {
+            "type": "symbol",
             "named": true
           },
           {
@@ -2029,6 +2396,10 @@
       "required": false,
       "types": [
         {
+          "type": "array_literal",
+          "named": true
+        },
+        {
           "type": "assignment_expression",
           "named": true
         },
@@ -2141,6 +2512,10 @@
           "named": true
         },
         {
+          "type": "symbol",
+          "named": true
+        },
+        {
           "type": "unary_expression",
           "named": true
         },
@@ -2180,6 +2555,10 @@
             "named": false
           },
           {
+            "type": "array_literal",
+            "named": true
+          },
+          {
             "type": "assignment_expression",
             "named": true
           },
@@ -2249,6 +2628,10 @@
           },
           {
             "type": "string_literal",
+            "named": true
+          },
+          {
+            "type": "symbol",
             "named": true
           },
           {
@@ -2274,6 +2657,14 @@
             "named": false
           },
           {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "array_literal",
+            "named": true
+          },
+          {
             "type": "assignment_expression",
             "named": true
           },
@@ -2343,6 +2734,10 @@
           },
           {
             "type": "string_literal",
+            "named": true
+          },
+          {
+            "type": "symbol",
             "named": true
           },
           {
@@ -2356,9 +2751,25 @@
         ]
       },
       "target": {
-        "multiple": false,
+        "multiple": true,
         "required": false,
         "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "array_literal",
+            "named": true
+          },
           {
             "type": "assignment_expression",
             "named": true
@@ -2429,6 +2840,10 @@
           },
           {
             "type": "string_literal",
+            "named": true
+          },
+          {
+            "type": "symbol",
             "named": true
           },
           {
@@ -2594,12 +3009,24 @@
         "required": false,
         "types": [
           {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
             "type": ",",
             "named": false
           },
           {
             "type": ";",
             "named": false
+          },
+          {
+            "type": "array_literal",
+            "named": true
           },
           {
             "type": "assignment_expression",
@@ -2711,6 +3138,10 @@
           },
           {
             "type": "switch_statement",
+            "named": true
+          },
+          {
+            "type": "symbol",
             "named": true
           },
           {
@@ -2732,8 +3163,20 @@
         "required": true,
         "types": [
           {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
             "type": ",",
             "named": false
+          },
+          {
+            "type": "array_literal",
+            "named": true
           },
           {
             "type": "assignment_expression",
@@ -2808,6 +3251,10 @@
             "named": true
           },
           {
+            "type": "symbol",
+            "named": true
+          },
+          {
             "type": "unary_expression",
             "named": true
           },
@@ -2822,12 +3269,24 @@
         "required": true,
         "types": [
           {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
             "type": ",",
             "named": false
           },
           {
             "type": ";",
             "named": false
+          },
+          {
+            "type": "array_literal",
+            "named": true
           },
           {
             "type": "assignment_expression",
@@ -2939,6 +3398,10 @@
           },
           {
             "type": "switch_statement",
+            "named": true
+          },
+          {
+            "type": "symbol",
             "named": true
           },
           {
@@ -3015,6 +3478,10 @@
       "multiple": true,
       "required": false,
       "types": [
+        {
+          "type": "array_literal",
+          "named": true
+        },
         {
           "type": "assignment_expression",
           "named": true
@@ -3125,6 +3592,10 @@
         },
         {
           "type": "switch_statement",
+          "named": true
+        },
+        {
+          "type": "symbol",
           "named": true
         },
         {
@@ -3317,9 +3788,13 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "array_literal",
+          "named": true
+        },
         {
           "type": "assignment_expression",
           "named": true
@@ -3390,6 +3865,10 @@
         },
         {
           "type": "string_literal",
+          "named": true
+        },
+        {
+          "type": "symbol",
           "named": true
         },
         {
@@ -3463,6 +3942,10 @@
       "required": false,
       "types": [
         {
+          "type": "array_literal",
+          "named": true
+        },
+        {
           "type": "assignment_expression",
           "named": true
         },
@@ -3532,6 +4015,10 @@
         },
         {
           "type": "string_literal",
+          "named": true
+        },
+        {
+          "type": "symbol",
           "named": true
         },
         {
@@ -3722,6 +4209,10 @@
       "required": false,
       "types": [
         {
+          "type": "array_literal",
+          "named": true
+        },
+        {
           "type": "assignment_expression",
           "named": true
         },
@@ -3838,6 +4329,10 @@
           "named": true
         },
         {
+          "type": "symbol",
+          "named": true
+        },
+        {
           "type": "unary_expression",
           "named": true
         },
@@ -3860,6 +4355,10 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "array_literal",
+          "named": true
+        },
         {
           "type": "assignment_expression",
           "named": true
@@ -3937,11 +4436,30 @@
           "named": true
         },
         {
+          "type": "symbol",
+          "named": true
+        },
+        {
           "type": "unary_expression",
           "named": true
         },
         {
           "type": "update_expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "symbol",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
           "named": true
         }
       ]
@@ -3957,9 +4475,25 @@
     "named": true,
     "fields": {
       "argument": {
-        "multiple": false,
+        "multiple": true,
         "required": true,
         "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "array_literal",
+            "named": true
+          },
           {
             "type": "assignment_expression",
             "named": true
@@ -4030,6 +4564,10 @@
           },
           {
             "type": "string_literal",
+            "named": true
+          },
+          {
+            "type": "symbol",
             "named": true
           },
           {
@@ -4067,9 +4605,25 @@
     "named": true,
     "fields": {
       "argument": {
-        "multiple": false,
+        "multiple": true,
         "required": true,
         "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "array_literal",
+            "named": true
+          },
           {
             "type": "assignment_expression",
             "named": true
@@ -4140,6 +4694,10 @@
           },
           {
             "type": "string_literal",
+            "named": true
+          },
+          {
+            "type": "symbol",
             "named": true
           },
           {
@@ -4177,8 +4735,20 @@
         "required": true,
         "types": [
           {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
             "type": ",",
             "named": false
+          },
+          {
+            "type": "array_literal",
+            "named": true
           },
           {
             "type": "assignment_expression",
@@ -4253,6 +4823,10 @@
             "named": true
           },
           {
+            "type": "symbol",
+            "named": true
+          },
+          {
             "type": "unary_expression",
             "named": true
           },
@@ -4267,12 +4841,24 @@
         "required": true,
         "types": [
           {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
             "type": ",",
             "named": false
           },
           {
             "type": ";",
             "named": false
+          },
+          {
+            "type": "array_literal",
+            "named": true
           },
           {
             "type": "assignment_expression",
@@ -4384,6 +4970,10 @@
           },
           {
             "type": "switch_statement",
+            "named": true
+          },
+          {
+            "type": "symbol",
             "named": true
           },
           {

@@ -170,6 +170,10 @@ module.exports = grammar({
       $.char_literal,
       $.number_literal,
       $.closure,
+      $.symbol,
+      prec(PREC.UNARY, seq( '(', $._comma_expr, ')')),
+      $.array_literal,
+      // L_SIMUL_EFUN_CLOSURE (?)
     ),
 
     async_modifier: $ => seq(
@@ -441,6 +445,19 @@ module.exports = grammar({
         'var::')),
       $.identifier,
     ),
+
+    // TODO(XXX): revisit this.
+    symbol: $ => seq(
+      '\'',
+      $.identifier,
+    ),
+
+    array_literal: $ => prec(PREC.UNARY, seq(
+      '({',
+      // TODO(XXX) should be expr_list not _comma_expr?
+      $._comma_expr,
+      '})'
+    )),
 
    _lvalue: $ => choice(
       $.identifier,
