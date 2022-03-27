@@ -1,0 +1,78 @@
+================================================================================
+Mapping Literal Test
+================================================================================
+
+mapping x = ([ ]);
+mapping x2 = ([ "keys", "only" ]);
+mapping x2 = ([ "keys", "only", ]);
+mapping x3 = ([ "key": "value", "key2": "value2" ]);
+mapping x3 = ([ "key": "value", "key2": "value2", ]);
+mapping x4 = ([ "key": "value"; 5, "key2": "value2"; 10 ]);
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (global_var
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (mapping_literal)))
+  (global_var
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (mapping_literal
+        (mapping_key_init
+          (string_literal))
+        (mapping_key_init
+          (string_literal)))))
+  (global_var
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (mapping_literal
+        (mapping_key_init
+          (string_literal))
+        (mapping_key_init
+          (string_literal)))))
+  (global_var
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (mapping_literal
+        (mapping_key_init
+          (string_literal)
+          (string_literal))
+        (mapping_key_init
+          (string_literal)
+          (string_literal)))))
+  (global_var
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (mapping_literal
+        (mapping_key_init
+          (string_literal)
+          (string_literal))
+        (mapping_key_init
+          (string_literal)
+          (string_literal)))))
+  (global_var
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (mapping_literal
+        (mapping_key_init
+          (string_literal)
+          (string_literal)
+          (number_literal))
+        (mapping_key_init
+          (string_literal)
+          (string_literal)
+          (number_literal))))))

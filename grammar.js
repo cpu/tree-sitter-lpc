@@ -175,6 +175,7 @@ module.exports = grammar({
       $.array_literal,
       $.quoted_aggregate,
       $.empty_mapping_literal,
+      $.mapping_literal,
       $.struct_literal,
       // L_SIMUL_EFUN_CLOSURE (?)
     ),
@@ -351,6 +352,7 @@ module.exports = grammar({
       field('value', $._expression)
     )),
 
+    // TODO(XXX): split up leading tokens. Causes issues, ignoring for now :-/
     decl_cast_expression: $ => prec(PREC.CAST, seq(
       '({',
       $._basic_type,
@@ -455,6 +457,7 @@ module.exports = grammar({
       $.identifier,
     ),
 
+    // TODO(XXX): split up leading tokens. Causes issues, ignoring for now :-/
     array_literal: $ => prec(PREC.UNARY, seq(
       '({',
       // TODO(XXX) should be expr_list not _comma_expr?
@@ -462,6 +465,7 @@ module.exports = grammar({
       '}', ')'
     )),
 
+    // TODO(XXX): split up leading tokens. Causes issues, ignoring for now :-/
     quoted_aggregate: $ => prec(PREC.UNARY, seq(
       "#'({",
       // TODO(XXX) should be expr_list not _comma_expr?
@@ -474,6 +478,21 @@ module.exports = grammar({
       ':',
       field('size', $._expression),
       ']', ')',
+    ),
+
+    mapping_literal: $ => seq(
+      '(', '[',
+      commaSep($.mapping_key_init),
+      optional(','),
+      ']', ')',
+    ),
+
+    mapping_key_init: $ => seq(
+      field('key', $._expression),
+      optional(seq(
+        ':',
+        field('values', semicolonSep1($._expression))
+      )),
     ),
 
     struct_literal: $ => seq(
