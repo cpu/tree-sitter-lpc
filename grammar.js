@@ -134,21 +134,6 @@ module.exports = grammar({
       ';',
     ),
 
-    // L_CLOSURE
-    // L_SIMUL_EFUN_CLOSURE
-    // L_SYMBOL
-    // L_FLOAT
-    // weird stuff... 13139...
-    //   { comma_expr }
-    //   ({ expr_list }) array
-    //   L_QUOTED_AGGREGATE expr_list }}
-    //   ([ : expr0 ]) empty mapping
-    //   ([ m_expr_list ]) mapping 
-    //   (< identifier > opt_struct_init ) // struct
-    // expr4 member_operator struct_member_name
-    // expr4 index_expr
-    // expr4 index_range
-    // expr4 [ expr0 , expr0 ]
     _expression: $ => choice(
       $.conditional_expression,
       $.assignment_expression,
@@ -180,8 +165,7 @@ module.exports = grammar({
       $.identifier,
       $.struct_member_lookup,
       prec(PREC.SUBSCRIPT, seq($._expression, $.index_expr)),
-      // expr4 index_expr (prec: [)
-      // expr4 index_range (prec: [)
+      prec(PREC.SUBSCRIPT, seq($._expression, $.index_range)),
       // expr4 [ expr0 , expr0 ] index_range (prec: ])
     ),
 
@@ -303,6 +287,7 @@ module.exports = grammar({
       field('right', $._expression)
     )),
 
+    // TODO(XXX): Consider 'in'.
     binary_expression: $ => {
       const table = [
         ['+', PREC.ADD],
@@ -312,7 +297,6 @@ module.exports = grammar({
         ['%', PREC.MULTIPLY],
         ['||', PREC.LOGICAL_OR],
         ['&&', PREC.LOGICAL_AND],
-
         ['|', PREC.INCLUSIVE_OR],
         ['^', PREC.EXCLUSIVE_OR],
         ['&', PREC.BITWISE_AND],
@@ -537,6 +521,25 @@ module.exports = grammar({
       optional('>'),
       $._expression, 
       ']',
+    ),
+
+    // TODO: Has trouble with '\d..\d' with no space.
+    index_range: $ => choice(
+      seq('[', '..', $._expression, ']'),
+      seq('[', '..', '<', $._expression, ']'),
+      seq('[', '..', '>', $._expression, ']'),
+      seq('[', $._expression, '..', $._expression, ']'),
+      seq('[', $._expression, '..', '<', $._expression, ']'),
+      seq('[', '<', $._expression, '..', $._expression, ']'),
+      seq('[', '<', $._expression, '..', '<', $._expression, ']'),
+      seq('[', $._expression, '..', '>', $._expression, ']'),
+      seq('[', '>', $._expression, '..', $._expression, ']'),
+      seq('[', '<', $._expression, '..', '>', $._expression, ']'),
+      seq('[', '>', $._expression, '..', '<', $._expression, ']'),
+      seq('[', '>', $._expression, '..', '>', $._expression, ']'),
+      seq('[', $._expression, '..', ']'),
+      seq('[', '<', $._expression, '..', ']'),
+      seq('[', '>', $._expression, '..', ']'),
     ),
 
     _lvalue: $ => choice(
