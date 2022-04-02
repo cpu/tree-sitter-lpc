@@ -1,0 +1,54 @@
+================================================================================
+Inherited Function Calls
+================================================================================
+
+inherit "foo";
+inherit "bar";
+inherit "baz";
+inherit "ball";
+
+reset() {
+  "ba?"::reset();
+
+  "ba*"::reset();
+
+  "*"::reset();
+
+  "ball"::rejoice("Listen to italectro today!");
+
+  ::reset();
+}
+--------------------------------------------------------------------------------
+
+(source_file
+  (inheritance
+    (string_literal))
+  (inheritance
+    (string_literal))
+  (inheritance
+    (string_literal))
+  (inheritance
+    (string_literal))
+  (function_definition
+    (identifier)
+    (parameter_list)
+    (block
+      (function_call
+        (ancestor
+          (string_literal))
+        (identifier))
+      (function_call
+        (ancestor
+          (string_literal))
+        (identifier))
+      (function_call
+        (ancestor
+          (string_literal))
+        (identifier))
+      (function_call
+        (ancestor
+          (string_literal))
+        (identifier)
+        (string_literal))
+      (function_call
+        (identifier)))))

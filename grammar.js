@@ -134,6 +134,7 @@ module.exports = grammar({
       ';',
     ),
 
+    // TODO: split into expr4 and expr0?
     _expression: $ => choice(
       $.conditional_expression,
       $.assignment_expression,
@@ -144,6 +145,10 @@ module.exports = grammar({
       $.decl_cast_expression,
       $.lvalue_ref_expression,
       // lvalue ref + assign
+      $._expr4,
+    ),
+
+    _expr4: $ => choice(
       $.function_call,
       $.inline_func,
       $.inline_closure,
@@ -164,9 +169,16 @@ module.exports = grammar({
       $.struct_literal,
       $.identifier,
       $.struct_member_lookup,
-      prec(PREC.SUBSCRIPT, seq($._expression, $.index_expr)),
-      prec(PREC.SUBSCRIPT, seq($._expression, $.index_range)),
-      // expr4 [ expr0 , expr0 ] index_range (prec: ])
+      prec(PREC.SUBSCRIPT, seq($._expr4, $.index_expr)),
+      prec(PREC.SUBSCRIPT, seq($._expr4, $.index_range)),
+      prec(PREC.SUBSCRIPT, seq(
+        $._expr4, 
+        '[',
+        $._expression,
+        ',',
+        $._expression,
+        ']'
+      )),
     ),
 
     async_modifier: $ => seq(
@@ -214,11 +226,10 @@ module.exports = grammar({
       ),
     ),
 
-    // TODO: Consider :: syntax for inherited functions.
     function_call: $ => prec(PREC.CALL, choice(
       // Simple function call.
       seq(
-        field('function', $._expression),
+        field('function', $._function_name),
         field('arguments', seq(
           '(',
           commaSep($._expression),
@@ -228,7 +239,7 @@ module.exports = grammar({
       ),
       // Call-other.
       seq(
-        field('target', $._expression),
+        field('target', $._expr4),
         $.member_operator,
         field('function', $._call_other_name),
         field('arguments', seq(
@@ -238,7 +249,20 @@ module.exports = grammar({
           ')',
         ))
       ),
+      // TODO(XXX): Async function calls w/ yield.
     )),
+
+    _function_name: $ => choice(
+      $.identifier,
+      seq('::', $.identifier),
+      seq($.ancestor, '::', $.identifier),
+    ),
+
+    ancestor: $ => choice(
+      $.identifier,
+      $.string_literal,
+      $.concatenated_string,
+    ),
 
     member_operator: $ => choice(
       '->',
@@ -503,7 +527,7 @@ module.exports = grammar({
     ),
 
     struct_member_lookup: $ => prec(PREC.FIELD, seq(
-      field('struct', $._expression),
+      field('struct', $._expr4),
       $.member_operator,
       field('member_name', $._struct_member_name),
     )),

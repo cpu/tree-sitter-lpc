@@ -13,9 +13,9 @@ int *x7 = x[<2 .. 2];
 int *x8 = x[<2 .. <0xFF];
 int *x9 = x[2 ..>10];
 //int *x10 = x[>2..10];
-int *x10 = x[>2 ..10];
-int *x11 = x[<2..>10];
-int *x12 = x[>2..<10];
+int *x10 = x[>2 .. 10];
+int *x11 = x[<2 .. >10];
+int *x12 = x[>2 .. <10];
 int *x13 = x[>2 .. >10];
 //int *x14 = x[2^2 ..];
 int *x14 = x[2^2 ..];
@@ -135,26 +135,18 @@ int *x16 = x[>2^2 ..];
       (identifier)
       (assignment_operator)
       (identifier)
-      (index_expr
-        (binary_expression
-          (struct_member_lookup
-            (number_literal)
-            (member_operator)
-            (MISSING identifier))
-          (number_literal)))))
+      (index_range
+        (number_literal)
+        (number_literal))))
   (global_var
     (non_void_type)
     (assignment_expression
       (identifier)
       (assignment_operator)
       (identifier)
-      (index_expr
-        (binary_expression
-          (struct_member_lookup
-            (number_literal)
-            (member_operator)
-            (MISSING identifier))
-          (number_literal)))))
+      (index_range
+        (number_literal)
+        (number_literal))))
   (global_var
     (non_void_type)
     (assignment_expression

@@ -1025,6 +1025,7 @@ function_call:
 
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
     | expr4 member_operator call_other_name %prec L_ARROW
+      '(' arg_expr_list ')'
     | coroutine_call
 
 
