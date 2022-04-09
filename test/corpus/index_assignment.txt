@@ -1,0 +1,52 @@
+================================================================================
+Index Subscript Assignment
+================================================================================
+
+x() {
+  int* x = ({ 10, 20, 30, 40, 50 });
+
+
+  x[5] = 99;
+  x[foo()] = 99;
+  x[<5] = ({ 99, 99 });
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_definition
+    (identifier)
+    (parameter_list)
+    (block
+      (local_var
+        (non_void_type)
+        (assignment_expression
+          (identifier)
+          (assignment_operator)
+          (array_literal
+            (number_literal)
+            (number_literal)
+            (number_literal)
+            (number_literal)
+            (number_literal))))
+      (assignment_expression
+        (identifier)
+        (index_expr
+          (number_literal))
+        (assignment_operator)
+        (number_literal))
+      (assignment_expression
+        (identifier)
+        (index_expr
+          (function_call
+            (identifier)))
+        (assignment_operator)
+        (number_literal))
+      (assignment_expression
+        (identifier)
+        (index_expr
+          (number_literal))
+        (assignment_operator)
+        (array_literal
+          (number_literal)
+          (number_literal))))))

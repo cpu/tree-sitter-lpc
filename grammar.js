@@ -31,6 +31,12 @@ module.exports = grammar({
     $.comment,
   ],
 
+  // TODO(XXX): This is wrong?
+  conflicts: $ => [
+    [ $.struct_definition, $._single_non_void_type ],
+    [ $.function_definition, $._function_name ],
+  ],
+
   word: $ => $.identifier,
 
   rules: {
@@ -568,10 +574,15 @@ module.exports = grammar({
 
     _lvalue: $ => choice(
       $.identifier,
-      // expr4 index_expr
-      // expr4 [ expr ',', expr0 ]
-      // exp4 index_range
-      // expr4 member_operator struct_member_name
+      prec(PREC.SUBSCRIPT, seq(
+        $._expr4, $.index_expr)),
+      prec(PREC.SUBSCRIPT, seq(
+        $._expr4, '[', $._expression, ',', $._expression, ']',
+      )),
+      prec(PREC.SUBSCRIPT, seq(
+        $._expr4, $.index_range)),
+      prec(PREC.FIELD, seq(
+        $._expr4, $.member_operator, $._struct_member_name)),
     ),
 
     _function_body: $ => choice(
@@ -836,16 +847,16 @@ module.exports = grammar({
       "float",
       "mapping",
       "mixed",
-      seq(
+      prec.right(seq(
         "object",
         optional(
           field('blueprint', $.string_literal)),
-      ),
-      seq(
+      )),
+      prec.right(seq(
         "lwobject",
         optional(
           field('blueprint', $.string_literal)),
-      ),
+      )),
       seq(
         "struct",
         $.identifier

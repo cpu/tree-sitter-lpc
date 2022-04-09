@@ -3696,6 +3696,94 @@
         {
           "type": "SYMBOL",
           "name": "identifier"
+        },
+        {
+          "type": "PREC",
+          "value": 15,
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_expr4"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "index_expr"
+              }
+            ]
+          }
+        },
+        {
+          "type": "PREC",
+          "value": 15,
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_expr4"
+              },
+              {
+                "type": "STRING",
+                "value": "["
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_expression"
+              },
+              {
+                "type": "STRING",
+                "value": ","
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_expression"
+              },
+              {
+                "type": "STRING",
+                "value": "]"
+              }
+            ]
+          }
+        },
+        {
+          "type": "PREC",
+          "value": 15,
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_expr4"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "index_range"
+              }
+            ]
+          }
+        },
+        {
+          "type": "PREC",
+          "value": 14,
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_expr4"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "member_operator"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_struct_member_name"
+              }
+            ]
+          }
         }
       ]
     },
@@ -5092,54 +5180,62 @@
           "value": "mixed"
         },
         {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "object"
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "FIELD",
-                  "name": "blueprint",
-                  "content": {
-                    "type": "SYMBOL",
-                    "name": "string_literal"
+          "type": "PREC_RIGHT",
+          "value": 0,
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "object"
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "FIELD",
+                    "name": "blueprint",
+                    "content": {
+                      "type": "SYMBOL",
+                      "name": "string_literal"
+                    }
+                  },
+                  {
+                    "type": "BLANK"
                   }
-                },
-                {
-                  "type": "BLANK"
-                }
-              ]
-            }
-          ]
+                ]
+              }
+            ]
+          }
         },
         {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "lwobject"
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "FIELD",
-                  "name": "blueprint",
-                  "content": {
-                    "type": "SYMBOL",
-                    "name": "string_literal"
+          "type": "PREC_RIGHT",
+          "value": 0,
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "lwobject"
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "FIELD",
+                    "name": "blueprint",
+                    "content": {
+                      "type": "SYMBOL",
+                      "name": "string_literal"
+                    }
+                  },
+                  {
+                    "type": "BLANK"
                   }
-                },
-                {
-                  "type": "BLANK"
-                }
-              ]
-            }
-          ]
+                ]
+              }
+            ]
+          }
         },
         {
           "type": "SEQ",
@@ -5239,7 +5335,16 @@
       "name": "comment"
     }
   ],
-  "conflicts": [],
+  "conflicts": [
+    [
+      "struct_definition",
+      "_single_non_void_type"
+    ],
+    [
+      "function_definition",
+      "_function_name"
+    ]
+  ],
   "precedences": [],
   "externals": [],
   "inline": [],

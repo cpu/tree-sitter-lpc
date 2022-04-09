@@ -1,0 +1,75 @@
+================================================================================
+Index Range Assignment
+================================================================================
+
+x() {
+  int* x = ({ 10, 20, 30, 40, 50 });
+
+
+  x[5 .. 10] = 99;
+  x[5 .. 10] = 99;
+  x[ .. 2*2 ] = 99;
+  x[ .. <   2*2] = 99;
+  x[ 2   +  foo() .. <  2*2] = 99;
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_definition
+    (identifier)
+    (parameter_list)
+    (block
+      (local_var
+        (non_void_type)
+        (assignment_expression
+          (identifier)
+          (assignment_operator)
+          (array_literal
+            (number_literal)
+            (number_literal)
+            (number_literal)
+            (number_literal)
+            (number_literal))))
+      (assignment_expression
+        (identifier)
+        (index_range
+          (number_literal)
+          (number_literal))
+        (assignment_operator)
+        (number_literal))
+      (assignment_expression
+        (identifier)
+        (index_range
+          (number_literal)
+          (number_literal))
+        (assignment_operator)
+        (number_literal))
+      (assignment_expression
+        (identifier)
+        (index_range
+          (binary_expression
+            (number_literal)
+            (number_literal)))
+        (assignment_operator)
+        (number_literal))
+      (assignment_expression
+        (identifier)
+        (index_range
+          (binary_expression
+            (number_literal)
+            (number_literal)))
+        (assignment_operator)
+        (number_literal))
+      (assignment_expression
+        (identifier)
+        (index_range
+          (binary_expression
+            (number_literal)
+            (function_call
+              (identifier)))
+          (binary_expression
+            (number_literal)
+            (number_literal)))
+        (assignment_operator)
+        (number_literal)))))
