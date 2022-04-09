@@ -18,9 +18,6 @@
 * Pre-processor
   * Zero support implemented.
 
-* Lvalue index/member assignments
-
-* In keyword
 * Mixed structs
 
 * Precedence 

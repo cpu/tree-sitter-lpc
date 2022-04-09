@@ -40,6 +40,8 @@ int x = 1 >> x;
 
 int x = 1 >>> x;
 
+int x = 4 in ({ 1, 2, 3, 4 });
+
 --------------------------------------------------------------------------------
 
 (source_file
@@ -194,4 +196,16 @@ int x = 1 >>> x;
       (assignment_operator)
       (binary_expression
         (number_literal)
-        (identifier)))))
+        (identifier))))
+  (global_var
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (binary_expression
+        (number_literal)
+        (array_literal
+          (number_literal)
+          (number_literal)
+          (number_literal)
+          (number_literal))))))

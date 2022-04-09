@@ -329,7 +329,6 @@ module.exports = grammar({
       field('right', $._expression)
     )),
 
-    // TODO(XXX): Consider 'in'.
     binary_expression: $ => {
       const table = [
         ['+', PREC.ADD],
@@ -344,6 +343,7 @@ module.exports = grammar({
         ['&', PREC.BITWISE_AND],
         ['==', PREC.EQUAL],
         ['!=', PREC.EQUAL],
+        ['in', PREC.EQUAL],
         ['>', PREC.RELATIONAL],
         ['>=', PREC.RELATIONAL],
         ['<=', PREC.RELATIONAL],
@@ -483,7 +483,7 @@ module.exports = grammar({
       $.identifier,
     ),
 
-    // TODO(XXX): revisit this.
+    // TODO(XXX): revisit this. Interacts badly with char_literal.
     symbol: $ => prec(1, seq(
       "'",
       token.immediate(/[a-zA-Z_$]\w*/),
