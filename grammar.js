@@ -48,7 +48,139 @@ module.exports = grammar({
       $.struct_definition,
       $.inheritance,
       $.default_visibility,
+      $.preproc_if,
+      $.preproc_ifdef,
+      $.preproc_include,
+      $.pragma_def,
+      $.preproc_def,
+      $.preproc_function_def,
+      $.preproc_call
     ),
+
+    // Preprocessor grammar taken from tree-sitter-c and lightly adapted.
+    // See https://github.com/tree-sitter/tree-sitter-c/blob/e348e8ec5efd3aac020020e4af53d2ff18f393a9/grammar.js#L74-L186
+    preproc_include: $ => seq(
+      preprocessor('include'),
+      field('path', choice(
+        $.string_literal,
+        $.system_lib_string,
+        $.identifier,
+        alias($.preproc_call_expression, $.function_call),
+      )),
+      '\n'
+    ),
+
+    system_lib_string: $ => token(seq(
+      '<',
+      repeat(choice(/[^>\n]/, '\\>')),
+      '>'
+    )),
+
+    preproc_def: $ => seq(
+      preprocessor('define'),
+      field('name', $.identifier),
+      field('value', optional($.preproc_arg)),
+      '\n'
+    ),
+
+    pragma_def: $ => seq(
+      preprocessor('pragma'),
+      field('value', commaSep1($.identifier)),
+      '\n'
+    ),
+
+    preproc_function_def: $ => seq(
+      preprocessor('define'),
+      field('name', $.identifier),
+      field('parameters', $.preproc_params),
+      field('value', optional($.preproc_arg)),
+      '\n'
+    ),
+
+    preproc_params: $ => seq(
+      token.immediate('('), commaSep(choice($.identifier, '...')), ')'
+    ),
+
+    preproc_call: $ => seq(
+      field('directive', $.preproc_directive),
+      field('argument', optional($.preproc_arg)),
+      '\n'
+    ),
+
+    ...preprocIf('', $ => $._definition),
+    //...preprocIf('_in_field_declaration_list', $ => $._field_declaration_list_item),
+
+    preproc_directive: $ => /#[ \t]*[a-zA-Z]\w*/,
+    preproc_arg: $ => token(prec(-1, repeat1(/.|\\\r?\n/))),
+
+    _preproc_expression: $ => choice(
+      $.identifier,
+      alias($.preproc_call_expression, $.function_call),
+      $.number_literal,
+      $.char_literal,
+      $.preproc_defined,
+      alias($.preproc_unary_expression, $.unary_expression),
+      alias($.preproc_binary_expression, $.binary_expression),
+      alias($.preproc_parenthesized_expression, $.parenthesized_expression)
+    ),
+
+    preproc_parenthesized_expression: $ => seq(
+      '(',
+      $._preproc_expression,
+      ')'
+    ),
+
+    preproc_defined: $ => choice(
+      prec(PREC.CALL, seq('defined', '(', $.identifier, ')')),
+      seq('defined', $.identifier),
+    ),
+
+    preproc_unary_expression: $ => prec.left(PREC.UNARY, seq(
+      field('operator', choice('!', '~', '-', '+')),
+      field('argument', $._preproc_expression)
+    )),
+
+    preproc_call_expression: $ => prec(PREC.CALL, seq(
+      field('function', $.identifier),
+      field('arguments', alias($.preproc_argument_list, $.parameter_list))
+    )),
+
+    preproc_argument_list: $ => seq(
+      '(',
+      commaSep($._preproc_expression),
+      ')'
+    ),
+
+    preproc_binary_expression: $ => {
+      const table = [
+        ['+', PREC.ADD],
+        ['-', PREC.ADD],
+        ['*', PREC.MULTIPLY],
+        ['/', PREC.MULTIPLY],
+        ['%', PREC.MULTIPLY],
+        ['||', PREC.LOGICAL_OR],
+        ['&&', PREC.LOGICAL_AND],
+        ['|', PREC.INCLUSIVE_OR],
+        ['^', PREC.EXCLUSIVE_OR],
+        ['&', PREC.BITWISE_AND],
+        ['==', PREC.EQUAL],
+        ['!=', PREC.EQUAL],
+        ['>', PREC.RELATIONAL],
+        ['>=', PREC.RELATIONAL],
+        ['<=', PREC.RELATIONAL],
+        ['<', PREC.RELATIONAL],
+        ['<<', PREC.SHIFT],
+        ['>>', PREC.SHIFT],
+      ];
+
+      return choice(...table.map(([operator, precedence]) => {
+        return prec.left(precedence, seq(
+          field('left', $._preproc_expression),
+          field('operator', operator),
+          field('right', $._preproc_expression)
+        ))
+      }));
+    },
 
     function_definition: $ => seq(
       field('async', optional($.async_modifier)),
@@ -113,7 +245,10 @@ module.exports = grammar({
       )),
       field('inheritance_modifiers', repeat($.inheritance_modifier)),
       'inherit',
-      field('inherit_path', $.string_literal),
+      field('inherit_path', choice(
+        $.string_literal,
+        $.identifier,
+      )),
       ';',
     ),
 
@@ -166,7 +301,7 @@ module.exports = grammar({
       $.number_literal,
       $.closure,
       $.symbol,
-      prec(PREC.UNARY, seq( '(', $._comma_expr, ')')),
+      $.parenthesized_expression,
       $.array_literal,
       $.quoted_aggregate,
       $.empty_mapping_literal,
@@ -184,6 +319,10 @@ module.exports = grammar({
         $._expression,
         ']'
       )),
+    ),
+
+    parenthesized_expression: $ => prec(PREC.UNARY, 
+      seq('(', $._comma_expr, ')')
     ),
 
     async_modifier: $ => seq(
@@ -492,16 +631,14 @@ module.exports = grammar({
     // TODO(XXX): split up leading tokens. Causes issues, ignoring for now :-/
     array_literal: $ => prec(PREC.UNARY, seq(
       '({',
-      // TODO(XXX) should be expr_list not _comma_expr?
-      $._comma_expr,
+      optional($._comma_expr),
       '}', ')'
     )),
 
     // TODO(XXX): split up leading tokens. Causes issues, ignoring for now :-/
     quoted_aggregate: $ => prec(PREC.UNARY, seq(
       "#'({",
-      // TODO(XXX) should be expr_list not _comma_expr?
-      $._comma_expr,
+      optional($._comma_expr),
       '}', ')'
     )),
 
@@ -933,4 +1070,53 @@ function semicolonSep(rule) {
 
 function semicolonSep1(rule) {
   return sep1(';', rule)
+}
+
+// Taken from tree-sitter-c. See:
+// https://github.com/tree-sitter/tree-sitter-c/blob/f71e80b9f20c3968c131518ae8d272a3cf81a60b/grammar.js#L1073-L1075
+function preprocessor (command) {
+  return alias(new RegExp('#[ \t]*' + command), '#' + command)
+}
+
+// Taken from tree-sitter-c. See:
+// https://github.com/tree-sitter/tree-sitter-c/blob/e348e8ec5efd3aac020020e4af53d2ff18f393a9/grammar.js#L1032-L1071
+function preprocIf (suffix, content) {
+  function elseBlock ($) {
+    return choice(
+      suffix ? alias($['preproc_else' + suffix], $.preproc_else) : $.preproc_else,
+      suffix ? alias($['preproc_elif' + suffix], $.preproc_elif) : $.preproc_elif,
+    );
+  }
+
+  return {
+    ['preproc_if' + suffix]: $ => seq(
+      preprocessor('if'),
+      field('condition', $._preproc_expression),
+      '\n',
+      repeat(content($)),
+      field('alternative', optional(elseBlock($))),
+      preprocessor('endif')
+    ),
+
+    ['preproc_ifdef' + suffix]: $ => seq(
+      choice(preprocessor('ifdef'), preprocessor('ifndef')),
+      field('name', $.identifier),
+      repeat(content($)),
+      field('alternative', optional(elseBlock($))),
+      preprocessor('endif')
+    ),
+
+    ['preproc_else' + suffix]: $ => seq(
+      preprocessor('else'),
+      repeat(content($))
+    ),
+
+    ['preproc_elif' + suffix]: $ => seq(
+      preprocessor('elif'),
+      field('condition', $._preproc_expression),
+      '\n',
+      repeat(content($)),
+      field('alternative', optional(elseBlock($))),
+    )
+  }
 }
