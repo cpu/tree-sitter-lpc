@@ -20,9 +20,8 @@
 
 * Lvalue index/member assignments
 
-* Coroutines func calls
 * In keyword
 * Mixed structs
-  
+
 * Precedence 
   * It's all messed up I bet :)

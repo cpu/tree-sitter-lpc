@@ -1,0 +1,61 @@
+================================================================================
+Coroutine Call
+================================================================================
+
+coroutine cb;
+
+async void cool() {
+  yield();
+}
+
+async int whatev(int arg = 1) {
+  yield(99);
+}
+
+void x() {
+  await(cool());
+}
+
+int bar = await(whatev(9));
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (global_var
+    (non_void_type)
+    (identifier))
+  (function_definition
+    (async_modifier)
+    (identifier)
+    (parameter_list)
+    (block
+      (function_call)))
+  (function_definition
+    (async_modifier)
+    (non_void_type)
+    (identifier)
+    (parameter_list
+      (parameter
+        (non_void_type)
+        (identifier)
+        (opt_default_value
+          (number_literal))))
+    (block
+      (function_call
+        (number_literal))))
+  (function_definition
+    (identifier)
+    (parameter_list)
+    (block
+      (function_call
+        (function_call
+          (identifier)))))
+  (global_var
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (function_call
+        (function_call
+          (identifier)
+          (number_literal))))))

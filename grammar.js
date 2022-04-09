@@ -254,7 +254,20 @@ module.exports = grammar({
           ')',
         ))
       ),
-      // TODO(XXX): Async function calls w/ yield.
+      // Coroutine await.
+      seq(
+        'await',
+        '(',
+        commaSep1($._expression),
+        ')',
+      ),
+      // Coroutine yield
+      seq(
+        'yield',
+        '(',
+        commaSep($._expression),
+        ')',
+      ),
     )),
 
     _function_name: $ => choice(
