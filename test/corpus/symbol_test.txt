@@ -1,0 +1,20 @@
+================================================================================
+Symbol Test
+================================================================================
+
+create() {
+  symbol x = 'a;
+}
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_definition
+    (identifier)
+    (parameter_list)
+    (block
+      (local_var
+        (non_void_type)
+        (assignment_expression
+          (identifier)
+          (assignment_operator)
+          (symbol))))))

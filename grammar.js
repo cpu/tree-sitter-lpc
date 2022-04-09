@@ -134,7 +134,6 @@ module.exports = grammar({
       ';',
     ),
 
-    // TODO: split into expr4 and expr0?
     _expression: $ => choice(
       $.conditional_expression,
       $.assignment_expression,
@@ -379,14 +378,15 @@ module.exports = grammar({
       seq('&', '(', $.function_call, ')'),
     ),
 
-    char_literal: $ => seq(
+    char_literal: $ => prec.right(1, seq(
       '\'',
       choice(
         $.escape_sequence,
-        token.immediate(/[^\n']/)
+        // TODO(XXX): This breaks symbols :'( Need to debug harder.
+        //token.immediate(/[^\n']/)
       ),
       '\''
-    ),
+    )),
 
     concatenated_string: $ => prec(PREC.ADD, seq(
       $.string_literal,
@@ -465,10 +465,10 @@ module.exports = grammar({
     ),
 
     // TODO(XXX): revisit this.
-    symbol: $ => seq(
-      '\'',
-      $.identifier,
-    ),
+    symbol: $ => prec(1, seq(
+      "'",
+      token.immediate(/[a-zA-Z_$]\w*/),
+    )),
 
     // TODO(XXX): split up leading tokens. Causes issues, ignoring for now :-/
     array_literal: $ => prec(PREC.UNARY, seq(
