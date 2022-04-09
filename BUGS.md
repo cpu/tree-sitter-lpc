@@ -20,12 +20,9 @@
 
 * Lvalue index/member assignments
 
-* Coroutines
-* LWOs
-* Syntax for limiting object type to a blueprint
-* Mixed struct
-  * Need to verify coverage
-
+* Coroutines func calls
+* In keyword
+* Mixed structs
   
 * Precedence 
   * It's all messed up I bet :)

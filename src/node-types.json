@@ -5381,7 +5381,18 @@
   {
     "type": "non_void_type",
     "named": true,
-    "fields": {},
+    "fields": {
+      "blueprint": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "string_literal",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": false,

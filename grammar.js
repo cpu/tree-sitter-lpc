@@ -836,10 +836,16 @@ module.exports = grammar({
       "float",
       "mapping",
       "mixed",
-      "object",
-      // TODO: handle object w/ optional simple_string_constant 
-      "lwobject",
-      // TODO: handle lwobject w/ optional simple_string_constant 
+      seq(
+        "object",
+        optional(
+          field('blueprint', $.string_literal)),
+      ),
+      seq(
+        "lwobject",
+        optional(
+          field('blueprint', $.string_literal)),
+      ),
       seq(
         "struct",
         $.identifier

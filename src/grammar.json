@@ -5092,12 +5092,54 @@
           "value": "mixed"
         },
         {
-          "type": "STRING",
-          "value": "object"
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "object"
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "FIELD",
+                  "name": "blueprint",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "string_literal"
+                  }
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
         },
         {
-          "type": "STRING",
-          "value": "lwobject"
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "lwobject"
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "FIELD",
+                  "name": "blueprint",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "string_literal"
+                  }
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
         },
         {
           "type": "SEQ",

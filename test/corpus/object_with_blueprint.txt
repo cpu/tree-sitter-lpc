@@ -1,0 +1,16 @@
+================================================================================
+Object with Blueprint Constraint
+================================================================================
+
+object "/obj/player.c" player = 0;
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (global_var
+    (non_void_type
+      (string_literal))
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (number_literal))))
