@@ -1061,6 +1061,10 @@
         {
           "type": "constant",
           "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
         }
       ]
     }

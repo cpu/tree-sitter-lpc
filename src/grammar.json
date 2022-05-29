@@ -6384,6 +6384,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "SYMBOL",
           "name": "case_string_label"
         }
       ]

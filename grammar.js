@@ -882,6 +882,7 @@ module.exports = grammar({
 
     case_label: $ => choice(
       $.constant,
+      $.identifier,
       $.case_string_label,
     ),
 
