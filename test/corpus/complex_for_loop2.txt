@@ -1,0 +1,76 @@
+================================================================================
+Complex For Loop 2
+================================================================================
+
+void x(object env) {
+  int num, i;
+  object found;
+
+  for (found = first_inventory(env), i = 0; found; found = next_inventory(env)) {
+    if (found->id(str) && ++i == num) {
+      break;
+    }
+    if (!found) { /* may happen */
+      break;
+    }
+  }
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_definition
+    (identifier)
+    (parameter_list
+      (parameter
+        (non_void_type)
+        (identifier)))
+    (block
+      (local_var
+        (local_var
+          (non_void_type)
+          (identifier))
+        (identifier))
+      (local_var
+        (non_void_type)
+        (identifier))
+      (for_statement
+        (local_var
+          (local_var
+            (assignment_expression
+              (identifier)
+              (assignment_operator)
+              (function_call
+                (identifier)
+                (identifier))))
+          (assignment_expression
+            (identifier)
+            (assignment_operator)
+            (number_literal)))
+        (identifier)
+        (assignment_expression
+          (identifier)
+          (assignment_operator)
+          (function_call
+            (identifier)
+            (identifier)))
+        (block
+          (if_statement
+            (binary_expression
+              (function_call
+                (identifier)
+                (member_operator)
+                (identifier)
+                (identifier))
+              (binary_expression
+                (update_expression
+                  (identifier))
+                (identifier)))
+            (block
+              (break_statement)))
+          (if_statement
+            (unary_expression
+              (identifier))
+            (block
+              (comment)
+              (break_statement))))))))

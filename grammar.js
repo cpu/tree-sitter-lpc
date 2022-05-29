@@ -35,6 +35,7 @@ module.exports = grammar({
   conflicts: $ => [
     [ $.struct_definition, $._single_non_void_type ],
     [ $.function_definition, $._function_name ],
+    [ $.local_var, $._expression ],
   ],
 
   word: $ => $.identifier,
@@ -112,7 +113,7 @@ module.exports = grammar({
     ),
 
     ...preprocIf('', $ => $._definition),
-    //...preprocIf('_in_field_declaration_list', $ => $._field_declaration_list_item),
+    ...preprocIf('_in_statement', $ => $._statement),
 
     preproc_directive: $ => /#[ \t]*[a-zA-Z]\w*/,
     preproc_arg: $ => token(prec(-1, repeat1(/.|\\\r?\n/))),
@@ -366,7 +367,7 @@ module.exports = grammar({
       'catch',
       '(',
       $._comma_expr,
-      seq(';', semicolonSep($.catch_modifier)),
+      optional(seq(';', semicolonSep($.catch_modifier))),
       ')',
     )),
 
@@ -768,7 +769,9 @@ module.exports = grammar({
       $.block,
       ';',
       seq($.break_statement, ';'),
-      seq($.continue_statement, ';')
+      seq($.continue_statement, ';'),
+      $.preproc_if_in_statement,
+      $.preproc_ifdef_in_statement,
     ),
 
     break_statement: $ => seq('break'),
@@ -779,7 +782,8 @@ module.exports = grammar({
       $._expression, 
       seq(
         $._expression,
-        repeat1(seq(',', $._expression))
+        repeat1(seq(',', $._expression)),
+        optional(','),
       ),
     ),
 
@@ -951,11 +955,13 @@ module.exports = grammar({
         field('type', $._basic_type),
         field('name', $.identifier),
       ),
-      // Local name, w/ assignment.
+      // Local name w/ type and assignment.
       seq(
         field('type', $._basic_type),
         $.assignment_expression,
       ),
+      // Local name, w/o type, but assignment
+      $.assignment_expression,
       // Local name comma list, no assignment.
       seq(
         $.local_var,

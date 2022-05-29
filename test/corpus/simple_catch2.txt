@@ -1,0 +1,55 @@
+================================================================================
+Simple Catch 2
+================================================================================
+
+#define MAX_LOG_SIZE 50000
+
+x() {
+  string file_name;
+  int *st;
+  if (sizeof(st = get_dir(file_name,2) ) && st[0] > MAX_LOG_SIZE) {
+    catch(rename(file_name, file_name + ".old")); /* No panic if failure */
+  }
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (preproc_def
+    (identifier)
+    (preproc_arg))
+  (function_definition
+    (identifier)
+    (parameter_list)
+    (block
+      (local_var
+        (non_void_type)
+        (identifier))
+      (local_var
+        (non_void_type)
+        (identifier))
+      (if_statement
+        (binary_expression
+          (function_call
+            (identifier)
+            (assignment_expression
+              (identifier)
+              (assignment_operator)
+              (function_call
+                (identifier)
+                (identifier)
+                (number_literal))))
+          (binary_expression
+            (identifier)
+            (index_expr
+              (number_literal))
+            (identifier)))
+        (block
+          (catch_expr
+            (function_call
+              (identifier)
+              (identifier)
+              (binary_expression
+                (identifier)
+                (string_literal))))
+          (comment))))))

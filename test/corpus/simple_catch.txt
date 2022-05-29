@@ -21,13 +21,13 @@ x() {
       (local_var
         (non_void_type)
         (identifier))
-      (ERROR
+      (assignment_expression
         (identifier)
         (assignment_operator)
-        (assignment_expression
-          (identifier)
-          (assignment_operator)
-          (function_call
+        (catch_expr
+          (assignment_expression
             (identifier)
-            (string_literal)))
-        (ERROR)))))
+            (assignment_operator)
+            (function_call
+              (identifier)
+              (string_literal))))))))

@@ -1,0 +1,22 @@
+================================================================================
+Preprocessor Ifdef
+================================================================================
+
+#ifdef TREE_SITTER
+int *x = ({ 10, 20, 30 });
+#endif
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (preproc_ifdef
+    (identifier)
+    (global_var
+      (non_void_type)
+      (assignment_expression
+        (identifier)
+        (assignment_operator)
+        (array_literal
+          (number_literal)
+          (number_literal)
+          (number_literal))))))

@@ -1,0 +1,31 @@
+================================================================================
+Function Body Preprocessor Ifdef
+================================================================================
+
+void x()
+{
+#ifdef COMPAT_FLAG
+  write("Compat flag on\n");
+  return;
+#endif
+  write("Compat flag off\n");
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_definition
+    (identifier)
+    (parameter_list)
+    (block
+      (preproc_ifdef_in_statement
+        (identifier)
+        (function_call
+          (identifier)
+          (string_literal
+            (escape_sequence)))
+        (return_statement))
+      (function_call
+        (identifier)
+        (string_literal
+          (escape_sequence))))))

@@ -1,0 +1,20 @@
+================================================================================
+Array Literal Test 2
+================================================================================
+
+// nb: trailing comma after last element.
+int *x = ({ 10, 20, 30, });
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (comment)
+  (global_var
+    (non_void_type)
+    (assignment_expression
+      (identifier)
+      (assignment_operator)
+      (array_literal
+        (number_literal)
+        (number_literal)
+        (number_literal)))))
