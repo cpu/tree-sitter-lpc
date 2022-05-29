@@ -615,7 +615,7 @@ module.exports = grammar({
               seq('0x', optional(hexDigits)),
               seq('0o', optional(octalDigits))
             ),
-            optional(seq('.', optional(hexDigits)))
+            optional(seq('.', hexDigits))
           ),
           seq('.', decimalDigits)
         ),

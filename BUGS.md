@@ -5,9 +5,8 @@
   * Got this working in most places, but not `array_literal`,
     `quoted_aggregate`.
 
-* Index range
-  * has trouble with the `..` abutting a numeric literal.
-  * e.g. `[2..3]`
+* Float literals:
+  * We don't accept '4.' without trailing digits.
 
 * Char literals or Symbols
   * e.g. `'a'` or `'a`
