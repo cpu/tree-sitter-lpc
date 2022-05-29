@@ -66,6 +66,10 @@ module.exports = grammar({
         $.system_lib_string,
         $.identifier,
         alias($.preproc_call_expression, $.function_call),
+        seq(
+          alias($.preproc_call_expression, $.function_call),
+          repeat1($.string_literal),
+        ),
       )),
       '\n'
     ),
@@ -246,8 +250,13 @@ module.exports = grammar({
       field('inheritance_modifiers', repeat($.inheritance_modifier)),
       'inherit',
       field('inherit_path', choice(
-        $.string_literal,
         $.identifier,
+        seq(
+          $.preproc_call_expression,
+          repeat1($.string_literal),
+        ),
+        $.string_literal,
+        $.concatenated_string,
       )),
       ';',
     ),
@@ -548,7 +557,7 @@ module.exports = grammar({
 
     concatenated_string: $ => prec(PREC.ADD, seq(
       $.string_literal,
-      repeat1($.string_literal)
+      repeat1($.string_literal),
     )),
 
     string_literal: $ => seq(

@@ -100,6 +100,27 @@
                 },
                 "named": true,
                 "value": "function_call"
+              },
+              {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "ALIAS",
+                    "content": {
+                      "type": "SYMBOL",
+                      "name": "preproc_call_expression"
+                    },
+                    "named": true,
+                    "value": "function_call"
+                  },
+                  {
+                    "type": "REPEAT1",
+                    "content": {
+                      "type": "SYMBOL",
+                      "name": "string_literal"
+                    }
+                  }
+                ]
               }
             ]
           }
@@ -1816,11 +1837,31 @@
             "members": [
               {
                 "type": "SYMBOL",
+                "name": "identifier"
+              },
+              {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "preproc_call_expression"
+                  },
+                  {
+                    "type": "REPEAT1",
+                    "content": {
+                      "type": "SYMBOL",
+                      "name": "string_literal"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "SYMBOL",
                 "name": "string_literal"
               },
               {
                 "type": "SYMBOL",
-                "name": "identifier"
+                "name": "concatenated_string"
               }
             ]
           }

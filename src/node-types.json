@@ -4954,11 +4954,19 @@
     "named": true,
     "fields": {
       "inherit_path": {
-        "multiple": false,
+        "multiple": true,
         "required": true,
         "types": [
           {
+            "type": "concatenated_string",
+            "named": true
+          },
+          {
             "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "preproc_call_expression",
             "named": true
           },
           {
@@ -6056,6 +6064,32 @@
     }
   },
   {
+    "type": "preproc_call_expression",
+    "named": true,
+    "fields": {
+      "arguments": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "parameter_list",
+            "named": true
+          }
+        ]
+      },
+      "function": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "preproc_def",
     "named": true,
     "fields": {
@@ -6504,7 +6538,7 @@
     "named": true,
     "fields": {
       "path": {
-        "multiple": false,
+        "multiple": true,
         "required": true,
         "types": [
           {
