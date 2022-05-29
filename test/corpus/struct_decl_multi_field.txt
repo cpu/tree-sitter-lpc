@@ -1,0 +1,23 @@
+================================================================================
+Struct Decl Multi Field
+================================================================================
+
+private struct TestCase {
+  string a, b;
+  int d;
+};
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (struct_definition
+    (type_modifier)
+    (identifier)
+    (struct_member_list
+      (struct_member
+        (non_void_type)
+        (identifier)
+        (identifier))
+      (struct_member
+        (non_void_type)
+        (identifier)))))

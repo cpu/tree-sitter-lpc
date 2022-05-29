@@ -239,7 +239,7 @@ module.exports = grammar({
 
     struct_member: $ => seq(
       field('type', $.non_void_type),
-      field('name', $.identifier),
+      commaSep1(field('name', $.identifier)),
       ';'
     ),
 
@@ -779,7 +779,7 @@ module.exports = grammar({
     continue_statement: $ => seq('continue'),
 
     _comma_expr: $ => choice(
-      $._expression, 
+      $._expression,
       seq(
         $._expression,
         repeat1(seq(',', $._expression)),
