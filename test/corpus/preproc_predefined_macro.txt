@@ -1,0 +1,144 @@
+================================================================================
+Predefined macro adjacent to a string literal
+================================================================================
+
+void f() {
+    write_file(__DIR__".tmp.c", "data", 1);
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_definition
+    name: (identifier)
+    parameters: (parameter_list)
+    body: (block
+      (expression_statement
+        (function_call
+          function: (identifier)
+          arguments: (argument_list
+            (concatenated_string
+              (predefined_macro)
+              (string_literal))
+            (string_literal)
+            (number_literal)))))))
+
+================================================================================
+Predefined macro as standalone argument
+================================================================================
+
+void f() {
+    call_out(#'tick, __ALARM_TIME__);
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_definition
+    name: (identifier)
+    parameters: (parameter_list)
+    body: (block
+      (expression_statement
+        (function_call
+          function: (identifier)
+          arguments: (argument_list
+            (closure)
+            (predefined_macro)))))))
+
+================================================================================
+Predefined macro in object blueprint slot
+================================================================================
+
+void typed_param(object __FILE__ var) {}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_definition
+    name: (identifier)
+    parameters: (parameter_list
+      (parameter
+        type: (non_void_type
+          blueprint: (predefined_macro))
+        name: (identifier)))
+    body: (block)))
+
+================================================================================
+__PATH__(n) function-like predefined macro
+================================================================================
+
+// lex.c:858 registers `__PATH__` as a 1-arg dynamic macro that returns
+// the directory of the current file with `n` levels stripped. Common in
+// the dunemud lib for path concatenation: `__PATH__(2)"mobs/foo.c"`.
+void f() {
+  string s = __PATH__(2);
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (comment)
+  (comment)
+  (comment)
+  (function_definition
+    name: (identifier)
+    parameters: (parameter_list)
+    body: (block
+      (local_var_decl
+        type: (non_void_type)
+        name: (identifier)
+        value: (predefined_macro_call
+          macro: (predefined_macro)
+          arguments: (argument_list
+            (number_literal)))))))
+
+================================================================================
+__PATH__(n) adjacent to a string literal
+================================================================================
+
+void f() {
+  clone_object(__PATH__(2)"mobs/foo.c");
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_definition
+    name: (identifier)
+    parameters: (parameter_list)
+    body: (block
+      (expression_statement
+        (function_call
+          function: (identifier)
+          arguments: (argument_list
+            (concatenated_string
+              (predefined_macro_call
+                macro: (predefined_macro)
+                arguments: (argument_list
+                  (number_literal)))
+              (string_literal))))))))
+
+================================================================================
+__PATH__(n) joined with `+`
+================================================================================
+
+void f() {
+  string s = __PATH__(0) + "cmds/";
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_definition
+    name: (identifier)
+    parameters: (parameter_list)
+    body: (block
+      (local_var_decl
+        type: (non_void_type)
+        name: (identifier)
+        value: (binary_expression
+          left: (predefined_macro_call
+            macro: (predefined_macro)
+            arguments: (argument_list
+              (number_literal)))
+          right: (string_literal))))))

@@ -1,0 +1,77 @@
+================================================================================
+Switch Statement Preprocessor Case
+================================================================================
+
+#define TRACE_TYPE_SYMBOL 0
+#define TRACE_TYPE_SEFUN  1
+#define TRACE_TYPE_EFUN   2
+#define TRACE_TYPE_LAMBDA 3
+#define TRACE_TYPE_LFUN   4
+
+string x(int typ) {
+  switch(typ) {
+    case TRACE_TYPE_SYMBOL: return "symbol";
+    case TRACE_TYPE_SEFUN:  return "sefun";
+    case TRACE_TYPE_EFUN:   return "efun";
+    case TRACE_TYPE_LAMBDA: return "lambda";
+    case TRACE_TYPE_LFUN:   return "lfun";
+    default:                return "unknown";
+  }
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (preproc_def
+    (identifier)
+    (preproc_arg))
+  (preproc_def
+    (identifier)
+    (preproc_arg))
+  (preproc_def
+    (identifier)
+    (preproc_arg))
+  (preproc_def
+    (identifier)
+    (preproc_arg))
+  (preproc_def
+    (identifier)
+    (preproc_arg))
+  (function_definition
+    (non_void_type)
+    (identifier)
+    (parameter_list
+      (parameter
+        (non_void_type)
+        (identifier)))
+    (block
+      (switch_statement
+        (identifier)
+        (switch_case
+          (case_label
+            (identifier))
+          (return_statement
+            (string_literal)))
+        (switch_case
+          (case_label
+            (identifier))
+          (return_statement
+            (string_literal)))
+        (switch_case
+          (case_label
+            (identifier))
+          (return_statement
+            (string_literal)))
+        (switch_case
+          (case_label
+            (identifier))
+          (return_statement
+            (string_literal)))
+        (switch_case
+          (case_label
+            (identifier))
+          (return_statement
+            (string_literal)))
+        (switch_case
+          (return_statement
+            (string_literal)))))))

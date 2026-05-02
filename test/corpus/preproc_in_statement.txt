@@ -1,0 +1,54 @@
+================================================================================
+Pragma inside function body
+================================================================================
+
+int run_test()
+{
+#pragma simul_efuns
+    return increment(10) == 12;
+#pragma no_simul_efuns
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_definition
+    type: (non_void_type)
+    name: (identifier)
+    parameters: (parameter_list)
+    body: (block
+      (preproc_pragma
+        value: (identifier))
+      (return_statement
+        (binary_expression
+          left: (function_call
+            function: (identifier)
+            arguments: (argument_list
+              (number_literal)))
+          right: (number_literal)))
+      (preproc_pragma
+        value: (identifier)))))
+
+================================================================================
+Define inside function body
+================================================================================
+
+int f()
+{
+#define LIMIT 1000
+    return LIMIT;
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_definition
+    type: (non_void_type)
+    name: (identifier)
+    parameters: (parameter_list)
+    body: (block
+      (preproc_def
+        name: (identifier)
+        value: (preproc_arg))
+      (return_statement
+        (identifier)))))

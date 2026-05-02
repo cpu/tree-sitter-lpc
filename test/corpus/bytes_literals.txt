@@ -1,0 +1,31 @@
+================================================================================
+Bytes Literals
+================================================================================
+
+bytes y = b"hello world";
+bytes yy = b"hello" b"and" b"world";
+bytes yyy = b"hello"
+b"and"
+b"world";
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (global_var
+    (non_void_type)
+    (identifier)
+    (bytes_literal))
+  (global_var
+    (non_void_type)
+    (identifier)
+    (concatenated_bytes_string
+      (bytes_literal)
+      (bytes_literal)
+      (bytes_literal)))
+  (global_var
+    (non_void_type)
+    (identifier)
+    (concatenated_bytes_string
+      (bytes_literal)
+      (bytes_literal)
+      (bytes_literal))))

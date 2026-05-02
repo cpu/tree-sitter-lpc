@@ -1,0 +1,58 @@
+================================================================================
+Quoted Aggregate Literal
+================================================================================
+
+// Per lex.c (~line 6223), one or more `'` quotes followed by `({`
+// opens a quoted aggregate. The quote count is preserved at runtime
+// but doesn't change parse shape. NOT to be confused with `#'({` —
+// that's the AGGREGATE-operator closure (lex.c symbol_operator:1648).
+
+void f() {
+  symbol a = '({ 10, 20, 30 });
+  symbol b = ''({ 1 });
+  symbol c = '''({ 5, 15, 20 });
+  symbol d = '({});
+  symbol e = '({ 1, 2, 3, });
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (comment)
+  (comment)
+  (comment)
+  (comment)
+  (function_definition
+    (identifier)
+    (parameter_list)
+    (block
+      (local_var_decl
+        (non_void_type)
+        (identifier)
+        (quoted_aggregate
+          (number_literal)
+          (number_literal)
+          (number_literal)))
+      (local_var_decl
+        (non_void_type)
+        (identifier)
+        (quoted_aggregate
+          (number_literal)))
+      (local_var_decl
+        (non_void_type)
+        (identifier)
+        (quoted_aggregate
+          (number_literal)
+          (number_literal)
+          (number_literal)))
+      (local_var_decl
+        (non_void_type)
+        (identifier)
+        (quoted_aggregate))
+      (local_var_decl
+        (non_void_type)
+        (identifier)
+        (quoted_aggregate
+          (number_literal)
+          (number_literal)
+          (number_literal))))))

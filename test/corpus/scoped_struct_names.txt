@@ -1,0 +1,67 @@
+================================================================================
+Scoped Struct Names
+================================================================================
+
+// prolang.y `struct_name` (line 17264) accepts:
+//   - bare `Name`
+//   - `::Name` (next outer same-named struct)
+//   - `scope::Name` where scope is `efun` or `sefun`
+// in both type position (`struct sefun::Foo`) and struct-literal position
+// (`(<sefun::Foo> ...)`).
+
+struct sefun::SomeStruct g1;
+struct ::NewStruct g2;
+
+void f() {
+  struct ::SomeStruct mine = (<::SomeStruct> 1, 2);
+  struct sefun::SomeStruct s = (<sefun::SomeStruct> "Test");
+  return s;
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (comment)
+  (comment)
+  (comment)
+  (comment)
+  (comment)
+  (comment)
+  (global_var
+    (non_void_type
+      (struct_name
+        (identifier)
+        (identifier)))
+    (identifier))
+  (global_var
+    (non_void_type
+      (struct_name
+        (identifier)))
+    (identifier))
+  (function_definition
+    (identifier)
+    (parameter_list)
+    (block
+      (local_var_decl
+        (non_void_type
+          (struct_name
+            (identifier)))
+        (identifier)
+        (struct_literal
+          (struct_name
+            (identifier))
+          (number_literal)
+          (number_literal)))
+      (local_var_decl
+        (non_void_type
+          (struct_name
+            (identifier)
+            (identifier)))
+        (identifier)
+        (struct_literal
+          (struct_name
+            (identifier)
+            (identifier))
+          (string_literal)))
+      (return_statement
+        (identifier)))))

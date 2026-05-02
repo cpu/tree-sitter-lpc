@@ -1,0 +1,27 @@
+[package]
+authors      = [ "Daniel McCarney <daniel@binaryparadox.net>" ]
+autoexamples = false
+categories   = [ "parser-implementations", "parsing", "text-editors" ]
+description  = "Grammar for the LDMud dialect of LPC"
+edition      = "2024"
+keywords     = [ "incremental", "parsing", "tree-sitter", "lpc" ]
+license      = "MIT"
+name         = "tree-sitter-lpc"
+readme       = "README.md"
+repository   = "https://github.com/cpu/tree-sitter-lpc"
+version      = "0.1.0"
+
+build   = "bindings/rust/build.rs"
+include = [ "bindings/rust/*", "grammar.js", "queries/*", "src/*", "tree-sitter.json", "/LICENSE" ]
+
+[lib]
+path = "bindings/rust/lib.rs"
+
+[dependencies]
+tree-sitter-language = "0.1"
+
+[build-dependencies]
+cc = "1.2"
+
+[dev-dependencies]
+tree-sitter = "0.26.0"

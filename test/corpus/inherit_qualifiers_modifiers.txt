@@ -1,0 +1,18 @@
+================================================================================
+Inherits w/ Modifiers and Qualifier
+================================================================================
+
+private functions inherit "foo.c";
+public variables inherit "foo2.c";
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (inheritance
+    (type_modifier)
+    (inheritance_scope)
+    (string_literal))
+  (inheritance
+    (type_modifier)
+    (inheritance_scope)
+    (string_literal)))

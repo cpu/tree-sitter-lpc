@@ -1,0 +1,87 @@
+================================================================================
+Escape Sequences
+================================================================================
+
+// Per lex.c parse_escaped_char (~line 4812):
+//   \a \b \e \f \n \r \t  — named escapes
+//   \<digits>             — decimal char code
+//   \x.. \X..             — hex char code
+//   \o.. \O..             — octal char code
+//   \u.. \U..             — unicode codepoint (any number of hex digits)
+
+void f() {
+  string s1 = "\n\t\r\a\b\e\f";
+  string s2 = "\x1b\X1b";
+  string s3 = "\o33\O33";
+  string s4 = "é\U0001f609";
+  string s5 = "\65";
+  int c1 = '\n';
+  int c2 = '\x1b';
+  int c3 = '\U0001f609';
+  string s6 = "\\\"";
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (comment)
+  (comment)
+  (comment)
+  (comment)
+  (comment)
+  (comment)
+  (function_definition
+    (identifier)
+    (parameter_list)
+    (block
+      (local_var_decl
+        (non_void_type)
+        (identifier)
+        (string_literal
+          (escape_sequence)
+          (escape_sequence)
+          (escape_sequence)
+          (escape_sequence)
+          (escape_sequence)
+          (escape_sequence)
+          (escape_sequence)))
+      (local_var_decl
+        (non_void_type)
+        (identifier)
+        (string_literal
+          (escape_sequence)
+          (escape_sequence)))
+      (local_var_decl
+        (non_void_type)
+        (identifier)
+        (string_literal
+          (escape_sequence)
+          (escape_sequence)))
+      (local_var_decl
+        (non_void_type)
+        (identifier)
+        (string_literal
+          (escape_sequence)))
+      (local_var_decl
+        (non_void_type)
+        (identifier)
+        (string_literal
+          (escape_sequence)))
+      (local_var_decl
+        (non_void_type)
+        (identifier)
+        (char_literal))
+      (local_var_decl
+        (non_void_type)
+        (identifier)
+        (char_literal))
+      (local_var_decl
+        (non_void_type)
+        (identifier)
+        (char_literal))
+      (local_var_decl
+        (non_void_type)
+        (identifier)
+        (string_literal
+          (escape_sequence)
+          (escape_sequence))))))

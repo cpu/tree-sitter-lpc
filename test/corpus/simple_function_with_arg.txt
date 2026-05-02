@@ -1,0 +1,20 @@
+================================================================================
+Simple Function with Arg
+================================================================================
+
+x(int arg) {
+  return 1;
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_definition
+    (identifier)
+    (parameter_list
+      (parameter
+        (non_void_type)
+        (identifier)))
+    (block
+      (return_statement
+        (number_literal)))))

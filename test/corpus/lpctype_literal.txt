@@ -1,0 +1,44 @@
+================================================================================
+Lpctype Literal
+================================================================================
+
+// `[basic_type]` is a first-class lpctype value (prolang.y:15369). Distinct
+// from a subscript expression `x[i]` since there's no preceding object.
+
+void f() {
+  lpctype t = [int];
+  lpctype u = [int|string];
+  if ([int] == [string]) return;
+  return ([mixed]);
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (comment)
+  (comment)
+  (function_definition
+    (identifier)
+    (parameter_list)
+    (block
+      (local_var_decl
+        (non_void_type)
+        (identifier)
+        (lpctype_literal
+          (non_void_type)))
+      (local_var_decl
+        (non_void_type)
+        (identifier)
+        (lpctype_literal
+          (non_void_type)))
+      (if_statement
+        (binary_expression
+          (lpctype_literal
+            (non_void_type))
+          (lpctype_literal
+            (non_void_type)))
+        (return_statement))
+      (return_statement
+        (parenthesized_expression
+          (lpctype_literal
+            (non_void_type)))))))

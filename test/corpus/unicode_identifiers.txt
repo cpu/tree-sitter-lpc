@@ -1,0 +1,43 @@
+================================================================================
+Unicode Identifiers
+================================================================================
+
+// LDMud's lex.c (line ~6470) accepts identifiers with any unicode_isalunum
+// character — letters, digits, and `_`/`$`. Source files are UTF-8.
+
+string αλφα = "α";
+int β2;
+
+void χαιρετισμός() {
+  return αλφα;
+}
+
+int 漢字_test() {
+  return 1;
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (comment)
+  (comment)
+  (global_var
+    (non_void_type)
+    (identifier)
+    (string_literal))
+  (global_var
+    (non_void_type)
+    (identifier))
+  (function_definition
+    (identifier)
+    (parameter_list)
+    (block
+      (return_statement
+        (identifier))))
+  (function_definition
+    (non_void_type)
+    (identifier)
+    (parameter_list)
+    (block
+      (return_statement
+        (number_literal)))))

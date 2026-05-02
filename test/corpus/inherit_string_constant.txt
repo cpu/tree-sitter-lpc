@@ -1,0 +1,80 @@
+================================================================================
+Inherit with `+`-chained string constants
+================================================================================
+
+// prolang.y:13207-13222 — `string_constant: L_STRING ('+' L_STRING)* | '(' string_constant ')'`.
+// Left-associative `+`. Found in dunemud and broadly valid LPC.
+inherit "/" + "std" + "/room";
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (comment)
+  (comment)
+  (inheritance
+    (string_literal)
+    (string_literal)
+    (string_literal)))
+
+================================================================================
+Inherit with parenthesised string constant
+================================================================================
+
+// prolang.y:13221 — `'(' string_constant ')'`. ~90 cases in the dunemud lib
+// (e.g. `inherit("/room/newroom");`).
+inherit ("/std/room");
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (comment)
+  (comment)
+  (inheritance
+    (string_literal)))
+
+================================================================================
+Inherit with no-space parenthesised string
+================================================================================
+
+inherit("/std/room");
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (inheritance
+    (string_literal)))
+
+================================================================================
+Inherit with parens around a `+`-chained constant
+================================================================================
+
+inherit ("/" + "std" + "/room");
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (inheritance
+    (string_literal)
+    (string_literal)
+    (string_literal)))
+
+================================================================================
+Inherit with macro stand-in `+` string
+================================================================================
+
+// `IPATH` is a `#define` expanding to a string. We accept the unexpanded
+// identifier as a macro stand-in (see `_string_constant` in grammar.js)
+// so files like `inherit IPATH+"ridge";` parse without a preprocessor pass.
+// This is the largest single failure cluster in the dunemud lib (>1400).
+inherit IPATH + "ridge";
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (comment)
+  (comment)
+  (comment)
+  (comment)
+  (inheritance
+    (identifier)
+    (string_literal)))

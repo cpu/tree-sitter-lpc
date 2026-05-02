@@ -1,0 +1,75 @@
+================================================================================
+Complex For Loop 2
+================================================================================
+
+void x(object env) {
+  int num, i;
+  object found;
+
+  for (found = first_inventory(env), i = 0; found; found = next_inventory(env)) {
+    if (found->id(str) && ++i == num) {
+      break;
+    }
+    if (!found) { /* may happen */
+      break;
+    }
+  }
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_definition
+    (identifier)
+    (parameter_list
+      (parameter
+        (non_void_type)
+        (identifier)))
+    (block
+      (local_var_decl
+        (non_void_type)
+        (identifier)
+        (identifier))
+      (local_var_decl
+        (non_void_type)
+        (identifier))
+      (for_statement
+        (assignment_expression
+          (identifier)
+          (assignment_operator)
+          (function_call
+            (identifier)
+            (argument_list
+              (identifier))))
+        (assignment_expression
+          (identifier)
+          (assignment_operator)
+          (number_literal))
+        (identifier)
+        (assignment_expression
+          (identifier)
+          (assignment_operator)
+          (function_call
+            (identifier)
+            (argument_list
+              (identifier))))
+        (block
+          (if_statement
+            (binary_expression
+              (call_other
+                (identifier)
+                (identifier)
+                (argument_list
+                  (identifier)))
+              (binary_expression
+                (update_expression
+                  (identifier))
+                (identifier)))
+            (block
+              (break_statement)))
+          (if_statement
+            (unary_expression
+              (identifier))
+            (block
+              (comment)
+              (break_statement))))))))

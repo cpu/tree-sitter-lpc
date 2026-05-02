@@ -1,0 +1,44 @@
+================================================================================
+Switch Statement
+================================================================================
+
+x() {
+  switch(foo()) {
+    case "test": return 1;
+    case 10: break;
+    case 11 .. 20: return 20;
+    default: return -1;
+  }
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_definition
+    (identifier)
+    (parameter_list)
+    (block
+      (switch_statement
+        (function_call
+          (identifier)
+          (argument_list))
+        (switch_case
+          (case_label
+            (string_literal))
+          (return_statement
+            (number_literal)))
+        (switch_case
+          (case_label
+            (number_literal))
+          (break_statement))
+        (switch_case
+          (case_label
+            (number_literal))
+          (case_label
+            (number_literal))
+          (return_statement
+            (number_literal)))
+        (switch_case
+          (return_statement
+            (unary_expression
+              (number_literal))))))))

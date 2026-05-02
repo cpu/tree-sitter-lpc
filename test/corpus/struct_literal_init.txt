@@ -1,0 +1,46 @@
+================================================================================
+Struct Literal Named Init
+================================================================================
+
+struct X {
+  int id;
+  string name;
+};
+
+x() {
+  struct X myX = (<X>
+    id: 10,
+    name: "hello",
+  );
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (struct_definition
+    (identifier)
+    (struct_member_list
+      (struct_member
+        (non_void_type)
+        (identifier))
+      (struct_member
+        (non_void_type)
+        (identifier))))
+  (function_definition
+    (identifier)
+    (parameter_list)
+    (block
+      (local_var_decl
+        (non_void_type
+          (struct_name
+            (identifier)))
+        (identifier)
+        (struct_literal
+          (struct_name
+            (identifier))
+          (struct_field_init
+            (identifier)
+            (number_literal))
+          (struct_field_init
+            (identifier)
+            (string_literal)))))))

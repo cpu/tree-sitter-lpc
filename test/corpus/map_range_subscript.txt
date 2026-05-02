@@ -1,0 +1,69 @@
+================================================================================
+Map Range Subscript
+================================================================================
+
+// prolang.y lines 16760+ enumerate the full 2D map range subscript
+// suite: `m[k, a..b]` with optional `<`/`>` anchors on each end of the
+// range. We model this permissively as range_expression with an
+// optional `(key,)` prefix. t-lambda.c uses these forms heavily.
+
+void f() {
+  mixed m;
+  // 2D map range: key, then range over the value column
+  m["k", 0..3];
+  m["k", <1..>0];
+  m["k", ..3];
+  m["k", 1..];
+  // Plain (single-key) range still works alongside
+  m[0..3];
+  m[<1..<3];
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (comment)
+  (comment)
+  (comment)
+  (comment)
+  (function_definition
+    (identifier)
+    (parameter_list)
+    (block
+      (local_var_decl
+        (non_void_type)
+        (identifier))
+      (comment)
+      (expression_statement
+        (range_expression
+          (identifier)
+          (string_literal)
+          (number_literal)
+          (number_literal)))
+      (expression_statement
+        (range_expression
+          (identifier)
+          (string_literal)
+          (number_literal)
+          (number_literal)))
+      (expression_statement
+        (range_expression
+          (identifier)
+          (string_literal)
+          (number_literal)))
+      (expression_statement
+        (range_expression
+          (identifier)
+          (string_literal)
+          (number_literal)))
+      (comment)
+      (expression_statement
+        (range_expression
+          (identifier)
+          (number_literal)
+          (number_literal)))
+      (expression_statement
+        (range_expression
+          (identifier)
+          (number_literal)
+          (number_literal))))))

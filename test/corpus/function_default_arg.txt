@@ -1,0 +1,20 @@
+================================================================================
+Function Default Arg
+================================================================================
+
+x(int x = 10) {
+  return;
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_definition
+    (identifier)
+    (parameter_list
+      (parameter
+        (non_void_type)
+        (identifier)
+        (number_literal)))
+    (block
+      (return_statement))))

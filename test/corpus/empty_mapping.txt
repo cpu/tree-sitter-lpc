@@ -1,0 +1,28 @@
+================================================================================
+Empty Mapping Literal Test
+================================================================================
+
+mapping x = ([ :10 ]);
+mapping y = ([ :3 * x ]);
+mapping y = ( [ :33 ] );
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (global_var
+    (non_void_type)
+    (identifier)
+    (empty_mapping_literal
+      (number_literal)))
+  (global_var
+    (non_void_type)
+    (identifier)
+    (empty_mapping_literal
+      (binary_expression
+        (number_literal)
+        (identifier))))
+  (global_var
+    (non_void_type)
+    (identifier)
+    (empty_mapping_literal
+      (number_literal))))

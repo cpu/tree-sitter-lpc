@@ -1,0 +1,43 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/config.schema.json",
+  "grammars": [
+    {
+      "name": "lpc",
+      "camelcase": "Lpc",
+      "title": "LPC",
+      "scope": "source.lpc",
+      "file-types": [
+        "lpc",
+        "c"
+      ],
+      "injection-regex": "^lpc$",
+      "class-name": "TreeSitterLpc"
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "license": "MIT",
+    "description": "Grammar for the LDMud dialect of LPC",
+    "authors": [
+      {
+        "name": "Daniel McCarney",
+        "email": "daniel@binaryparadox.net",
+        "url": "https://github.com/cpu"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/cpu/tree-sitter-lpc",
+      "funding": ""
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": true,
+    "java": false,
+    "node": false,
+    "python": true,
+    "rust": true,
+    "swift": false,
+    "zig": false
+  }
+}

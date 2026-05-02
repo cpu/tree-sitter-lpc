@@ -1,0 +1,152 @@
+================================================================================
+String Literals
+================================================================================
+
+string y = "hello world";
+string yy = "hello" "and" "world";
+string yyy = "hello"
+"and"
+"world";
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (global_var
+    (non_void_type)
+    (identifier)
+    (string_literal))
+  (global_var
+    (non_void_type)
+    (identifier)
+    (concatenated_string
+      (string_literal)
+      (string_literal)
+      (string_literal)))
+  (global_var
+    (non_void_type)
+    (identifier)
+    (concatenated_string
+      (string_literal)
+      (string_literal)
+      (string_literal))))
+
+================================================================================
+String Escape Sequences
+================================================================================
+
+// LDMud's parse_escaped_char (lex.c:4812) accepts any non-newline char
+// after `\`: structured numeric forms (`\123`, `\xAF`, `À`, `\0o17`,
+// `\0b1010`) consume their digits, and **everything else** falls back to
+// the literal character (lex.c:4875) — `\p` → `p`, `\B` → `B`, etc.
+// Even `\x`/`\u`/`\U` followed by no hex digits falls back to `x`/`u`/`U`.
+// The only true failure cases are `\<newline>` and `\<EOF>`.
+
+string a = "named: \a\b\e\f\n\r\t end";
+string b = "decimal: \0\1\99\123 end";
+string c = "hex: \x0\xAF\xff end";
+string d = "octal: \0o7\0o17\0o123 end";
+string e = "binary: \0b0\0b101\0b11111111 end";
+string f = "unicode: À\U0001F600 end";
+// Fallback cases — these used to fail.
+string g = "fallback letters: \p\B\Q\Z end";
+string h = "fallback x/u with no digits: \xZ\uZ\Uz end";
+// Literal chars that look like escape starts but aren't escapes.
+string i = "literal slash: \\ and \\n end";
+// Quote and other punctuation escape.
+string j = "punct: \"\'\?\& end";
+// Backslash-newline acts as a string continuation.
+string k = "before\
+after";
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (comment)
+  (comment)
+  (comment)
+  (comment)
+  (comment)
+  (comment)
+  (global_var
+    (non_void_type)
+    (identifier)
+    (string_literal
+      (escape_sequence)
+      (escape_sequence)
+      (escape_sequence)
+      (escape_sequence)
+      (escape_sequence)
+      (escape_sequence)
+      (escape_sequence)))
+  (global_var
+    (non_void_type)
+    (identifier)
+    (string_literal
+      (escape_sequence)
+      (escape_sequence)
+      (escape_sequence)
+      (escape_sequence)))
+  (global_var
+    (non_void_type)
+    (identifier)
+    (string_literal
+      (escape_sequence)
+      (escape_sequence)
+      (escape_sequence)))
+  (global_var
+    (non_void_type)
+    (identifier)
+    (string_literal
+      (escape_sequence)
+      (escape_sequence)
+      (escape_sequence)))
+  (global_var
+    (non_void_type)
+    (identifier)
+    (string_literal
+      (escape_sequence)
+      (escape_sequence)
+      (escape_sequence)))
+  (global_var
+    (non_void_type)
+    (identifier)
+    (string_literal
+      (escape_sequence)))
+  (comment)
+  (global_var
+    (non_void_type)
+    (identifier)
+    (string_literal
+      (escape_sequence)
+      (escape_sequence)
+      (escape_sequence)
+      (escape_sequence)))
+  (global_var
+    (non_void_type)
+    (identifier)
+    (string_literal
+      (escape_sequence)
+      (escape_sequence)
+      (escape_sequence)))
+  (comment)
+  (global_var
+    (non_void_type)
+    (identifier)
+    (string_literal
+      (escape_sequence)
+      (escape_sequence)))
+  (comment)
+  (global_var
+    (non_void_type)
+    (identifier)
+    (string_literal
+      (escape_sequence)
+      (escape_sequence)
+      (escape_sequence)
+      (escape_sequence)))
+  (comment)
+  (global_var
+    (non_void_type)
+    (identifier)
+    (string_literal
+      (escape_sequence))))

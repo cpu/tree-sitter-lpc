@@ -1,0 +1,28 @@
+================================================================================
+Binary Expression Test
+================================================================================
+
+int x = !10;
+
+int x = ~x;
+
+int x = -x;
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (global_var
+    (non_void_type)
+    (identifier)
+    (unary_expression
+      (number_literal)))
+  (global_var
+    (non_void_type)
+    (identifier)
+    (unary_expression
+      (identifier)))
+  (global_var
+    (non_void_type)
+    (identifier)
+    (unary_expression
+      (identifier))))

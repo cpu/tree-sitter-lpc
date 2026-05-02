@@ -1,0 +1,36 @@
+================================================================================
+Complex For Loop
+================================================================================
+
+x() {
+  for(int i = 0, j = -10; i <= 10 && -j < i; i ++, j &= 50);
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_definition
+    (identifier)
+    (parameter_list)
+    (block
+      (for_statement
+        (non_void_type)
+        (identifier)
+        (number_literal)
+        (identifier)
+        (unary_expression
+          (number_literal))
+        (binary_expression
+          (binary_expression
+            (identifier)
+            (number_literal))
+          (binary_expression
+            (unary_expression
+              (identifier))
+            (identifier)))
+        (update_expression
+          (identifier))
+        (assignment_expression
+          (identifier)
+          (assignment_operator)
+          (number_literal))))))

@@ -1,0 +1,76 @@
+================================================================================
+For-init with two distinct typed declarations
+================================================================================
+
+// prolang.y `comma_expr_decl` (line 12194) lets each comma-separated
+// element of a for-init carry its own type. Surfaced by the dunemud lib
+// (`for(int i = glev+1, int tot; i <= max; i++)`).
+void f() {
+  for(int i = 0, int j = 1; i < 10; i++) {}
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (comment)
+  (comment)
+  (comment)
+  (function_definition
+    name: (identifier)
+    parameters: (parameter_list)
+    body: (block
+      (for_statement
+        init: (for_init_decl
+          type: (non_void_type)
+          name: (identifier)
+          value: (number_literal))
+        init: (for_init_decl
+          type: (non_void_type)
+          name: (identifier)
+          value: (number_literal))
+        condition: (binary_expression
+          left: (identifier)
+          right: (number_literal))
+        update: (update_expression
+          argument: (identifier))
+        body: (block)))))
+
+================================================================================
+For-init mixing typed decl with bare expression
+================================================================================
+
+// `comma_expr_decl` element is either an `expr0` or a typed decl, in
+// any order. Mixed-mode case ensures the rule isn't restricted to all-
+// declarators.
+void f(int *arr) {
+  for(int i = 0, sizeof(arr); i < 3; i++) {}
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (comment)
+  (comment)
+  (comment)
+  (function_definition
+    name: (identifier)
+    parameters: (parameter_list
+      (parameter
+        type: (non_void_type)
+        name: (identifier)))
+    body: (block
+      (for_statement
+        init: (for_init_decl
+          type: (non_void_type)
+          name: (identifier)
+          value: (number_literal))
+        init: (function_call
+          function: (identifier)
+          arguments: (argument_list
+            (identifier)))
+        condition: (binary_expression
+          left: (identifier)
+          right: (number_literal))
+        update: (update_expression
+          argument: (identifier))
+        body: (block)))))

@@ -1,0 +1,104 @@
+================================================================================
+Assignment Expression Test
+================================================================================
+
+void f() {
+  int x = 1;
+
+  x = 1;
+  x *= 1;
+  x /= 10;
+  x %= 10;
+  x += 10;
+  x -= 10;
+  x <<= 10;
+  x >>= 10;
+  x >>>= 10;
+  x &= 10;
+  x &&= 10;
+  x ^= 10;
+  x |= 10;
+  x ||= 10;
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_definition
+    (identifier)
+    (parameter_list)
+    (block
+      (local_var_decl
+        (non_void_type)
+        (identifier)
+        (number_literal))
+      (expression_statement
+        (assignment_expression
+          (identifier)
+          (assignment_operator)
+          (number_literal)))
+      (expression_statement
+        (assignment_expression
+          (identifier)
+          (assignment_operator)
+          (number_literal)))
+      (expression_statement
+        (assignment_expression
+          (identifier)
+          (assignment_operator)
+          (number_literal)))
+      (expression_statement
+        (assignment_expression
+          (identifier)
+          (assignment_operator)
+          (number_literal)))
+      (expression_statement
+        (assignment_expression
+          (identifier)
+          (assignment_operator)
+          (number_literal)))
+      (expression_statement
+        (assignment_expression
+          (identifier)
+          (assignment_operator)
+          (number_literal)))
+      (expression_statement
+        (assignment_expression
+          (identifier)
+          (assignment_operator)
+          (number_literal)))
+      (expression_statement
+        (assignment_expression
+          (identifier)
+          (assignment_operator)
+          (number_literal)))
+      (expression_statement
+        (assignment_expression
+          (identifier)
+          (assignment_operator)
+          (number_literal)))
+      (expression_statement
+        (assignment_expression
+          (identifier)
+          (assignment_operator)
+          (number_literal)))
+      (expression_statement
+        (assignment_expression
+          (identifier)
+          (assignment_operator)
+          (number_literal)))
+      (expression_statement
+        (assignment_expression
+          (identifier)
+          (assignment_operator)
+          (number_literal)))
+      (expression_statement
+        (assignment_expression
+          (identifier)
+          (assignment_operator)
+          (number_literal)))
+      (expression_statement
+        (assignment_expression
+          (identifier)
+          (assignment_operator)
+          (number_literal))))))

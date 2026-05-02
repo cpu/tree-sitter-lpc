@@ -1,0 +1,15 @@
+================================================================================
+Complex Inherit
+================================================================================
+
+private functions nosave variables inherit "complex/room";
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (inheritance
+    (type_modifier)
+    (inheritance_scope)
+    (type_modifier)
+    (inheritance_scope)
+    (string_literal)))

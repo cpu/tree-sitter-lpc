@@ -1,0 +1,17 @@
+================================================================================
+Struct Decl w/ Base Inheritance
+================================================================================
+
+struct Hello{};
+struct World (Hello) {};
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (struct_definition
+    (identifier)
+    (struct_member_list))
+  (struct_definition
+    (identifier)
+    (struct_member_list
+      (identifier))))

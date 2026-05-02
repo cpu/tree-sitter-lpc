@@ -1,0 +1,121 @@
+================================================================================
+Struct Field Lookup
+================================================================================
+
+struct X {
+  int id;
+  string name;
+};
+
+x() {
+  struct X myX = (<X> 10, "hello");
+
+  string name = "ok";
+
+  int id = myX->id;
+  int id2 = myX->"id";
+  mixed meep = myX->("id");
+  mixed meep = myX->(foo());
+  mixed meep = myX->(name);
+
+  int id = myX.id;
+  int id2 = myX."id";
+  mixed meep = myX.("id");
+  mixed meep = myX.(foo());
+  mixed meep = myX.(name);
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (struct_definition
+    (identifier)
+    (struct_member_list
+      (struct_member
+        (non_void_type)
+        (identifier))
+      (struct_member
+        (non_void_type)
+        (identifier))))
+  (function_definition
+    (identifier)
+    (parameter_list)
+    (block
+      (local_var_decl
+        (non_void_type
+          (struct_name
+            (identifier)))
+        (identifier)
+        (struct_literal
+          (struct_name
+            (identifier))
+          (number_literal)
+          (string_literal)))
+      (local_var_decl
+        (non_void_type)
+        (identifier)
+        (string_literal))
+      (local_var_decl
+        (non_void_type)
+        (identifier)
+        (member_access
+          (identifier)
+          (identifier)))
+      (local_var_decl
+        (non_void_type)
+        (identifier)
+        (member_access
+          (identifier)
+          (string_literal)))
+      (local_var_decl
+        (non_void_type)
+        (identifier)
+        (member_access
+          (identifier)
+          (string_literal)))
+      (local_var_decl
+        (non_void_type)
+        (identifier)
+        (member_access
+          (identifier)
+          (function_call
+            (identifier)
+            (argument_list))))
+      (local_var_decl
+        (non_void_type)
+        (identifier)
+        (member_access
+          (identifier)
+          (identifier)))
+      (local_var_decl
+        (non_void_type)
+        (identifier)
+        (member_access
+          (identifier)
+          (identifier)))
+      (local_var_decl
+        (non_void_type)
+        (identifier)
+        (member_access
+          (identifier)
+          (string_literal)))
+      (local_var_decl
+        (non_void_type)
+        (identifier)
+        (member_access
+          (identifier)
+          (string_literal)))
+      (local_var_decl
+        (non_void_type)
+        (identifier)
+        (member_access
+          (identifier)
+          (function_call
+            (identifier)
+            (argument_list))))
+      (local_var_decl
+        (non_void_type)
+        (identifier)
+        (member_access
+          (identifier)
+          (identifier))))))

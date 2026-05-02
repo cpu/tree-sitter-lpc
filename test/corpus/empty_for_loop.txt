@@ -1,0 +1,24 @@
+================================================================================
+Empty For Loop
+================================================================================
+
+x() {
+  for(;;) {
+    printf("ok!");
+  }
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_definition
+    (identifier)
+    (parameter_list)
+    (block
+      (for_statement
+        (block
+          (expression_statement
+            (function_call
+              (identifier)
+              (argument_list
+                (string_literal)))))))))

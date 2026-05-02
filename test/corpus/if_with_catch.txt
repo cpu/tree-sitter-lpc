@@ -1,0 +1,53 @@
+================================================================================
+If With Catch
+================================================================================
+
+x() {
+  object objA, objB;
+  string err;
+
+  if (err = catch(obj = clone_object("/foo/bar/baz"), objB = clone_object("e"); nolog))
+    printf("Cannot clone: %s\n", err);
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_definition
+    (identifier)
+    (parameter_list)
+    (block
+      (local_var_decl
+        (non_void_type)
+        (identifier)
+        (identifier))
+      (local_var_decl
+        (non_void_type)
+        (identifier))
+      (if_statement
+        (assignment_expression
+          (identifier)
+          (assignment_operator)
+          (catch_expression
+            (assignment_expression
+              (identifier)
+              (assignment_operator)
+              (function_call
+                (identifier)
+                (argument_list
+                  (string_literal))))
+            (assignment_expression
+              (identifier)
+              (assignment_operator)
+              (function_call
+                (identifier)
+                (argument_list
+                  (string_literal))))
+            (catch_modifier)))
+        (expression_statement
+          (function_call
+            (identifier)
+            (argument_list
+              (string_literal
+                (escape_sequence))
+              (identifier))))))))

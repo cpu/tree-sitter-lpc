@@ -1,0 +1,29 @@
+[build-system]
+build-backend = "setuptools.build_meta"
+requires      = [ "setuptools>=62.4.0", "wheel" ]
+
+[project]
+authors = [ { email = "daniel@binaryparadox.net", name = "Daniel McCarney" } ]
+classifiers = [
+  "Intended Audience :: Developers",
+  "Topic :: Software Development :: Compilers",
+  "Topic :: Text Processing :: Linguistic",
+  "Typing :: Typed",
+]
+description = "Grammar for the LDMud dialect of LPC"
+keywords = [ "incremental", "parsing", "tree-sitter", "lpc" ]
+license.text = "MIT"
+name = "tree-sitter-lpc"
+readme = "README.md"
+requires-python = ">=3.10"
+version = "0.1.0"
+
+[project.urls]
+Homepage = "https://github.com/cpu/tree-sitter-lpc"
+
+[project.optional-dependencies]
+core = [ "tree-sitter~=0.24" ]
+
+[tool.cibuildwheel]
+build          = "cp310-*"
+build-frontend = "build"

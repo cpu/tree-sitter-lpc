@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  flake-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: DeterminateSystems/nix-installer-action@v22
+      - uses: DeterminateSystems/flake-checker-action@v12
+      - run: nix develop --command nixpkgs-fmt --check flake.nix
+
+  grammar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: DeterminateSystems/nix-installer-action@v22
+      - run: nix develop --command tree-sitter generate
+      - run: nix develop --command tree-sitter test
+      - name: Verify src/ is up to date with grammar.js
+        run: git diff --exit-code -- src/
+
+  bindings:
+    runs-on: ubuntu-latest
+    needs: grammar
+    strategy:
+      fail-fast: false
+      matrix:
+        binding: [rust, go, python, node]
+    steps:
+      - uses: actions/checkout@v6
+      - uses: DeterminateSystems/nix-installer-action@v22
+      - if: matrix.binding == 'rust'
+        run: nix develop --command cargo test
+      - if: matrix.binding == 'go'
+        run: nix develop --command go test ./bindings/go/
+      - if: matrix.binding == 'python'
+        run: |
+          nix develop --command python setup.py build_ext --inplace
+          nix develop --command bash -c 'PYTHONPATH=bindings/python python -m unittest discover bindings/python/tests'
+      - if: matrix.binding == 'node'
+        run: |
+          nix develop --command npm install
+          nix develop --command npm test

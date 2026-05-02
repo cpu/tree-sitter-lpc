@@ -1,0 +1,26 @@
+================================================================================
+Simple Function with Args
+================================================================================
+
+x(int arg, mixed arg2, mapping arg3) {
+  return 1;
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_definition
+    (identifier)
+    (parameter_list
+      (parameter
+        (non_void_type)
+        (identifier))
+      (parameter
+        (non_void_type)
+        (identifier))
+      (parameter
+        (non_void_type)
+        (identifier)))
+    (block
+      (return_statement
+        (number_literal)))))

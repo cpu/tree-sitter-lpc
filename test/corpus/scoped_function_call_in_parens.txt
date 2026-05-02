@@ -1,0 +1,106 @@
+================================================================================
+Bare ::lfun() inside parenthesised expression
+================================================================================
+
+// `(::lfun(args))` — common in dunemud (`return(::monster_died(ob));`).
+// Used to fail because the lexer greedily preferred `(:` (inline closure
+// open) over `(` + `::`. Fixed by spelling the inline-closure open as
+// `(` + `token.immediate(':')` instead of an atomic `(:` token, so the
+// `::` token wins when both `(:` and `(` `::` could lex.
+mixed f() {
+  return (::reset(1));
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (comment)
+  (comment)
+  (comment)
+  (comment)
+  (comment)
+  (function_definition
+    (non_void_type)
+    (identifier)
+    (parameter_list)
+    (block
+      (return_statement
+        (parenthesized_expression
+          (function_call
+            (scoped_function_name
+              (identifier))
+            (argument_list
+              (number_literal))))))))
+
+================================================================================
+Bare ::lfun() with no space after `(`
+================================================================================
+
+// Same shape as above, written compactly.
+mixed f() {
+  return(::reset(1));
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (comment)
+  (function_definition
+    (non_void_type)
+    (identifier)
+    (parameter_list)
+    (block
+      (return_statement
+        (parenthesized_expression
+          (function_call
+            (scoped_function_name
+              (identifier))
+            (argument_list
+              (number_literal))))))))
+
+================================================================================
+Anchestor::lfun() inside parenthesised expression
+================================================================================
+
+mixed f() {
+  return (base::reset(1));
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_definition
+    (non_void_type)
+    (identifier)
+    (parameter_list)
+    (block
+      (return_statement
+        (parenthesized_expression
+          (function_call
+            (scoped_function_name
+              (identifier)
+              (identifier))
+            (argument_list
+              (number_literal))))))))
+
+================================================================================
+Inline closure still parses (regression check)
+================================================================================
+
+// Make sure the inline-closure rewrite didn't break the original form.
+mixed f() {
+  return (: 42 :);
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (comment)
+  (function_definition
+    (non_void_type)
+    (identifier)
+    (parameter_list)
+    (block
+      (return_statement
+        (inline_closure
+          (number_literal))))))

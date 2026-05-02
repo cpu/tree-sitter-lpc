@@ -1,0 +1,106 @@
+================================================================================
+Numeric Literals
+================================================================================
+
+int bin1 = 0b1;
+int bin2 = 0b0;
+int bin3 = 0b0101;
+
+int oct1 = 0o0;
+int oct2 = 0o4444;
+int oct3 = 0o1234;
+
+int dec1 = 1;
+int dec2 = 123;
+float dec3 = 123.0;
+float dec4 = 1.000;
+float dec5 = 1.123;
+float dec6 = .5;
+float dec7 = 1.5e10;
+float dec8 = 1e-10;
+
+int hex1 = 0x0;
+int hex2 = 0xC0FFEE;
+int hex3 = 0xA;
+int hex4 = 0xF;
+int hex5 = 0x9;
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (global_var
+    (non_void_type)
+    (identifier)
+    (number_literal))
+  (global_var
+    (non_void_type)
+    (identifier)
+    (number_literal))
+  (global_var
+    (non_void_type)
+    (identifier)
+    (number_literal))
+  (global_var
+    (non_void_type)
+    (identifier)
+    (number_literal))
+  (global_var
+    (non_void_type)
+    (identifier)
+    (number_literal))
+  (global_var
+    (non_void_type)
+    (identifier)
+    (number_literal))
+  (global_var
+    (non_void_type)
+    (identifier)
+    (number_literal))
+  (global_var
+    (non_void_type)
+    (identifier)
+    (number_literal))
+  (global_var
+    (non_void_type)
+    (identifier)
+    (number_literal))
+  (global_var
+    (non_void_type)
+    (identifier)
+    (number_literal))
+  (global_var
+    (non_void_type)
+    (identifier)
+    (number_literal))
+  (global_var
+    (non_void_type)
+    (identifier)
+    (number_literal))
+  (global_var
+    (non_void_type)
+    (identifier)
+    (number_literal))
+  (global_var
+    (non_void_type)
+    (identifier)
+    (number_literal))
+  (global_var
+    (non_void_type)
+    (identifier)
+    (number_literal))
+  (global_var
+    (non_void_type)
+    (identifier)
+    (number_literal))
+  (global_var
+    (non_void_type)
+    (identifier)
+    (number_literal))
+  (global_var
+    (non_void_type)
+    (identifier)
+    (number_literal))
+  (global_var
+    (non_void_type)
+    (identifier)
+    (number_literal)))

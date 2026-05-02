@@ -1,0 +1,19 @@
+================================================================================
+Modified Typed Function
+================================================================================
+
+public int x() {
+  return 1;
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_definition
+    (type_modifier)
+    (non_void_type)
+    (identifier)
+    (parameter_list)
+    (block
+      (return_statement
+        (number_literal)))))

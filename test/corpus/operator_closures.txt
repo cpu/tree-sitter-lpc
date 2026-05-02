@@ -1,0 +1,125 @@
+================================================================================
+Operator Closures
+================================================================================
+
+// `#'<op>` produces a closure value for the operator. The full set is in
+// lex.c symbol_operator (lines 1148–1677). t-mantis.c stress-tests every
+// form including the long range/index suite.
+
+void f() {
+  // Arithmetic / bitwise / logical
+  closure a = #'+;
+  closure b = #'-;
+  closure c = #'*;
+  closure d = #'/;
+  closure e = #'%;
+  closure f = #'==;
+  closure g = #'!=;
+  closure h = #'<<;
+  closure i = #'>>>;
+  closure j = #'&&;
+  closure k = #'||;
+
+  // Compound assigns
+  closure l = #'+=;
+  closure m = #'>>>=;
+  closure n = #'&&=;
+
+  // Increment / decrement / unary
+  closure o = #'++;
+  closure p = #'--;
+  closure q = #'!;
+  closure r = #'~;
+
+  // Conditional / sequencing / call-other
+  closure s = #'?;
+  closure t = #'?!;
+  closure u = #'.;
+  closure v = #',;
+  closure w = #'->;
+
+  // Aggregate openers as values
+  closure x = #'({;
+  closure y = #'([;
+  closure z = #'(<;
+
+  // Bracket / index / range forms
+  closure aa = #'[;
+  closure ab = #'[<;
+  closure ac = #'[>;
+  closure ad = #'[..];
+  closure ae = #'[<..<];
+  closure af = #'[>..];
+  closure ag = #'[<..;
+  closure ah = #'[..;
+
+  // Two-arg map index / range forms
+  closure ai = #'[,];
+  closure aj = #'[,<];
+  closure ak = #'[,>];
+  closure al = #'[,..];
+  closure am = #'[,<..>];
+  closure an = #'[,>..<];
+  closure ao = #'[,..;
+  closure ap = #'[,<..;
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (comment)
+  (comment)
+  (comment)
+  (function_definition
+    (identifier)
+    (parameter_list)
+    (block
+      (comment)
+      (local_var_decl (non_void_type) (identifier) (closure))
+      (local_var_decl (non_void_type) (identifier) (closure))
+      (local_var_decl (non_void_type) (identifier) (closure))
+      (local_var_decl (non_void_type) (identifier) (closure))
+      (local_var_decl (non_void_type) (identifier) (closure))
+      (local_var_decl (non_void_type) (identifier) (closure))
+      (local_var_decl (non_void_type) (identifier) (closure))
+      (local_var_decl (non_void_type) (identifier) (closure))
+      (local_var_decl (non_void_type) (identifier) (closure))
+      (local_var_decl (non_void_type) (identifier) (closure))
+      (local_var_decl (non_void_type) (identifier) (closure))
+      (comment)
+      (local_var_decl (non_void_type) (identifier) (closure))
+      (local_var_decl (non_void_type) (identifier) (closure))
+      (local_var_decl (non_void_type) (identifier) (closure))
+      (comment)
+      (local_var_decl (non_void_type) (identifier) (closure))
+      (local_var_decl (non_void_type) (identifier) (closure))
+      (local_var_decl (non_void_type) (identifier) (closure))
+      (local_var_decl (non_void_type) (identifier) (closure))
+      (comment)
+      (local_var_decl (non_void_type) (identifier) (closure))
+      (local_var_decl (non_void_type) (identifier) (closure))
+      (local_var_decl (non_void_type) (identifier) (closure))
+      (local_var_decl (non_void_type) (identifier) (closure))
+      (local_var_decl (non_void_type) (identifier) (closure))
+      (comment)
+      (local_var_decl (non_void_type) (identifier) (closure))
+      (local_var_decl (non_void_type) (identifier) (closure))
+      (local_var_decl (non_void_type) (identifier) (closure))
+      (comment)
+      (local_var_decl (non_void_type) (identifier) (closure))
+      (local_var_decl (non_void_type) (identifier) (closure))
+      (local_var_decl (non_void_type) (identifier) (closure))
+      (local_var_decl (non_void_type) (identifier) (closure))
+      (local_var_decl (non_void_type) (identifier) (closure))
+      (local_var_decl (non_void_type) (identifier) (closure))
+      (local_var_decl (non_void_type) (identifier) (closure))
+      (local_var_decl (non_void_type) (identifier) (closure))
+      (comment)
+      (local_var_decl (non_void_type) (identifier) (closure))
+      (local_var_decl (non_void_type) (identifier) (closure))
+      (local_var_decl (non_void_type) (identifier) (closure))
+      (local_var_decl (non_void_type) (identifier) (closure))
+      (local_var_decl (non_void_type) (identifier) (closure))
+      (local_var_decl (non_void_type) (identifier) (closure))
+      (local_var_decl (non_void_type) (identifier) (closure))
+      (local_var_decl (non_void_type) (identifier) (closure)))))

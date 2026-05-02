@@ -1,0 +1,22 @@
+================================================================================
+Inherit Structs
+================================================================================
+
+// prolang.y inheritance_qualifier (~line 10814) recognizes `structs` as a
+// qualifier alongside `variables` and `functions`.
+
+structs inherit "whatevs";
+private structs inherit "tl-inheritedstruct";
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (comment)
+  (comment)
+  (inheritance
+    (inheritance_scope)
+    (string_literal))
+  (inheritance
+    (type_modifier)
+    (inheritance_scope)
+    (string_literal)))

@@ -1,0 +1,31 @@
+================================================================================
+Var Index Range Test
+================================================================================
+
+int *x = ({ 10, 20, 30 });
+
+int *x2 = x[<2..];
+int *x3 = x[1..];
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (global_var
+    (non_void_type)
+    (identifier)
+    (array_literal
+      (number_literal)
+      (number_literal)
+      (number_literal)))
+  (global_var
+    (non_void_type)
+    (identifier)
+    (range_expression
+      (identifier)
+      (number_literal)))
+  (global_var
+    (non_void_type)
+    (identifier)
+    (range_expression
+      (identifier)
+      (number_literal))))

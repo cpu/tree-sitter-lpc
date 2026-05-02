@@ -1,0 +1,187 @@
+================================================================================
+Ifdef inside array literal (middle slot)
+================================================================================
+
+mixed *xs = ({
+    1,
+#ifdef FLAG
+    2,
+#endif
+    3,
+});
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (global_var
+    type: (non_void_type)
+    name: (identifier)
+    value: (array_literal
+      (number_literal)
+      (preproc_ifdef_in_aggregate
+        name: (identifier)
+        (number_literal))
+      (number_literal))))
+
+================================================================================
+If/else with closure expressions as final slot
+================================================================================
+
+mixed *xs = ({ "a", 0,
+#if FOO
+    (: return 1; :)
+#else
+    (: return 2; :)
+#endif
+});
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (global_var
+    type: (non_void_type)
+    name: (identifier)
+    value: (array_literal
+      (string_literal)
+      (number_literal)
+      (preproc_if_in_aggregate
+        condition: (identifier)
+        (inline_closure
+          (return_statement
+            (number_literal)))
+        alternative: (preproc_else
+          (inline_closure
+            (return_statement
+              (number_literal))))))))
+
+================================================================================
+Leaf #define between elements of an array literal
+================================================================================
+
+mixed *xs = ({
+    1,
+#define MAX 200000
+    2,
+});
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (global_var
+    type: (non_void_type)
+    name: (identifier)
+    value: (array_literal
+      (number_literal)
+      (preproc_def
+        name: (identifier)
+        value: (preproc_arg))
+      (number_literal))))
+
+================================================================================
+Ifdef inside a call argument list
+================================================================================
+
+void f() {
+    foo(1,
+#ifdef FLAG
+        2,
+#endif
+        3);
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_definition
+    name: (identifier)
+    parameters: (parameter_list)
+    body: (block
+      (expression_statement
+        (function_call
+          function: (identifier)
+          arguments: (argument_list
+            (number_literal)
+            (preproc_ifdef_in_aggregate
+              name: (identifier)
+              (number_literal))
+            (number_literal)))))))
+
+================================================================================
+Ifdef around a comma-terminated element in a quoted aggregate
+================================================================================
+
+closure cl = '({
+    #'foo,
+#ifdef FEATURE
+    #'bar,
+#endif
+    #'baz
+});
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (global_var
+    type: (non_void_type)
+    name: (identifier)
+    value: (quoted_aggregate
+      (closure)
+      (preproc_ifdef_in_aggregate
+        name: (identifier)
+        (closure))
+      (closure))))
+
+================================================================================
+Ifdef wraps whole mapping entries (`key: value`)
+================================================================================
+
+// dunemud corpus: obj/soul2.c:756, obj/cmds/player/calc.c:434, etc.
+// Mapping bodies frequently `#if` whole `key: value` entries. Confirms
+// the dedicated `preproc_*_in_mapping` family that wraps mapping_entry
+// rather than bare expressions (avoids `_expression` / `mapping_entry`
+// ambiguity on a leading identifier).
+mapping verbs = ([
+    "doff": ({1, 2}),
+#if defined(SIMP_FUNC)
+    "tetris": ({SIMP_FUNC, 0, #'emote_tetris,}),
+    "rbot":   ({SIMP_FUNC, 0, #'emote_rbot}),
+#endif
+    "snore": ({3}),
+]);
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (comment)
+  (comment)
+  (comment)
+  (comment)
+  (comment)
+  (global_var
+    type: (non_void_type)
+    name: (identifier)
+    value: (mapping_literal
+      (mapping_entry
+        key: (string_literal)
+        value: (array_literal
+          (number_literal)
+          (number_literal)))
+      (preproc_if_in_mapping
+        condition: (preproc_defined
+          (identifier))
+        (mapping_entry
+          key: (string_literal)
+          value: (array_literal
+            (identifier)
+            (number_literal)
+            (closure)))
+        (mapping_entry
+          key: (string_literal)
+          value: (array_literal
+            (identifier)
+            (number_literal)
+            (closure))))
+      (mapping_entry
+        key: (string_literal)
+        value: (array_literal
+          (number_literal))))))

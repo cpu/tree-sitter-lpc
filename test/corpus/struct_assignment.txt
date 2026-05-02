@@ -1,0 +1,56 @@
+================================================================================
+Struct Field Assignment
+================================================================================
+
+struct X {
+  int id;
+  string name;
+};
+
+x() {
+  struct X myX = (<X> 10, "hello");
+
+  myX.id = 99;
+  myX."id" = 99;
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (struct_definition
+    (identifier)
+    (struct_member_list
+      (struct_member
+        (non_void_type)
+        (identifier))
+      (struct_member
+        (non_void_type)
+        (identifier))))
+  (function_definition
+    (identifier)
+    (parameter_list)
+    (block
+      (local_var_decl
+        (non_void_type
+          (struct_name
+            (identifier)))
+        (identifier)
+        (struct_literal
+          (struct_name
+            (identifier))
+          (number_literal)
+          (string_literal)))
+      (expression_statement
+        (assignment_expression
+          (member_access
+            (identifier)
+            (identifier))
+          (assignment_operator)
+          (number_literal)))
+      (expression_statement
+        (assignment_expression
+          (member_access
+            (identifier)
+            (string_literal))
+          (assignment_operator)
+          (number_literal))))))

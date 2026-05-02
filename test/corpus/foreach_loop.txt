@@ -1,0 +1,29 @@
+================================================================================
+Foreach Loop
+================================================================================
+
+x() {
+  int *ints;
+  foreach(int i : ints)
+    printf("ok!");
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_definition
+    (identifier)
+    (parameter_list)
+    (block
+      (local_var_decl
+        (non_void_type)
+        (identifier))
+      (foreach_statement
+        (non_void_type)
+        (identifier)
+        (identifier)
+        (expression_statement
+          (function_call
+            (identifier)
+            (argument_list
+              (string_literal))))))))

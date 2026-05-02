@@ -1,0 +1,25 @@
+================================================================================
+Variadic Function
+================================================================================
+
+varargs mixed x(int a, varargs int *b) {
+  return 1;
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_definition
+    (type_modifier)
+    (non_void_type)
+    (identifier)
+    (parameter_list
+      (parameter
+        (non_void_type)
+        (identifier))
+      (parameter
+        (non_void_type)
+        (identifier)))
+    (block
+      (return_statement
+        (number_literal)))))

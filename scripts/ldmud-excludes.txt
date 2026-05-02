@@ -1,0 +1,74 @@
+# Files in LDMud's test corpus that this grammar deliberately does not
+# parse. Each entry is matched as a substring of the absolute file path.
+# See limitations.md for the full rationale on each category.
+#
+# Whenever you add an exclusion, add a one-line note explaining why.
+
+# --- Non-UTF-8 source encoding ---------------------------------------
+# LDMud reads the `coding:` modeline; tree-sitter parsers consume UTF-8.
+t-0000432/iso8859-7.c
+
+# --- Intentionally invalid LPC (LDMud diagnostic-test fixtures) ------
+# These exist to verify the driver's *error* paths. They are not valid
+# programs and should not parse cleanly.
+t-0000432/utf-8-in-error.c
+t-language/tf-0000859.c
+t-language/tf-0000866.c
+t-language/tf-cppmissinginclude1.c
+t-language/tf-cppmissinginclude2.c
+t-language/tf-cpptrailinginclude1.c
+t-language/tf-cpptrailinginclude2.c
+t-language/tf-cpptrailingundef.c
+t-language/tf-private-struct-ref1.c
+t-language/tf-private-struct-ref2.c
+t-language/ti-private-struct2.c
+t-language/tl-0000833.c
+
+# --- Macro-driven inheritance (needs preprocessor expansion) ----------
+# `#define TEST_VIRTUAL virtual` etc.; the macro expands away before
+# bison sees `inherit`. We don't expand macros.
+t-0000152/c.c
+t-0000152/d.c
+t-0000152/e.c
+t-0000152/f.c
+t-0000233/d.c
+t-0000233/d01.c
+t-0000233/d02.c
+t-0000233/d03.c
+t-0000233/d04.c
+t-0000233/d11.c
+t-0000233/d12.c
+t-0000233/d13.c
+
+# --- Preprocessor branches that straddle an unfinished construct -----
+# `#if` between `if {...}` and `else {...}`, an inline closure body
+# split across the directive (the `:)` closer is in only one branch),
+# or `tests = ({...}) #ifdef X + (...) #endif` where the operator and
+# closing paren are on different sides of the directive. These need
+# real preprocessor expansion to resolve; we'd have to model
+# `_statement` and `_expression` themselves as preproc-splittable,
+# which isn't tractable in pure grammar. See limitations.md.
+crasher/crasher.c
+t-language/tl-operators.c
+t-efuns.c
+
+# --- Macro expanding to operator tokens (needs preprocessor) ---------
+# `MAKE_OP_TEST(=, 1, 10, 10)` — bare `=` isn't an expression.
+t-operators.c
+t-lvalues.c
+
+# --- Token-pasting macro arguments (needs preprocessor) --------------
+# `CHECK_PREFIX(inh::geteuid, "inh")` — `inh::geteuid` is the literal
+# source-text payload of a `funcall(#'fun)`-style stringifying macro.
+# It isn't a syntactic LPC expression so we correctly reject it; would
+# need macro expansion to handle.
+t-0000669/unpriv.c
+
+# --- Duff's-device-style switch (out of scope) -----------------------
+# `case` labels nested inside arbitrary blocks (do/while etc).
+t-language/tf-switch2.c
+
+# --- Non-preprocessor grammar gaps (tracked in TODO.md) --------------
+# `[lpctype]` as a type-literal — the `lpctype` keyword in the
+# `[type]` form. Not preproc-related; needs its own grammar work.
+t-python/master.c

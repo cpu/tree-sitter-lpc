@@ -1,0 +1,58 @@
+================================================================================
+Untyped Function and Parameters
+================================================================================
+
+// prolang.y `new_arg_name` accepts non_void_type L_IDENTIFIER, where the
+// basic_type is optional. Likewise function_def's return type is optional.
+// Both default to mixed.
+
+untyped_fun(arg)
+{
+  return arg;
+}
+
+mixed get(struct XXX a) {
+  return 0;
+}
+
+just_compile(arg, varargs more)
+{
+  return more;
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (comment)
+  (comment)
+  (comment)
+  (function_definition
+    (identifier)
+    (parameter_list
+      (parameter
+        (identifier)))
+    (block
+      (return_statement
+        (identifier))))
+  (function_definition
+    (non_void_type)
+    (identifier)
+    (parameter_list
+      (parameter
+        (non_void_type
+          (struct_name
+            (identifier)))
+        (identifier)))
+    (block
+      (return_statement
+        (number_literal))))
+  (function_definition
+    (identifier)
+    (parameter_list
+      (parameter
+        (identifier))
+      (parameter
+        (identifier)))
+    (block
+      (return_statement
+        (identifier)))))

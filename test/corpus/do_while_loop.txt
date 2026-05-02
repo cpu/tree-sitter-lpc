@@ -1,0 +1,34 @@
+================================================================================
+Do While Loop
+================================================================================
+
+x() {
+  do {
+    printf("ok!");
+    printf("ok!");
+  } while (foo(), 1);
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_definition
+    (identifier)
+    (parameter_list)
+    (block
+      (do_statement
+        (block
+          (expression_statement
+            (function_call
+              (identifier)
+              (argument_list
+                (string_literal))))
+          (expression_statement
+            (function_call
+              (identifier)
+              (argument_list
+                (string_literal)))))
+        (function_call
+          (identifier)
+          (argument_list))
+        (number_literal)))))

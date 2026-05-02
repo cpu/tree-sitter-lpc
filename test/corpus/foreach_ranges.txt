@@ -1,0 +1,61 @@
+================================================================================
+Foreach Range Loops
+================================================================================
+
+x() {
+  foreach(int i : 3)
+    printf("ok!");
+
+  foreach(int i : 10 .. 20 * 30)
+    printf("%d", i);
+
+  foreach(int i :  start() .. end())
+    printf("%d", i);
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_definition
+    (identifier)
+    (parameter_list)
+    (block
+      (foreach_statement
+        (non_void_type)
+        (identifier)
+        (number_literal)
+        (expression_statement
+          (function_call
+            (identifier)
+            (argument_list
+              (string_literal)))))
+      (foreach_statement
+        (non_void_type)
+        (identifier)
+        (foreach_range
+          (number_literal)
+          (binary_expression
+            (number_literal)
+            (number_literal)))
+        (expression_statement
+          (function_call
+            (identifier)
+            (argument_list
+              (string_literal)
+              (identifier)))))
+      (foreach_statement
+        (non_void_type)
+        (identifier)
+        (foreach_range
+          (function_call
+            (identifier)
+            (argument_list))
+          (function_call
+            (identifier)
+            (argument_list)))
+        (expression_statement
+          (function_call
+            (identifier)
+            (argument_list
+              (string_literal)
+              (identifier))))))))

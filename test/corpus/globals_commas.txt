@@ -1,0 +1,20 @@
+================================================================================
+Globals Commas
+================================================================================
+
+int x, y, z;
+string a, b, c;
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (global_var
+    (non_void_type)
+    (identifier)
+    (identifier)
+    (identifier))
+  (global_var
+    (non_void_type)
+    (identifier)
+    (identifier)
+    (identifier)))

@@ -1,0 +1,126 @@
+================================================================================
+Inline Function: optional argument list
+================================================================================
+
+// prolang.y inline_opt_args (line 10337) makes the `(...)` parameter
+// list optional — without it the inline closure synthesizes $1..$9 as
+// implicit arguments (mixed). t-mantis.c and t-0000841/closure_crash.c
+// stress the variants below.
+
+closure a = function void { return $1; };
+closure b = function : int x { return x; };
+closure c = function void : int x {};
+closure d = function : int i = 1; mixed j = 2 { return i + j; };
+closure e = function int : int x = 5 { return x; };
+
+void f() {
+  return funcall(funcall(
+    function :
+      mixed i = 1;
+      mixed j = function :
+                  mixed j = function { return i; }
+                { return j; };
+      { return j; }
+  ));
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (comment)
+  (comment)
+  (comment)
+  (comment)
+  (global_var
+    (non_void_type)
+    (identifier)
+    (inline_func
+      (block
+        (return_statement
+          (identifier)))))
+  (global_var
+    (non_void_type)
+    (identifier)
+    (inline_func
+      (inline_context
+        (local_var_decl_no_semi
+          (non_void_type)
+          (identifier)))
+      (block
+        (return_statement
+          (identifier)))))
+  (global_var
+    (non_void_type)
+    (identifier)
+    (inline_func
+      (inline_context
+        (local_var_decl_no_semi
+          (non_void_type)
+          (identifier)))
+      (block)))
+  (global_var
+    (non_void_type)
+    (identifier)
+    (inline_func
+      (inline_context
+        (local_var_decl_no_semi
+          (non_void_type)
+          (identifier)
+          (number_literal))
+        (local_var_decl_no_semi
+          (non_void_type)
+          (identifier)
+          (number_literal)))
+      (block
+        (return_statement
+          (binary_expression
+            (identifier)
+            (identifier))))))
+  (global_var
+    (non_void_type)
+    (identifier)
+    (inline_func
+      (non_void_type)
+      (inline_context
+        (local_var_decl_no_semi
+          (non_void_type)
+          (identifier)
+          (number_literal)))
+      (block
+        (return_statement
+          (identifier)))))
+  (function_definition
+    (identifier)
+    (parameter_list)
+    (block
+      (return_statement
+        (function_call
+          (identifier)
+          (argument_list
+            (function_call
+              (identifier)
+              (argument_list
+                (inline_func
+                  (inline_context
+                    (local_var_decl_no_semi
+                      (non_void_type)
+                      (identifier)
+                      (number_literal))
+                    (local_var_decl_no_semi
+                      (non_void_type)
+                      (identifier)
+                      (inline_func
+                        (inline_context
+                          (local_var_decl_no_semi
+                            (non_void_type)
+                            (identifier)
+                            (inline_func
+                              (block
+                                (return_statement
+                                  (identifier))))))
+                        (block
+                          (return_statement
+                            (identifier))))))
+                  (block
+                    (return_statement
+                      (identifier))))))))))))

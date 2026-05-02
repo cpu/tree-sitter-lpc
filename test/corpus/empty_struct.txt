@@ -1,0 +1,27 @@
+================================================================================
+Empty Struct
+================================================================================
+
+struct X;
+
+x() {
+  struct X my_x = (<X>);
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (struct_definition
+    (identifier))
+  (function_definition
+    (identifier)
+    (parameter_list)
+    (block
+      (local_var_decl
+        (non_void_type
+          (struct_name
+            (identifier)))
+        (identifier)
+        (struct_literal
+          (struct_name
+            (identifier)))))))

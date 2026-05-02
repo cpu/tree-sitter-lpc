@@ -1,0 +1,22 @@
+================================================================================
+Return Comma Statement
+================================================================================
+
+mixed *x() {
+  return 1, 2, 3, "hello", "goodbye";
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_definition
+    (non_void_type)
+    (identifier)
+    (parameter_list)
+    (block
+      (return_statement
+        (number_literal)
+        (number_literal)
+        (number_literal)
+        (string_literal)
+        (string_literal)))))
